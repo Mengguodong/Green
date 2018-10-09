@@ -1,0 +1,5 @@
+C:\Users\sj\Desktop\SanNongDun\Model\bin\Debug\Model.dll
+C:\Users\sj\Desktop\SanNongDun\Model\bin\Debug\Model.pdb
+C:\Users\sj\Desktop\SanNongDun\Model\bin\Debug\DapperExAttribute.dll
+C:\Users\sj\Desktop\SanNongDun\Model\obj\Debug\Model.dll
+C:\Users\sj\Desktop\SanNongDun\Model\obj\Debug\Model.pdb

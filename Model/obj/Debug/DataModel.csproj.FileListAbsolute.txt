@@ -1,0 +1,11 @@
+C:\Users\sj\Desktop\SanNongDun\Model\bin\Debug\DataModel.dll
+C:\Users\sj\Desktop\SanNongDun\Model\bin\Debug\DataModel.pdb
+C:\Users\sj\Desktop\SanNongDun\Model\bin\Debug\DapperExAttribute.dll
+C:\Users\sj\Desktop\SanNongDun\Model\obj\Debug\DataModel.dll
+C:\Users\sj\Desktop\SanNongDun\Model\obj\Debug\DataModel.pdb
+D:\SanNongDun\SanNongDun\Model\bin\Debug\DataModel.dll
+D:\SanNongDun\SanNongDun\Model\bin\Debug\DataModel.pdb
+D:\SanNongDun\SanNongDun\Model\bin\Debug\DapperExAttribute.dll
+D:\SanNongDun\SanNongDun\Model\obj\Debug\DataModel.dll
+D:\SanNongDun\SanNongDun\Model\obj\Debug\DataModel.pdb
+D:\SanNongDun\SanNongDun\Model\obj\Debug\DataModel.csprojResolveAssemblyReference.cache

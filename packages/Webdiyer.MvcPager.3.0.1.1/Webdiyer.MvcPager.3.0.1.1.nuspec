@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Webdiyer.MvcPager</id>
+    <version>3.0.1.1</version>
+    <title>MvcPager for ASP.NET 4.0+</title>
+    <authors>Webdiyer</authors>
+    <owners>Webdiyer</owners>
+    <licenseUrl>http://en.webdiyer.com/mvcpager/license/</licenseUrl>
+    <projectUrl>http://en.webdiyer.com/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>MvcPager is a free and open source paging component for ASP.NET MVC, it expose a series of extension methods for using in ASP.NET MVC applications, the implementation was inspired by Scott Guthrie's PagedList&lt;T&gt; idea, it was first published in 2009 and had been steadily improved and updated since then. The latest version 3.0 is one the most powerful ASP.NET MVC paging controls.
+
+Project home page: 
+English: http://en.webdiyer.com/mvcpager/
+Chinese: http://www.webdiyer.com/mvcpager/
+
+Online demos: 
+English: http://en.webdiyer.com/mvcpager/demos/
+Chinese: http://www.webdiyer.com/mvcpager/demos/
+
+Documentation: 
+English: http://en.webdiyer.com/mvcpager/docs/
+Chinese: http://www.webdiyer.com/mvcpager/docs/</description>
+    <summary>MvcPager is a free and open source paging component for ASP.NET MVC.</summary>
+    <releaseNotes>Sign the assembly with strong name</releaseNotes>
+    <copyright>© Webdiyer. All rights reserved.</copyright>
+    <language>es-US</language>
+    <tags>MvcPager paging pagination mvcpaging pager MVC分页 分页控件</tags>
+  </metadata>
+</package>
