@@ -329,7 +329,7 @@ namespace Bll
                 bool resultAccount = _accountDal.AddCustomerAccount(customerAccount);
                 result = resultAccount;
 
-                if (resultAccount)//注册成功更新推荐人信息
+                if (resultAccount)//注册成功推送信息到商城
                 {
                     //parentInfo.DownCount += 1;
                     //if (parentInfo.DownCount >= 3)
@@ -337,11 +337,44 @@ namespace Bll
                     //    parentInfo.IsTeam = 1;
                     //}
                     //bool resultParent = UpdateUserInfo(parentInfo);
+                    string url = string.Format(PubConstant.ShopApi+"api/home/register") ;
+                    bool resultShop = ShopRegister(model.UserName,model.Pwd,url);
+                    if (!resultShop)
+                    {
+                        LogHelper.WriteInfo(typeof(UserBll),string.Format("商城用户注册失败，UserName:{0}",model.UserName));
+                    }
 
                 }
 
             }
             return result;
+        }
+        /// <summary>
+        /// 调用商城注册接口
+        /// </summary>
+        /// <param name="mobile"></param>
+        /// <param name="pwd"></param>
+        /// <param name="url"></param>
+        /// <returns></returns>
+        public bool ShopRegister(string mobile,string pwd ,string url)
+        {
+            bool result = false;
+
+            url = string.Format( url + "?mobile={0}&pwd={1}",mobile,pwd);
+
+            try
+            {
+
+                result = HttpClientHelper.GetResponse(url) == "true" ? true : false;
+            }
+            catch (Exception ex)
+            {
+
+                LogHelper.WriteError(typeof(UserBll),ex);
+            }
+
+            return result;
+                
         }
 
 

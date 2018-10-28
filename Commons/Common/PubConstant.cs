@@ -152,6 +152,16 @@
             }
         }
         #endregion
+        /// <summary>
+        /// 商城API
+        /// </summary>
+        public static string ShopApi
+        {
+            get {
+                return Auxiliary.ConfigKey("shopapi.baseurl");
+            }
+        }
+
 
         /// <summary>
         /// 酒游戏WebApi地址

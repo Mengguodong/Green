@@ -3,3 +3,5 @@ C:\Users\Administrator\Desktop\sndsacc\EveryDayEpService\obj\Debug\EveryDayEpSer
 C:\Users\Administrator\Desktop\liujie\EveryDayEpService\obj\Debug\EveryDayEpService.csprojAssemblyReference.cache
 C:\Users\Administrator\Desktop\liujie\EveryDayEpService\obj\Debug\EveryDayEpService.csproj.CoreCompileInputs.cache
 C:\Users\sj\Desktop\Desktop\liujie\liujie\EveryDayEpService\obj\Debug\EveryDayEpService.csprojResolveAssemblyReference.cache
+E:\MyProgram\GreenOxygen\EveryDayEpService\obj\Debug\EveryDayEpService.csprojAssemblyReference.cache
+E:\MyProgram\GreenOxygen\EveryDayEpService\obj\Debug\EveryDayEpService.csproj.CoreCompileInputs.cache

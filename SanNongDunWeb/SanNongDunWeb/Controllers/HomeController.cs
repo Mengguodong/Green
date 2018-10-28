@@ -50,6 +50,7 @@ namespace SanNongDunWeb.Controllers
             ViewBag.ShowFooter = false;
             ViewBag.ShowHeader = false;
             ViewBag.LevelName = levelName;
+            ViewBag.UserName = _ServiceContext.SND_CurrentUser.UserName;
             //查询用户的总产值,需要确认
             ////ViewBag.Total = _congigBll.GetValueByConfigName("ZfcPrice");
             ViewBag.Total = 1;

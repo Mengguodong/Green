@@ -3,3 +3,5 @@ C:\Users\Administrator\Desktop\sndsacc\OrderStatusService\obj\Debug\OrderStatusS
 C:\Users\Administrator\Desktop\liujie\OrderStatusService\obj\Debug\OrderStatusService.csprojAssemblyReference.cache
 C:\Users\Administrator\Desktop\liujie\OrderStatusService\obj\Debug\OrderStatusService.csproj.CoreCompileInputs.cache
 C:\Users\sj\Desktop\Desktop\liujie\liujie\OrderStatusService\obj\Debug\OrderStatusService.csprojResolveAssemblyReference.cache
+E:\MyProgram\GreenOxygen\OrderStatusService\obj\Debug\OrderStatusService.csprojAssemblyReference.cache
+E:\MyProgram\GreenOxygen\OrderStatusService\obj\Debug\OrderStatusService.csproj.CoreCompileInputs.cache
