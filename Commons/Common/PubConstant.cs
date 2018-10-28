@@ -80,7 +80,14 @@
         {
             get { return Auxiliary.ConfigKey("show.baseurl"); }
         }
-
+        //image.baseurl
+        /// <summary>
+        /// 图片服务器地址
+        /// </summary>
+        public static string ImageBaseUrl
+        {
+            get { return Auxiliary.ConfigKey("image.baseurl"); }
+        }
         /// <summary>
         /// 三农盾后台地址
         /// </summary>
@@ -152,6 +159,10 @@
         public static string WineGameWebApi
         {
             get { return Auxiliary.ConfigKey("webapi.WineGame"); }
+        }
+        public static string ShopPath 
+        {
+            get { return Auxiliary.ConfigKey("ShopPath"); }
         }
 
         /// <summary>

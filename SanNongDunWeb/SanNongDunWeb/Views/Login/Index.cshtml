@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.HeaderTitle = "登录";
+    Layout = "~/Views/Shared/_LayoutLoginOrReg.cshtml";
+}
+
+<header class="wine_loginHeader">
+    <div class="wine_range" >
+        <img src=@Common.Auxiliary.GetStaticUrl("Show/images/2.png") />
+    </div>
+</header>
+<section>
+    <article class="wine_loginForm">
+        <form action="" method="post">
+            <label>
+                <input type="text" name="UserName" class="wine_loginTxt" placeholder="请输入账号" style="padding-left: 13%;border-radius:0px;">
+                <img src=@Common.Auxiliary.GetStaticUrl("Show/images/login1.png") />
+            </label>
+            <label>
+                <input type="password" name="Pwd" class="wine_loginPass" placeholder="密码" style="padding-left: 13%;border-radius:0px;">
+                <img  src=@Common.Auxiliary.GetStaticUrl("Show/images/login2.png") />
+            </label>
+            <input type="button" id="btn_Login" style="width:35%" class="wine_loginSub" value="登录">
+            @*<input type="button" id="btn_Register" onclick="Register()" style="width:35%" class="wine_loginSub" value="注册">*@
+            <input type="button" id="btn_Register" onclick="Register()" style="width:35%" class="wine_loginSub" value="注册">
+         
+        </form>
+    </article>
+</section>
+<script type="text/javascript">
+    $(function () {
+        $("#btn_Login").click(function () {
+            var userName = $("[name=UserName]").val();
+            var pwd = $('[name=Pwd]').val();
+            $.post(gpath.show_path + "login/loginsumbit", { UserName: userName, Pwd: pwd }, function (data) {
+                
+                if (data.result == true) {
+                    location.href = gpath.show_path + "home/index";
+
+                } else {
+                    layer.open({
+                        content: data.Msg,
+                        btn: '我知道了',
+                        shadeClose: false
+                    });
+                }
+            });
+        });
+    });
+
+    function Register()
+    {
+        window.location.href = gpath.show_path + "Login/Register1";
+    }
+
+</script>

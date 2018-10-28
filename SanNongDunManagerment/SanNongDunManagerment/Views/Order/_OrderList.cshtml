@@ -1,0 +1,128 @@
+﻿@using Webdiyer.WebControls.Mvc
+@model PagedList<DataModel.ViewModel.OrderAdminModel>
+<table class="table table-striped table-bordered table-hover dataTables-example">
+    <thead>
+        <tr>
+            <th>交易编号</th>
+            <th>买家电话</th>
+            <th>买家钱包地址</th>
+            <th>卖家电话</th>
+            <th>卖家钱包地址</th>
+            <th>交易类型</th>
+            <th>交易数量</th>
+            <th>购买方式</th>
+            <th>交易总值</th>
+            <th>交易时间</th>
+            <th>交易状态</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Count > 0)
+        {
+            foreach (var item in Model)
+            {
+                <tr class="gradeX">
+                    <td>@item.OrderId</td>
+                    
+                    <td>
+                       @item.BuyPhone
+                    </td>
+
+                    <td>
+                        @item.BuyAccountName
+                    </td>
+
+                    <td>@item.SellPhone</td>
+
+                    <td>@item.SellAccountName</td>
+                    @if (item.OrderType==1)
+                    {
+                          <td class="center">EP</td>
+                    }
+                    else
+                    {
+                          <td class="center">Zfc</td>
+                    }
+                   
+                    <td class="center">@item.Qty.ToString()</td>
+
+                    @if (item.IsMoney==1)
+                    {
+                          <td class="center">现金</td>
+                    }
+                    else
+                    {
+                          <td class="center">ZFC</td>
+                    }
+                    <td class="center">@item.BuyMoney.ToString()</td>
+
+                    <td class="center">@item.CreateTime.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                    <td class="center">
+                        @if (item.Sataus == 1)
+                        {
+                            <span>在售</span>
+                        }
+                        else if (item.Sataus == 2)
+                        {
+                            <span>待付款</span>
+                        }
+                        else if (item.Sataus == 3)
+                        {
+                            <span>待确认</span>
+                        }
+                        else if (item.Sataus == 4)
+                        {
+                             <span>交易成功</span>
+                        }
+                        else if (item.Sataus == 5)
+                        {
+                             <span>已取消</span>
+                            
+                        }else
+                        {
+                             <span>已冻结</span>
+                        }
+                            
+                    </td>
+                    @if (item.Sataus==6)
+                    {
+                        <td> <a href="JavaScript:void(0);" name="a_success" orderId="@item.OrderId" sellUserId="@item.SellUserId" buyUserId="@item.BuyUserId" orderType="@item.OrderType">成功</a>&nbsp;<a href="JavaScript:void(0);" name="a_fail" orderid="@item.OrderId" >失败</a></td>
+                    } 
+
+                </tr>
+            }
+
+        }
+        else
+        {
+            <tr>
+                <td colspan="9" align="center">暂无数据</td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+<div class="pagin" style="position: relative;right: 25%;">
+    @if (Model != null && Model.Count > 0)
+    {
+        <div class="pageBlock">
+
+            @Ajax.Pager(Model, new PagerOptions
+                   {
+                       CssClass = "pageWrap",
+                       PrevPageText = "上一页",
+                       NextPageText = "下一页",
+                       ShowFirstLast = false,
+                       PagerItemTemplate = "<div class='pageWrap'>{0}</div>",
+                       PageIndexParameterName = "pageIndex",
+                       NumericPagerItemCount = 6,
+                       ShowPrevNext = true,
+                       //   CurrentPageNumberFormatString = "<span class='now numBtn'>{0}</span>",
+                       CurrentPagerItemTemplate = " <div class='pageWrap'><span class='now numBtn'>{0}</span></div>"
+                   }, new MvcAjaxOptions { UpdateTargetId = "updatetargetId", HttpMethod = "Post", DataFormId = "searchForm", OnComplete = "javascript:scrollTo(0,0);" })
+
+        </div>
+    }
+
+</div>

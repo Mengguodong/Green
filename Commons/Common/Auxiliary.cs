@@ -1171,6 +1171,55 @@ namespace Common
             return (sb.ToString());
         }
         #endregion
+
+        #region  验证手机号
+        /// <summary>
+        /// 验证手机号
+        /// </summary>
+        /// <param name="mobile"></param>
+        /// <param name="isChina"></param>
+        /// <returns></returns>
+        public static bool IsMobilePhoneNum(this string mobile, bool? isChina = null)
+        {
+            if (mobile == null)
+            {
+                return false;
+            }
+            if (isChina == null)
+            {
+
+                return Regex.IsMatch(mobile, @"1(3|4|5|7|8)\d{9}") || Regex.IsMatch(mobile, @"(5|6|9)\d{7}");
+            }
+            else if (isChina == true)
+            {
+                return Regex.IsMatch(mobile, @"1(3|4|5|7|8)\d{9}");
+
+            }
+            else
+            {
+                return Regex.IsMatch(mobile, @"(5|6|9)\d{7}");
+            }
+        }
+        #endregion
+
+        #region 生成指定位数的随机数
+        /// <summary>
+        /// 生成随机数，自定义位数
+        /// </summary>
+        /// <param name="length"></param>
+        /// <returns></returns>
+        public static string GenerateRandomCode(int length)
+        {
+            var result = new StringBuilder();
+            for (var i = 0; i < length; i++)
+            {
+                var r = new Random(Guid.NewGuid().GetHashCode());
+                result.Append(r.Next(0, 10));
+            }
+            return result.ToString();
+        }
+
+        #endregion
     }
 
     public static class ConvertTools<TEntity> where TEntity : class

@@ -30,5 +30,6 @@ namespace DataModel.RequestModel
        /// 当前页数据
        /// </summary>
         public List<T> Data { get; set; }
+        public int PageYe { get; set; }
     }
 }

@@ -1,0 +1,139 @@
+﻿@{
+    ViewBag.Title = "Pay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model DataModel.ViewModel.PayOrderViewModel
+@using Common;
+
+<link rel="stylesheet" type="text/css" href=@Auxiliary.GetStaticUrl("Show/plugins/jqueryUpys/css/mui.css") />
+<link rel="stylesheet" type="text/css" href=@Auxiliary.GetStaticUrl("Show/plugins/jqueryUpys/css/news.css") />
+
+<script type="text/javascript" charset="utf-8" src=@Auxiliary.GetStaticUrl("Show/plugins/jqueryUpys/js/localResizeIMG.js")></script>
+<script type="text/javascript" charset="utf-8" src=@Auxiliary.GetStaticUrl("Show/plugins/jqueryUpys/js/patch/mobileBUGFix.mini.js")></script>
+<div class="order">
+    <div class="order_detail">
+       
+        <span class="order-title">交易订单号：</span>
+        <input type="text" class="order_show" value="@Model.OrderId"/>
+    </div>
+    <div class="order_detail">
+        <span class="order-title">订单类型：</span>
+        @if (Model.OrderType==1)
+        {
+             <input type="text" class="order_show"  value="EP"/>
+        }
+        else
+        {
+             <input type="text" class="order_show"  value="ZFC"/>
+        }
+       
+    </div>
+    <div class="order_detail">
+        <span class="order-title">交易方式：</span>
+        @if (Model.IsMoney==1)
+        {
+             <input type="text" class="order_show" value="现金"/>
+        }
+        else
+        {
+             <input type="text" class="order_show" value="ZFC"/>
+        }
+       
+    </div>
+    <div class="order_detail">
+        <span class="order-title">数量：</span>
+        <input type="text" class="order_show" value="@Model.Qty" />
+    </div>
+    <div class="order_detail">
+        <span class="order-title">下单时间：</span>
+        <input type="text" class="order_show"  value="@Model.UpdateTime.ToString()"/>
+    </div>
+    <div class="order_detail">
+        <span class="order-title">订单总金额：</span>
+        <input type="text" class="order_show"  value="@Model.BuyMoney"/>
+    </div>
+    <div class="order_detail">
+        <span class="order-title">卖家真实姓名：</span>
+        <input type="text" class="order_show" value="@Model.RealName" />
+    </div>
+    <div class="order_detail">
+        <span class="order-title">银行卡所属银行：</span>
+        <input type="text" class="order_show" value="@Model.BankName" />
+    </div>
+    <div class="order_detail">
+        <span class="order-title">银行卡号：</span>
+        <input type="text" class="order_show" value="@Model.BankNumber" />
+    </div>
+    <div class="">
+        <h4>请上传交易凭证图片</h4>
+        <div class="release_up_pic">
+            <div class="up_pic">
+                <span id="chose_pic_btn" style="">
+                    <input type="file" accept="image/*" />
+                </span>
+            </div>
+        </div>
+
+    </div>
+    <div class="refer" id="btn_submit">提交</div>
+</div>
+<input type="hidden"     id="orderId" value="@Model.OrderId" />
+<script type="text/javascript">
+    function showMsg(msg) {
+        layer.open({
+            content: msg,
+            btn: '我知道了',
+            shadeClose: false,
+            yes: function () {
+                window.location.reload();
+            }
+        });
+    }
+    $(function () {
+        var picArr = new Array();// 存储图片
+
+        $('input:file').localResizeIMG({
+            width: 800,// 宽度
+            quality: 0.5, // 压缩参数 1 不压缩 越小清晰度越低
+            success: function (result) {
+                var img = new Image();
+                img.src = result.base64;
+                var _str = "<span class='pic_look' style='background-image: url(" + img.src + ")'><em id='delete_pic'>-</em></span>"
+                $('.up_pic').html(_str);
+                var _i = picArr.length
+                picArr[_i] = result.base64;
+                // picArr[_i] = _i;
+                console.log(picArr)
+            }
+        });
+        // 删除
+        $(document).on('click', '#delete_pic', function (event) {
+            var aa = $(this).parents(".pic_look").index();
+            picArr.splice(aa, 1);
+            $(this).parents(".pic_look").remove();
+            $('.up_pic').html(' <span id="chose_pic_btn" style=""><input type="file" accept="image/*" /></span>');
+            console.log(picArr);
+        });
+
+        $("#btn_submit").click(function () {
+            var orderId = $("#orderId").val();
+
+            if (picArr.length==0) {
+                showMsg("未上传交易凭证！");
+            }
+
+            $.post(gpath.show_path + "transaction/updateorderstatusbuy", { imgStr: picArr[0], orderId: orderId }, function (data) {
+
+                if (data.result==true) {
+                    location.href = gpath.show_path + "transaction/myorders"
+                } else {
+                    showMsg(data.msg);
+                }
+            })
+
+
+        });
+    })
+
+  
+</script>

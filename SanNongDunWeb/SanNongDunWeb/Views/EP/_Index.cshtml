@@ -1,0 +1,26 @@
+﻿@model DataModel.RequestModel.Page<DataModel.LogInfo>
+
+
+@if (Model.Data != null)
+{
+    foreach (var item in Model.Data)
+    {
+        {
+            <tr>
+                <td width="50%"><time>@item.CreateTime</time></td>
+
+                @if (ViewBag.Type == 3)
+                {
+                    <td width="50">ZFC(@item.Zfc)</td>
+                }
+                else
+                {
+                    <td width="50">EP(@item.Ep)</td>
+                }
+
+
+
+            </tr>
+        }
+    }
+}

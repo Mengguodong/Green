@@ -1,0 +1,158 @@
+body{
+    background:url("./../images/regist_banner.jpg");
+    background-size: 100% 100%;
+}
+.regist{
+    padding: 10px;
+    box-sizing: border-box;
+}
+.header_regist{
+    display: flex;
+    flex-wrap: nowrap;
+    height: 32px;
+    line-height: 32px;
+}
+.return{
+    color: #fff;
+    font-size: 30px;
+    font-family: "宋体";
+    font-weight: bold;
+}
+.search{
+    width: 345px;
+    height: 30px;
+    border-radius: 6px;
+    line-height: 30px;
+    padding-left: 10px;
+    font-size: 14px;
+    margin-left: 20px;
+    position: relative;
+}
+.search input{
+    width: 300px;
+    font-size: 14px;
+    background: none;
+    height: 30px;
+    padding-left: 10px;
+    box-sizing: border-box;
+    border-style: none;
+    border-radius: 6px;
+    border: 1px solid #fff;
+}
+.regist_show{
+    height: 108px;
+    width: 200px;
+    position: absolute;
+    top: -65px;
+    left: 50%;
+    margin-left: -100px;
+    background: #fff;
+}
+.show-top{
+    border-bottom: 1px dashed #F8B5BA;
+    text-align: center;
+    color:#006838;
+    padding: 9px 0 9px 0;
+    height: 36px;
+}
+.show-top p{
+    margin: 0;
+}
+.show-bottom{
+    overflow: hidden;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+.show_A{
+    float: left;
+    color:#008BE2;
+}
+.show_B{
+    float: right;
+    color:#1DC669;
+}
+.p1,.p2{
+    height: 30px;
+    margin: 0;
+}
+.p1{
+    line-height: 30px;
+    font-size: 18px;
+}
+.regist_box{
+    position: relative;
+    border: 1px dashed #CFEA45;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 100px;
+    height: 110px;
+}
+.regist_list{
+    width: 200px;
+    position: absolute;
+    left:50%;
+    bottom:-26px;
+    margin-left: -100px;
+    overflow: hidden;
+
+}
+.regist_list a:hover,.regist_last a:hover{
+    color:#FE8791;
+}
+.regist_list a,.regist_last a{
+    color:#FE8791;
+    float: left;
+    width: 80px;
+    height: 54px;
+    background: #fff;
+    text-decoration: none;
+    line-height: 54px;
+    text-align: center;
+}
+.regist_last a{
+    margin-right:12px;
+}
+.regist_last a:last-child{
+    margin-right: 0px;
+}
+.regist_list a.regist_icon_no2{
+    float: right;
+}
+.regist_center{
+    border-right: 1px dashed #CFEA45;
+    height:60px;
+    width: 140px;
+    margin: 0 auto;
+    border-left: 1px dashed #CFEA45;
+}
+.regist_bottom{
+    overflow: hidden;
+    width: 268px;
+    margin: 0 auto;
+    height: 40px;
+}
+.regist_bottom_left{
+    float: left;
+    height: 40px;
+    width: 80px;
+    border:1px dashed #CFEA45;
+    border-bottom: none;
+}
+.regist_bottom_right{
+    float: right;
+    height: 40px;
+    width: 80px;
+    border:1px dashed #CFEA45;
+    border-bottom: none;
+}
+.regist_last{
+   overflow: hidden;
+}
+.search_icon{
+    position: absolute;
+    width: 22px;
+    height: 20px;
+    right: 5px;
+    top: 50%;
+    margin-top: -10px;
+}

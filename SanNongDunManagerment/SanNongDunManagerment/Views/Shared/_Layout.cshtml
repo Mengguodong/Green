@@ -1,0 +1,263 @@
+﻿@using Common;
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+    
+    <title>@ViewBag.HeaderTitle</title>
+   
+    <link href=@Url.Content("~/HTML/Management/css/bootstrap.min.css") rel="stylesheet">
+    <link href=@Url.Content("~/HTML/Management/css/font-awesome.min.css") rel="stylesheet">
+    <link href=@Url.Content("~/HTML/Management/css/animate.min.css") rel="stylesheet">
+    <link href=@Url.Content("~/HTML/Management/css/style.min.css") rel="stylesheet">
+    <link href="@Url.Content("~/Content/Css/bootstrap-table.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/Css/MifCommon.css")" rel="stylesheet" type="text/css" />
+    <link href=@Url.Content("~/HTML/Management/css/listpage.css") rel="stylesheet">
+    <!-- 全局js -->
+    <script src="@Url.Content("~/HTML/Management/js/jquery-2.1.1.min.js")"></script>
+    <script src=@Url.Content("~/HTML/Management/js/bootstrap.min.js")></script>
+    <script src=@Url.Content("~/HTML/Management/js/config.js")></script>
+    <script src=@Url.Content("~/HTML/Management/js/plugins/metisMenu/jquery.metisMenu.js")></script>
+    <script src=@Url.Content("~/HTML/Management/js/plugins/slimscroll/jquery.slimscroll.min.js")></script>
+    <script src=@Url.Content("~/HTML/Management/js/plugins/layer/layer.min.js")></script>
+    <!--表格JS-->
+    <script src="@Url.Content("~/HTML/Management/js/bootstrap-table.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/HTML/Management/js/bootstrap-table-zh-CN.js")" type="text/javascript"></script>
+    <!-- 自定义js -->
+    <script src=@Url.Content("~/HTML/Management/js/hplus.min.js")></script>
+    <script type="text/javascript" src=@Url.Content("~/HTML/Management/js/contabs.min.js")></script>
+    <!--mifcommon控件-->
+    <script src="@Url.Content("~/HTML/Management/js/mifcommon.js")" type="text/javascript"></script>
+    <!-- 第三方插件 -->
+    <script src=@Url.Content("~/HTML/Management/js/plugins/pace/pace.min.js")></script>
+    @RenderSection("header", false)
+</head>
+@{
+    Common.Web.SND_LoginUserInfo user = (Common.Web.SND_LoginUserInfo)ViewData["_CurrentUser"];
+}
+<body class="fixed-sidebar full-height-layout gray-bg">
+    @RenderSection("bodyHeader", false)
+    @RenderSection("headhtml", required: false)
+    <div id="wrapper">
+        
+        <!--左侧导航开始-->
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="nav-close">
+                <i class="fa fa-times-circle"></i>
+            </div>
+            <div class="sidebar-collapse">
+                <ul class="nav" id="side-menu">
+                    <li class="nav-header">
+                        <div class="dropdown profile-element">
+                            <span><img alt="image" class="img-circle" src=@Auxiliary.GetStaticUrl("Management/img/profile_small.jpg") /></span>
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
+                                <span class="clear">
+                                    <span class="block m-t-xs"><strong class="font-bold">@*@(user.UserName)*@</strong></span>
+                                    <span class="text-muted text-xs block">
+                                        @*@(user.UserStatus == (int)SND_UserType.General ? "管理员" : "超级管理员")*@
+                                        <b class="caret"></b>
+                                    </span>
+                                </span>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="fa fa-home"></i>
+                            @*<span class="nav-label">用户中心</span>*@
+                            <span class="nav-label">用户管理</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                              
+                                <a href="@PubConstant.WineGameManagementUrl("userinfo","index")" data-index="0">会员列表</a>
+                            </li>
+                            @*<li>
+
+        <a href="@PubConstant.WineGameManagementUrl("user","index")" data-index="0">财务明细列表</a>
+    </li>
+    <li>
+
+        <a href="@PubConstant.WineGameManagementUrl("user","index")" data-index="0">增减余额记录</a>
+    </li>
+    <li>
+
+        <a href="@PubConstant.WineGameManagementUrl("user","index")" data-index="0">转出审核</a>
+    </li>
+    <li>
+
+        <a href="@PubConstant.WineGameManagementUrl("user","index")" data-index="0">转入记录</a>
+    </li>*@
+                            @*<li>
+
+                                <a href="@PubConstant.WineGameManagementUrl("user","index")" data-index="0">钱包管理</a>
+                            </li>*@
+                           @* <li>
+        <a href="@PubConstant.WineGameManagementUrl("user","index")" data-index="0">Zfc订单</a>
+    </li>*@
+                        </ul>
+
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="fa fa-columns">
+                            </i> @*<span class="nav-label">用户充值</span>*@
+                            <span class="nav-label">财务管理</span>
+                            <span class="fa arrow"></span>
+                        </a>
+
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="" href="@PubConstant.WineGameManagementUrl("AdminRecord", "AdminHongBaoLogIndex")?type=1" data-index="0">红包记录</a>
+                            </li>
+                            <li>
+                                <a class="" href="@PubConstant.WineGameManagementUrl("AdminRecord", "AdminStatusLogIndex")?type=2" data-index="0">直推记录</a>
+                            </li>
+                            @*<li>
+                                <a class="" href="@PubConstant.WineGameManagementUrl("LogInfoTable", "index")?logType=2" data-index="0">提现记录</a>
+                            </li>*@
+                            <li>
+                                <a class="" href="@PubConstant.WineGameManagementUrl("AdminRecord", "AdminStatusLogIndex")?type=1" data-index="0">静态释放记录</a>
+                            </li>
+                            <li>
+                                <a class="" href="@PubConstant.WineGameManagementUrl("AdminRecord", "AdminHongBaoLogIndex")?type=2" data-index="0">业绩释放记录</a>
+                            </li>
+                            <li>
+                                <a class="" href="@PubConstant.WineGameManagementUrl("LogInfoTable", "index")?logType=5" data-index="0">提现记录</a>
+                            </li>
+                            <li>
+                                <a class="" href="@PubConstant.WineGameManagementUrl("AdminRecord", "AdminScoreLogIndex")" data-index="0">积分记录</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="fa fa-home"></i>
+                            <span class="nav-label">统计</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="@Common.PubConstant.WineGameManagementUrl("statistics", "index")" data-index="0">统计表</a>
+                            </li>
+                            @*<li>
+                                <a href="@PubConstant.WineGameManagementUrl("Exchange","Index")" data-index="0">成酒兑换</a>
+                            </li>*@
+
+                        </ul>
+
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="fa fa-columns">
+                            </i> <span class="nav-label">配置中心</span>
+                            <span class="fa arrow"></span>
+                        </a>
+
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="" href="@PubConstant.WineGameManagementUrl("config", "index")" data-index="0">Zfc</a>
+                            </li>
+
+
+                        </ul>
+                    </li>
+                    @*<li>
+                        <a href="">
+                            <i class="fa fa-columns">
+                            </i> <span class="nav-label">订单中心</span>
+                            <span class="fa arrow"></span>
+                        </a>
+
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="" href="@PubConstant.WineGameManagementUrl("order", "index")" data-index="0">订单列表</a>
+                            </li>
+
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="fa fa-columns">
+                            </i> <span class="nav-label">统计</span>
+                            <span class="fa arrow"></span>
+                        </a>
+
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="" href="@PubConstant.WineGameManagementUrl("statistics", "index") " data-index=" 0">统计列表</a>
+                            </li>
+
+
+                        </ul>
+                    </li>*@
+
+                    @*<li>
+                        <a href="mailbox.html"><i class="fa fa-envelope"></i> <span class="nav-label">信箱 </span><span class="fa arrow"></span></a>
+
+                    </li>
+                    <li>
+                        <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">表单</span><span class="fa arrow"></span></a>
+
+                    </li>
+                    <li>
+                        <a href="index.html#"><i class="fa fa-desktop"></i> <span class="nav-label">页面</span><span class="fa arrow"></span></a>
+
+                    </li>
+                    <li>
+                        <a href="index.html#"><i class="fa fa-flask"></i> <span class="nav-label">UI元素</span><span class="fa arrow"></span></a>
+                    </li>*@
+
+                </ul>
+            </div>
+        </nav>
+    
+    <!--左侧导航结束-->
+    <!--右侧部分开始-->
+    <div id="page-wrapper" class="gray-bg dashbard-1">
+        <div class="row content-tabs">
+            <button class="roll-nav roll-left J_tabLeft">
+                <i class="fa fa-backward"></i>
+            </button>
+            <nav class="page-tabs J_menuTabs">
+                <div class="page-tabs-content">
+                    @*<a href="javascript:;" class="active J_menuTab" data-id="index_v1.html">首页</a>*@
+                    <a href="javascript:;" class="active J_menuTab" data-id="index_v1.html">@ViewBag.HeaderTitle</a>
+                </div>
+            </nav>
+            <button class="roll-nav roll-right J_tabRight">
+                <i class="fa fa-forward"></i>
+            </button>
+            <div class="btn-group roll-nav roll-right">
+                <button class="dropdown J_tabClose" data-toggle="dropdown">
+                    关闭操作<span class="caret"></span>
+
+                </button>
+                <ul role="menu" class="dropdown-menu dropdown-menu-right">
+                    <li class="J_tabShowActive">
+                        <a>定位当前选项卡</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li class="J_tabCloseAll">
+                        <a>关闭全部选项卡</a>
+                    </li>
+                    <li class="J_tabCloseOther">
+                        <a>关闭其他选项卡</a>
+                    </li>
+                </ul>
+            </div>
+            <a href="@PubConstant.WineGameManagementUrl("login", "Index")" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
+        </div>
+
+
+        @RenderBody()
+    </div>
+</div>
+</body>
+</html>

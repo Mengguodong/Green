@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)http://www.dssfxt.com/HistoryGet/index -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="../css/mui.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../css/account.css">
+    <link rel="stylesheet" type="text/css" href="../css/validate.css">
+    <link href="../css/layer.css" type="text/css" rel="styleSheet" id="layermcss">
+    <link rel="stylesheet" type="text/css" href="../css/exchange.css">
+    <title>历史收益</title>
+    <script type="text/javascript" charset="utf-8">
+        mui.init();
+    </script>
+</head>
+<body class="mui-android mui-android-6 mui-android-6-0">
+    <header id="header" class="mui-bar mui-bar-nav">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #fff; "></a>
+        <h1 class="mui-title">历史收益</h1>
+        <a style="font-size: 16px; padding-top: 13px; padding-right: 10px; color: #fff; " class="mui-pull-right" href="http://www.dssfxt.com/home/loginout">退出</a>
+    </header>
+    <section style="margin-top:44px;">
+        <article class="wine_indexMain">
+            <ul class="wine_show">
+                <li style="width:33%;">
+                    <figure style="margin:0;">
+                        <img src="../images/index3.png">
+                        <figcaption>酒糟:
+                            <span id="LeesCount">0+(0)个</span>
+                        </figcaption>
+                     </figure>
+                </li>
+                <li style="width:33%;">
+                     <figure style="margin:0;">
+                         <img src="../images/index2.png">
+                         <figcaption>酒豆:
+                             <span id="WineCoin">2226.6个</span>
+                         </figcaption>
+                     </figure>
+                 </li>
+                <li style="width:33%;">
+                    <figure style="margin:0;">
+                        <img src="../images/index1.png">
+                        <figcaption>成酒:
+                            <span id="FinishedWineRealNum">0升</span>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li style="width:33%;">
+                    <figure style="margin:0;">
+                        <img src="../images/index4.png">
+                        <figcaption>酒窖:
+                            <span id="WineCellar">1+(0)个</span>
+                        </figcaption>
+                    </figure>
+                 </li>
+                <li style="width:33%;">
+                    <figure style="margin:0;">
+                        <img src="../images/integral2.png">
+                        <figcaption>积分:
+                            <span id="Score">0</span>
+                        </figcaption>
+                    </figure>
+                 </li>
+                <li style="width:33%;">
+                     <figure style="margin:0;">
+                         <img src="../images/money.png">
+                         <figcaption>佣金:
+                             <span id="kilo">0</span>
+                         </figcaption>
+                     </figure>
+                </li>
+        <!--<li style="width:33%;">-->
+        <!--<a>酒窖剩余次数:<span id="WCRemainder">10次</span></a>-->
+        <!--</li>-->
+
+        <!--<li style="width:100%;margin-top:-10px;">-->
+        <!--<figure style="margin-left:0px;" id="starImage">-->
+        <!--</figure>-->
+        <!--<button id="dianliang" style="float:inherit; margin-left: 50px; background: #E66F2F; color: #fff; border: 1px solid #E66F2F; display:none">点亮星星</button>-->
+        <!--<button id="niangzao" style="float: right;margin-right:10px;background:#E66F2F;color: #fff;border: 1px solid #E66F2F;">开始酿造</button>-->
+        <!--</li>-->
+            </ul>
+            <input type="hidden" id="StarLevel" value="3">
+        </article>
+        <article class="wine_earnMains">
+            <input type="hidden" id="btnId" value="1">
+            <input type="hidden" id="pagecount" value="2">
+            <input type="hidden" id="hasData" value="0">
+            <ul>
+                <li class="history">
+                    <button onclick="switchBtn(1)" class="benefit">成酒收益</button></li>
+                <li class="history">
+                    <button onclick="switchBtn(2)" class="benefit">推荐收益</button></li>
+                <li class="history">
+                    <button onclick="switchBtn(3)" class="benefit">收益返利</button></li>
+                <li class="history">
+                    <button onclick="switchBtn(3)" class="benefit">收益返利</button>
+                </li>
+            </ul>
+            <table border="0" cellspacing="0" cellpadding="0" id="historyGetdata">
+            <tbody><tr>
+                <th width="40%" class="history_show">时间</th>
+                <th width="30%" class="history_show">积分</th>
+                <th width="30%" class="history_show">成酒</th>
+            </tr>
+    </tbody>
+</table>
+        </article>
+    </section>
+    <script type="text/javascript" charset="utf-8" src="../js/mui.js.下载"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/zepto.min.js.下载"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/jquery-1.8.3.js.下载"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/config.js.下载"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/jquery.validate.js.下载"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/common.js.下载"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/layer.js.下载"></script>
+    <script type="text/javascript">
+        //切换按钮
+        function switchBtn(i) {
+            $("#historyGetdata").empty();
+            if (i == 1) {
+                $("#historyGetdata").append('<tr><th width="40%">时间</th><th width="30%">积分</th><th width="30%">成酒</th></tr>');
+            } else {
+                $("#historyGetdata").append('<tr><th width="40%">时间</th><th width="60%">酒豆</th></tr>');
+            }
+            $("#btnId").val(i);
+            $("#pagecount").val(1);
+            $("#hasData").val(1);
+            loadData();
+        }
+        //加载数据
+        function loadData() {
+            var typevalue = $("#btnId").val();
+            var pagecount = $("#pagecount").val();
+            var hasdata = $("#hasData").val();
+            if (hasdata == 1) {
+                $.post("/HistoryGet/GetData", { type: typevalue, pageCount: pagecount }, function (data) {
+                    $("#historyGetdata").append(data);
+                    if (data.trim().length == 0) {
+                        $("#hasData").val(0);
+                    }
+                });
+            }
+            else {
+
+            }
+            $("#pagecount").val(parseInt($("#pagecount").val()) + 1);
+        }
+        //加载完成页面元素执行事件注册
+        $(function () {
+            loadData();
+            var windowTop = 0;//初始话可视区域距离页面顶端的距离
+            $(window).scroll(function () {
+                var scrolls = $(this).scrollTop();//获取当前可视区域距离页面顶端的距离
+                if (scrolls >= windowTop) {//当B>A时，表示页面在向下滑动
+                    //需要执行的操作
+                    windowTop = scrolls + 400;
+                    //alert(windowTop);
+                    loadData();
+
+                } else {//当B
+                    //需要执行的操作
+                    //windowTop=scrolls;
+                }
+            });
+        })
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $.post(gpath.show_path + "home/getcustomerenity", function (data) {
+                if (data) {
+                    $("#LeesCount").text(data.LeesCount + "+(" + data.FreezeLees + ")个");
+                    $("#WineCoin").text(data.WineCoin + "个");
+                    $("#FinishedWineRealNum").text(data.FinishedWineRealNum + "升");
+                    //$("#FinishedWineRealNum").text(data.FinishedWineTotal );
+                    $("#WineCellar").text(data.WineCellar + "+(" + data.FreezeWineCellar + ")个");
+                    $("#Score").text(data.Score);
+                    $("#WCRemainder").text(data.WCRemainder + "次");
+                    $("#StarLevel").val(data.StarLevel);
+                    if (data.IsReturn == 0) {
+                        return;
+                    }
+                    else if (data.IsReturn == 1) {
+                        showStarLevel(data.StarLevel);
+                        if ($("#StarLevel").val() != 3) {
+                            $("#dianliang").attr("style", "float:inherit; margin-left: 50px; background: #E66F2F; color: #fff; border: 1px solid #E66F2F; display:block");
+                        }
+                    }
+                }
+            });
+
+            function showStarLevel(level) {
+                var html = "";
+                switch (level) {
+                    case 0:
+                        html = '<img src=http://statices.dssfxt.com/Show/images/0x.png?v=5.0.0.0 style="width: 40%; height: auto; margin-top: -8px;" />';
+                        break;
+                    case 1:
+                        html = '<img src=http://statices.dssfxt.com/Show/images/1x.png?v=5.0.0.0 style="width: 40%; height: auto; margin-top: -8px;" />';
+                        break;
+                    case 2:
+                        html = '<img src=http://statices.dssfxt.com/Show/images/2x.png?v=5.0.0.0 style="width: 40%; height: auto; margin-top: -8px;" />';
+                        break;
+                    case 3:
+                        html = '<img src=http://statices.dssfxt.com/Show/images/3x.png?v=5.0.0.0 style="width: 40%; height: auto; margin-top: -8px;" />';
+                        break;
+
+                }
+                $("#starImage").append(html);
+            }
+
+
+            function showMsg(msg) {
+                layer.open({
+                    content: msg,
+                    btn: '我知道了',
+                    shadeClose: false,
+                    yes: function () {
+                        window.location.reload();
+                    }
+                });
+            }
+
+
+            $("#dianliang").click(function () {
+                if ($("#StarLevel").val() == 3) {
+                    showMsg("您目前无需点亮星星！");
+                    return;
+                }
+                $.post(gpath.show_path + "home/IllumeStarIndex", function (data) {
+                    layer.open({
+                        //title: [
+                        //   '提示',
+                        ////E66F2F
+                        //   'background-color:blue; color:#fff;'
+                        //],
+                        content: "您需要用" + data + "个酒豆点亮星星，是否点亮？"
+                        , btn: ['确定点亮', '取消']
+                        , yes: function (index) {
+                            layer.close(index);
+                            $.post(gpath.show_path + "home/IllumeStarAjax?spendCoin=" + data, function (data) {
+                                if (data.result) {
+                                    showMsg("点亮成功，继续加油哦！");
+                                } else {
+                                    showMsg(data.msg);
+                                }
+                            });
+                        }
+                    });
+
+                    //以下代码为PC版本的  layer弹窗
+                    //layer.confirm("您需要用" + data + "个酒豆点亮星星，是否点亮？", {
+                    //    btn: ['确定', '取消'] //按钮
+                    //}, function () {
+                    //    $.post(gpath.show_path + "home/IllumeStarAjax?spendCoin=" + data, function (data) {
+                    //        if (data.result) {
+                    //            layer.alert("点亮成功，继续加油哦！", {
+                    //                skin: 'layui-layer-molv'
+                    //              , closeBtn: 0
+                    //              , shift: 4 //动画类型
+                    //            });
+                    //        } else {
+                    //            layer.alert(data.msg, {
+                    //                skin: 'layui-layer-molv'
+                    //            , closeBtn: 0
+                    //            , shift: 4 //动画类型
+                    //            });
+                    //        }
+                    //    });
+                    //}, function () {
+                    //});
+                });
+            })
+            //$("#btn_ok").click(function () {
+            //    $.post(gpath.show_path + "home/IllumeStarAjax?spendCoin=" + $("#needWineCoin").val(), function (data) {
+            //        if (data.result) {
+            //            $("#center").find("img").attr("src", gpath.static_path + "Show/images/success.png");
+            //            $("#center").find("span").text("点亮成功，继续加油哦！");
+            //            //$("#center").find("span").attr("isOk", 0);
+            //            popCenterWindow();
+            //        } else {
+            //            //alert(data.msg);
+            //            $("#center").find("img").attr("src", gpath.static_path + "Show/images/error1.png");
+            //            $("#center").find("span").text(data.msg);
+            //            //$("#center").find("span").attr("isOk", 0);
+            //            popCenterWindow();
+            //        }
+            //    });
+            //})
+            $("#niangzao").click(function () {
+                var leesCount = parseInt($("#LeesCount").text());
+                var wineCellar = parseInt($("#WineCellar").text());
+                if (wineCellar == 0 || leesCount == 0) {
+                    if (wineCellar == 0 && leesCount > 0) {
+                        showMsg("酒窖不足,已停止酿造！");
+                        //酒窖剩余0
+                    }
+                    else if (wineCellar > 0 && leesCount == 0) {
+                        //酒糟剩余0
+                        showMsg("酒糟不足,已停止酿造！");
+                    }
+                    else {
+                        showMsg("酒窖和酒糟不足,已停止酿造！");
+                        //酒糟和酒窖为0
+                    }
+                    $("#niangzao").text("停止酿造");
+                    $("#niangzao").attr("disabled", "disabled");
+                }
+                else {
+                    window.location.href = "/Niangzaoing/Index";
+                }
+            })
+        })
+    </script>
+</body>
+</html>

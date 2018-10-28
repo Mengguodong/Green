@@ -1,0 +1,437 @@
+
+ 
+记录时间：2018-10-18 14:58:35,774 
+线程ID:[48] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetUserLowTeamId--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetUserByLeftId(String leftId) 位置 C:\Users\Administrator\Desktop\liujie\Dal\UserDal.cs:行号 1190
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-10-18 14:58:35,795 
+线程ID:[48] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetUserLowTeamId--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetUserByRightId(String rightId) 位置 C:\Users\Administrator\Desktop\liujie\Dal\UserDal.cs:行号 1216
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-10-18 15:05:19,737 
+线程ID:[38] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetUserLowTeamId--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetUserByLeftId(String leftId) 位置 C:\Users\Administrator\Desktop\liujie\Dal\UserDal.cs:行号 1190
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-10-18 15:05:19,755 
+线程ID:[38] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetUserLowTeamId--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetUserByRightId(String rightId) 位置 C:\Users\Administrator\Desktop\liujie\Dal\UserDal.cs:行号 1216
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-10-18 15:17:54,777 
+线程ID:[69] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetUserLowTeamId--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetUserByLeftId(String leftId) 位置 C:\Users\Administrator\Desktop\liujie\Dal\UserDal.cs:行号 1190
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-10-18 15:17:54,798 
+线程ID:[69] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetUserLowTeamId--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetUserByRightId(String rightId) 位置 C:\Users\Administrator\Desktop\liujie\Dal\UserDal.cs:行号 1216
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-10-18 15:18:32,982 
+线程ID:[64] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetUserLowTeamId--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetUserByLeftId(String leftId) 位置 C:\Users\Administrator\Desktop\liujie\Dal\UserDal.cs:行号 1190
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-10-18 15:18:33,001 
+线程ID:[64] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetUserLowTeamId--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetUserByRightId(String rightId) 位置 C:\Users\Administrator\Desktop\liujie\Dal\UserDal.cs:行号 1216
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-10-18 15:18:56,211 
+线程ID:[70] 
+日志级别：  ERROR 
+出错类：Dal.UserAccountDal property: [(null)] - 
+错误描述：Error:方法名：InsertCustomerAccount--作者：ggg
+传入参数：
+{"AccountId":0}
+错误信息：SqlDateTime 溢出。必须介于 1/1/1753 12:00:00 AM 和 12/31/9999 11:59:59 PM 之间。
+   在 System.Data.SqlClient.TdsParser.TdsExecuteRPC(SqlCommand cmd, _SqlRPC[] rpcArray, Int32 timeout, Boolean inSchema, SqlNotificationRequest notificationRequest, TdsParserStateObject stateObj, Boolean isCommandProc, Boolean sync, TaskCompletionSource`1 completion, Int32 startRpc, Int32 startParam)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 Dapper.SqlMapper.xdf8cd2685f83d9b7(IDbConnection x6247f87bb5b6f658, IDbTransaction x3dfd1b9ab64a1d5f, String x7fcaad8f411d6a84, Action`2 xe7dd9b1c41f4335c, Object xa59bff7708de3a18, Nullable`1 xe21515f875bee7f8, Nullable`1 xbf98aa4a41384761)
+   在 Dapper.SqlMapper.Execute(IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Nullable`1 commandTimeout, Nullable`1 commandType)
+   在 Dapper.DapperEx.Insert[T](DbBase dbs, T t, IDbTransaction transaction, Nullable`1 commandTimeout)
+   在 Dal.UserAccountDal.AddCustomerAccount(AccountInfo customerAccount) 位置 C:\Users\Administrator\Desktop\liujie\Dal\UserAccountDal.cs:行号 34
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-10-18 15:18:56,212 
+线程ID:[70] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetUserLowTeamId--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetUserByLeftId(String leftId) 位置 C:\Users\Administrator\Desktop\liujie\Dal\UserDal.cs:行号 1190
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-10-18 15:18:56,212 
+线程ID:[70] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetUserLowTeamId--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetUserByRightId(String rightId) 位置 C:\Users\Administrator\Desktop\liujie\Dal\UserDal.cs:行号 1216
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-10-18 15:51:08,181 
+线程ID:[31] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetUserLowTeamId--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetUserByLeftId(String leftId) 位置 C:\Users\Administrator\Desktop\liujie\Dal\UserDal.cs:行号 1190
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-10-18 15:51:08,201 
+线程ID:[31] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetUserLowTeamId--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetUserByRightId(String rightId) 位置 C:\Users\Administrator\Desktop\liujie\Dal\UserDal.cs:行号 1216
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-10-18 15:51:34,831 
+线程ID:[39] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetUserLowTeamId--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetUserByLeftId(String leftId) 位置 C:\Users\Administrator\Desktop\liujie\Dal\UserDal.cs:行号 1190
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-10-18 15:51:34,832 
+线程ID:[39] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetUserLowTeamId--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetUserByRightId(String rightId) 位置 C:\Users\Administrator\Desktop\liujie\Dal\UserDal.cs:行号 1216
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-10-18 15:51:36,733 
+线程ID:[66] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetUserLowTeamId--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetUserByLeftId(String leftId) 位置 C:\Users\Administrator\Desktop\liujie\Dal\UserDal.cs:行号 1190
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-10-18 15:51:36,734 
+线程ID:[66] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetUserLowTeamId--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetUserByRightId(String rightId) 位置 C:\Users\Administrator\Desktop\liujie\Dal\UserDal.cs:行号 1216
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-10-18 15:51:37,181 
+线程ID:[39] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetUserLowTeamId--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetUserByLeftId(String leftId) 位置 C:\Users\Administrator\Desktop\liujie\Dal\UserDal.cs:行号 1190
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-10-18 15:51:37,182 
+线程ID:[39] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetUserLowTeamId--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetUserByRightId(String rightId) 位置 C:\Users\Administrator\Desktop\liujie\Dal\UserDal.cs:行号 1216
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-10-18 15:51:37,351 
+线程ID:[66] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetUserLowTeamId--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetUserByLeftId(String leftId) 位置 C:\Users\Administrator\Desktop\liujie\Dal\UserDal.cs:行号 1190
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-10-18 15:51:37,351 
+线程ID:[66] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetUserLowTeamId--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetUserByRightId(String rightId) 位置 C:\Users\Administrator\Desktop\liujie\Dal\UserDal.cs:行号 1216
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-10-18 15:51:37,542 
+线程ID:[32] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetUserLowTeamId--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetUserByLeftId(String leftId) 位置 C:\Users\Administrator\Desktop\liujie\Dal\UserDal.cs:行号 1190
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-10-18 15:51:37,542 
+线程ID:[32] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetUserLowTeamId--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetUserByRightId(String rightId) 位置 C:\Users\Administrator\Desktop\liujie\Dal\UserDal.cs:行号 1216
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-10-18 15:52:37,475 
+线程ID:[32] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetUserLowTeamId--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetUserByLeftId(String leftId) 位置 C:\Users\Administrator\Desktop\liujie\Dal\UserDal.cs:行号 1190
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-10-18 15:52:37,517 
+线程ID:[32] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetUserLowTeamId--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetUserByRightId(String rightId) 位置 C:\Users\Administrator\Desktop\liujie\Dal\UserDal.cs:行号 1216
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-10-18 15:53:45,980 
+线程ID:[32] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetUserLowTeamId--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetUserByLeftId(String leftId) 位置 C:\Users\Administrator\Desktop\liujie\Dal\UserDal.cs:行号 1190
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-10-18 15:53:46,023 
+线程ID:[32] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetUserLowTeamId--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetUserByRightId(String rightId) 位置 C:\Users\Administrator\Desktop\liujie\Dal\UserDal.cs:行号 1216
+客户端ip:,请求连接：
+ 

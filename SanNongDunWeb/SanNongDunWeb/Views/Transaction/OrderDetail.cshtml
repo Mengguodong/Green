@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = "OrderDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model DataModel.OrderInfo
+<div class="order">
+    <div class="order_detail">
+
+        <span class="order-title">交易订单号：</span>
+        <input type="text" class="order_show" value="@Model.OrderId" />
+    </div>
+    <div class="order_detail">
+        <span class="order-title">订单类型：</span>
+        @if (Model.OrderType == 1)
+        {
+            <input type="text" class="order_show" value="EP" />
+        }
+        else
+        {
+            <input type="text" class="order_show" value="ZFC" />
+        }
+
+    </div>
+    <div class="order_detail">
+        <span class="order-title">交易方式：</span>
+        @if (Model.IsMoney == 1)
+        {
+            <input type="text" class="order_show" value="现金" />
+        }
+        else
+        {
+            <input type="text" class="order_show" value="ZFC" />
+        }
+
+    </div>
+    <div class="order_detail">
+        <span class="order-title">数量：</span>
+        <input type="text" class="order_show" value="@Model.Qty" />
+    </div>
+    <div class="order_detail">
+        <span class="order-title">下单时间：</span>
+        <input type="text" class="order_show" value="@Model.UpdateTime.ToString()" />
+    </div>
+    <div class="order_detail">
+        <span class="order-title">订单总金额：</span>
+        <input type="text" class="order_show" value="@Model.BuyMoney" />
+    </div>
+
+    <div class="order_tansport">
+        <span class="order-title">支付凭证：</span>
+        <span class="tansport">
+            
+            <span class="img_tansport"><img src="@Model.imgPath" alt="Alternate Text" /></span>
+        </span>
+
+    </div>
+</div>

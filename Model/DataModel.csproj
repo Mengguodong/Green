@@ -34,7 +34,9 @@
       <HintPath>..\Libs\DapperExAttribute.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,21 +44,39 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountInfo.cs" />
     <Compile Include="GlobalConfig.cs" />
-    <Compile Include="ComputingPower.cs" />
-    <Compile Include="Finance.cs" />
-    <Compile Include="RechargeLockCoin.cs" />
-    <Compile Include="OrderInfo.cs" />
-    <Compile Include="LevelInfo.cs" />
+    <Compile Include="HongBaoLog.cs" />
+    <Compile Include="JobModel\UserAccInfoModel.cs" />
+    <Compile Include="LiuViewModel\HongBaoViewModel.cs" />
+    <Compile Include="LiuViewModel\ScoreViewModel.cs" />
+    <Compile Include="LiuViewModel\StatusViewModel.cs" />
+    <Compile Include="LiuViewModel\UserAndAccModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RequestModel\Class1.cs" />
     <Compile Include="RequestModel\Page.cs" />
-    <Compile Include="UserAccount.cs" />
+    <Compile Include="ScoreLog.cs" />
+    <Compile Include="ShopModel\UserEp.cs" />
+    <Compile Include="SMSCodeRequest.cs" />
+    <Compile Include="StatusLog.cs" />
+    <Compile Include="TiXianLog.cs" />
     <Compile Include="UserInfo.cs" />
+    <Compile Include="ViewModel\AccountInfoModel.cs" />
+    <Compile Include="ViewModel\ActicationCardExchangeModel.cs" />
+    <Compile Include="ViewModel\OrderAdminModel.cs" />
+    <Compile Include="ViewModel\OrderViewModel.cs" />
+    <Compile Include="ViewModel\PayOrderViewModel.cs" />
+    <Compile Include="ViewModel\StatisticsViewModel.cs" />
     <Compile Include="ViewModel\UserIndexModel.cs" />
     <Compile Include="ViewModel\UserAccountInfoModel.cs" />
+    <Compile Include="ViewModel\UserLogInfoModel.cs" />
     <Compile Include="ViewModel\UserLoginModel.cs" />
     <Compile Include="ViewModel\UserRegisterModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Commons\Common\Common.csproj">
+      <Project>{97aa0122-046c-4315-b2a4-1d6c39cc12ad}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

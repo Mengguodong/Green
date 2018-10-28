@@ -1,0 +1,84 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model DataModel.ViewModel.StatisticsViewModel
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5> <small></small></h5>
+                    <div class="wine_search" style="display: inline-block;width:100%;text-align:start;">
+                        <!--搜索开始-->
+
+                        <form action="@(Common.PubConstant.ManagementBaseUrl+"Statistics/Index")" method="post">
+
+                            <label>
+                                开始时间：
+                            </label>
+                            <input type="search" name="begin" value="@Model.StartTime.ToString()" placeholder="开始时间" x-webkit-speech="" lang="zh-CN"></br>
+                            &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; <label>
+                                结束时间：
+                            </label>
+                            <input type="search" name="end" value="@Model.EndTime.ToString()" placeholder="结束时间" x-webkit-speech="" lang="zh-CN">
+                            <button>查询</button><label>
+                                使用说明：直接点击查询即查询全部，输入时间段则查询该时间段的数据，时间格式，如2017-02-15
+                            </label>
+
+                        </form>
+                    </div>
+                </div>
+                <div class="ibox-content" id="updatetargetId">
+                    <table class="table table-striped table-bordered table-hover dataTables-example">
+                        <thead>
+                            <tr>
+                                <th>总资产</th>
+                                <th>总人数</th>
+                                <th>总激活人数</th>
+                                <th>总积分</th>
+                             
+                                <th>总绿氧</th>
+                                <th>总收益</th>
+                                <th>总提现</th>
+                                
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model != null)
+                            {
+
+                                <tr class="gradeX">
+                                    <td>@Model.TotalAssets</td>
+                                    <td>
+                                        @Model.TotalUser
+                                    </td>
+                                    <td>@Model.TotalActivation</td>
+                                    <td class="center">@Model.SumGreenScore.Score</td>
+                                
+                                    <td class="center">@Model.SumGreenScore.GreenCount</td>
+                                    <td class="center">@Model.SumMoney</td>
+                                    <td class="center">@Model.SumOutMoney</td>
+
+                                </tr>
+
+
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td colspan="5" align="center">暂无数据</td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+

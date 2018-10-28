@@ -1,0 +1,258 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    DataModel.ViewModel.UserIndexModel userIndex = (UserIndexModel)ViewData["viewModel"];
+}
+@using DataModel.ViewModel;
+@using Common;
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5> <small></small></h5>
+                    <div class="wine_search" style="display: inline-block;width:30%;text-align: center;">
+                        <!--搜索开始-->
+                        @*@using (Ajax.BeginForm("Index", new { pageIndex = "" }, new AjaxOptions { HttpMethod = "Post", UpdateTargetId = "updatetargetId", InsertionMode = InsertionMode.Replace }, new { id = "searchForm" }))
+                            {
+
+                                <label>用户名：</label>
+                                <input type="search" name="userName" placeholder="用户名" x-webkit-speech="" lang="zh-CN">
+                                <button>查询</button>
+
+                            }*@
+                    </div>
+                </div>
+                <div class="ibox-content" id="updatetargetId">
+                    @*@{Html.RenderPartial("_UserInfoes", Model);}*@
+
+                    <table class="table table-striped table-bordered table-hover dataTables-example">
+
+
+
+
+
+                        @if (userIndex != null)
+                        {
+                            <tr>
+                                <th>用户编号:</th>
+                                <td><input type="text" value="@userIndex.UserId" id="userIdInput" disabled="disabled" /></td>
+                            </tr>
+                            <tr>
+                                <th>用户名:</th>
+                                <td><input type="text" value="@userIndex.UserName" disabled="disabled" /></td>
+                            </tr>
+                            <tr>
+                                <th>真实姓名:</th>
+                                <td><input type="text" value="@userIndex.RealName" id="realNameInput" /></td>
+                            </tr>
+                            <tr>
+                                <th>电话:</th>
+                                <td><input type="text" value="@userIndex.Phone" id="phoneInput" /></td>
+                            </tr>
+                            <tr>
+                                <th>创建时间:</th>
+                                <td><input type="text" value="@userIndex.CreateTime" disabled="disabled" /></td>
+                            </tr>
+                            @*<tr>
+                                <th>身份证号:</th>
+                                <td><input type="text" value="@userIndex.IdCard" id="idCardInput" /></td>
+                            </tr>*@
+                            <tr>
+                                <th>银行名称:</th>
+                                <td><input type="text" value="@userIndex.BankName" id="bankNameInput" /></td>
+                            </tr>
+                            <tr>
+                                <th>银行卡号:</th>
+                                <td><input type="text" value="@userIndex.BankNumber" id="bankNumberInput" /></td>
+                            </tr>
+                            <tr>
+                                <th>左区团队ID:</th>
+                                <td><input type="text" value="@userIndex.LeftId" disabled="disabled" /></td>
+                            </tr>
+                            <tr>
+                                <th>右区团队ID:</th>
+                                <td><input type="text" value="@userIndex.RightId" disabled="disabled" /></td>
+                            </tr> 
+                            <tr>
+                                    <th>绿氧:</th>
+                                    <td><input type="text" value="@userIndex.GreenCount" disabled="disabled" /></td>
+                                </tr>
+                              <tr>
+                                    <th>静态总收益:</th>
+                                    <td><input type="text" value="@userIndex.StaticsRelease" disabled="disabled" /></td>
+                                </tr>
+                              <tr>
+                                    <th>用户登录密码:</th>
+                                    <td><input type="password" value="@userIndex.Pwd"  id="pwd"/></td>
+                                </tr>
+                            @*<tr>
+                                    <th>EP:</th>
+                                    <td><input type="text" value="@userIndex.EP" disabled="disabled" /><button>充值</button></td>
+                                </tr>
+                                <tr>
+                                    <th>Zfc:</th>
+                                    <td><input type="text" value="@userIndex.Zfc" disabled="disabled" /><button>充值</button></td>
+                                </tr>
+                                     <tr>
+                                    <th>积分:</th>
+                                    <td><input type="text" value="@userIndex.Sorce" disabled="disabled" /><button>充值</button></td>
+                                </tr>
+                            <tr>
+                                <th>总资产:</th>
+                                <td><input type="text" value="@userIndex.TotalAssets" disabled="disabled" /></td>
+                            </tr>*@
+
+
+
+
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="7" align="center">暂无数据</td>
+                            </tr>
+                        }
+
+
+                    </table>
+                    <div><button id="userUpdate">保存修改</button></div><br /><br />
+                    <table class="table table-striped table-bordered table-hover dataTables-example">
+                        @if (userIndex != null)
+                        {
+
+                            <tr>
+                                <th>积分:</th>
+                                <td><input type="text" value="@userIndex.Sorce" disabled="disabled" /><button onclick="accUpdateClick(@userIndex.UserId,1)">充值</button></td>
+                            </tr>
+                            <tr>
+                                <th>绿氧:</th>
+                                <td><input type="text" value="@userIndex.GreenCount" id="ZFC"  /><button userid="@userIndex.UserId" id="btn_Zfc">修改</button></td>
+                            </tr>
+                            <tr>
+                                <th>总资产:</th>
+                                <td><input type="text" id="TotalAssets" value="@userIndex.GreenTotal" /><button userid="@userIndex.UserId" id="btn_updateTotal">修改</button></td>
+                            </tr>
+                            @*<tr>
+                                <th>Zfc:</th>
+                                <td><input type="text" value="@userIndex.Zfc" disabled="disabled" /><button onclick="accUpdateClick(@userIndex.UserId,2)">充值</button></td>
+                            </tr>*@
+                            @*<tr>
+                                <th>积分:</th>
+                                <td><input type="text" value="@userIndex.Sorce" disabled="disabled" /><button onclick="accUpdateClick(@userIndex.UserId,3)">充值</button></td>
+                            </tr>*@
+
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="7" align="center">暂无数据</td>
+                            </tr>
+                        }
+
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<section>
+    <script src="@Url.Content("~/HTML/Management/js/jquery.unobtrusive-ajax.min.js")"></script>
+    @*@{Html.RegisterMvcPagerScriptResource();}*@
+</section>
+<script type="text/javascript">
+    $(function () {
+
+        //修改总资产
+        $("#btn_updateTotal").click(function () {
+            var  TotalAssets= $("#TotalAssets").val();
+            var userId = $(this).attr("userid");
+            $.post(gpath.management_path + "AccountInfo/UpdateTotalAssets", { TotalAssets: TotalAssets,userId:userId }, function (data) {
+
+                if (data.result == true) {
+                    location.reload();
+                } else {
+                    alert(data.msg);
+                }
+
+            });
+
+        });
+        //修改ZFC
+        $("#btn_Zfc").click(function () {
+            var ZFC = $("#ZFC").val();
+            var userId = $(this).attr("userid");
+            $.post(gpath.management_path + "AccountInfo/UpdateZFC", { ZFC: ZFC, userId: userId }, function (data) {
+
+                if (data.result == true) {
+                    location.reload();
+                } else {
+                    alert(data.msg);
+                }
+
+            });
+
+        });
+
+        $("#userUpdate").click(function () {
+
+            layer.confirm('确认修改用户记录？', {
+                btn: ['确定', '取消'] //按钮
+            },
+         function () {
+             var userId = $("#userIdInput").val();
+             var realName = $("#realNameInput").val();
+             var phone = $("#phoneInput").val();
+             var idCard = $("#idCardInput").val();
+             var bankName = $("#bankNameInput").val();
+             var bankNumber = $("#bankNumberInput").val();
+             var pwd = $("#pwd").val();
+             $.post(gpath.management_path + "UserInfo/UpdateUserInfo"
+                 , {
+                         userId: userId, realName: realName, phone: phone
+                         , idCard: idCard, bankName: bankName, bankNumber: bankNumber,pwd:pwd
+                 }
+                , function (data) {
+                 if (data == "ok") {
+
+                     layer.msg("修改成功！", { icon: 1, time: 2000 });
+                     location.reload();
+                 } else {
+                     layer.msg(data.msg, { icon: 1 });
+                 }
+
+             });
+
+
+         }, function () {
+         });
+        });
+
+    });
+
+
+
+    //充值点击事件
+    function accUpdateClick(userId, adminLogType,type) {
+        parent.layer.prompt({
+            title: '请输入充值数量',
+            formType: 0 //prompt风格，支持0-2
+        }, function (count) {
+            $.post(gpath.management_path + "AccountInfo/Recharge", { userId: userId, logType: 1, adminLogType: adminLogType, count: count }, function (data) {
+                if (data == "ok") {
+
+                    layer.msg("充值成功！", { icon: 1, time: 2000 });
+                    location.reload();
+                } else {
+                    layer.msg(data.msg, { icon: 1 });
+                }
+
+            });
+        });
+    }
+
+</script>
+
+

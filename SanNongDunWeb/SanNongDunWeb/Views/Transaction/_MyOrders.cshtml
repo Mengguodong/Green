@@ -1,0 +1,152 @@
+﻿@model DataModel.RequestModel.Page<DataModel.OrderInfo>
+
+@if (Model.Data != null && Model.Data.Count > 0)
+{
+
+    for (int i = 0; i < Model.Data.Count; i++)
+    {
+        if (ViewBag.Type==1)
+        {
+             <tr>
+            <td width="5%">@((Model.PageIndex - 1) * Model.PageSize + 1 + i)</td>
+
+            <td width="20%">@Model.Data[i].CreateTime.ToString()</td>
+
+            <td width="20%">@Model.Data[i].UpdateTime.ToString()</td>
+
+            <td width="10%">@Model.Data[i].Qty</td>
+
+            <td width="10%">@Model.Data[i].BuyMoney</td>
+
+            @if (Model.Data[i].IsMoney == 1)
+            {
+                <td width="10%">现金</td>
+            }
+            else
+            {
+                <td width="10%">ZFC</td>
+            }
+
+
+            @if (Model.Data[i].Sataus == 1)
+            {
+                <td width="15%">在售</td>
+            }
+            else if (Model.Data[i].Sataus == 2)
+            {
+                <td width="15%">等待付款</td>
+            }
+            else if (Model.Data[i].Sataus == 3)
+            {
+                <td width="15%">待确认</td>
+            }
+            else if (Model.Data[i].Sataus == 4)
+            {
+                <td width="15%">交易完成</td>
+            }
+            else if (Model.Data[i].Sataus == 5)
+            {
+                   <td width="15%">已取消</td>
+            }
+
+            else
+            {
+                <td width="15%">已冻结</td>
+            }
+            @if (Model.Data[i].Sataus == 1 && ViewBag.Type == 2)
+            {
+                <td width="10%"><a href="JavaScript:viod(0);" name="a_cancel" orderid="@Model.Data[i].OrderId" ordertype="@ViewBag.Type">取消</a></td>
+            }
+            else if (Model.Data[i].Sataus == 2 && ViewBag.Type == 1)
+            {
+                <td width="10%"><a href="JavaScript:viod(0);" name="a_Pay" orderid="@Model.Data[i].OrderId">支付</a>&nbsp;<a href="JavaScript:viod(0);" name="a_cancel" orderid="@Model.Data[i].OrderId" ordertype="@ViewBag.Type">取消</a></td>
+            }
+            else if (Model.Data[i].Sataus == 3 && ViewBag.Type == 2)
+            {
+                <td width="10%"><a href="JavaScript:viod(0);" name="a_sale" ordertype="@Model.Data[i].OrderType" orderid="@Model.Data[i].OrderId">确认</a>&nbsp;<a href="javascript:viod(0);" name="a_orderDetail" orderId="@Model.Data[i].OrderId">订单详情</a></td>
+            }
+
+            else
+            {
+                <td width="10%"></td>
+            }
+
+
+        </tr>
+        }
+        else
+        {
+             <tr>
+            <td width="5%">@((Model.PageIndex - 1) * Model.PageSize + 1 + i)</td>
+
+            <td width="20%">@Model.Data[i].CreateTime.ToString()</td>
+
+            <td width="20%">@Model.Data[i].UpdateTime.ToString()</td>
+
+            <td width="10%">@Model.Data[i].Qty</td>
+
+            <td width="10%">@Model.Data[i].BuyMoney</td>
+
+            @if (Model.Data[i].IsMoney == 1)
+            {
+                <td width="10%">现金</td>
+            }
+            else
+            {
+                <td width="10%">ZFC</td>
+            }
+           <td width="5%">100EP</td>
+
+            @if (Model.Data[i].Sataus == 1)
+            {
+                <td width="10%">在售</td>
+            }
+            else if (Model.Data[i].Sataus == 2)
+            {
+                <td width="10%">等待付款</td>
+            }
+            else if (Model.Data[i].Sataus == 3)
+            {
+                <td width="10%">待确认</td>
+            }
+            else if (Model.Data[i].Sataus == 4)
+            {
+                <td width="10%">交易完成</td>
+            }
+            else if (Model.Data[i].Sataus == 5)
+            {
+                   <td width="10%">已取消</td>
+            }
+
+            else
+            {
+                <td width="10%">已冻结</td>
+            }
+            @if (Model.Data[i].Sataus == 1 && ViewBag.Type == 2)
+            {
+                <td width="10%"><a href="JavaScript:viod(0);" name="a_cancel" orderid="@Model.Data[i].OrderId" ordertype="@ViewBag.Type">取消</a></td>
+            }
+            else if (Model.Data[i].Sataus == 2 && ViewBag.Type == 1)
+            {
+                <td width="10%"><a href="JavaScript:viod(0);" name="a_Pay" orderid="@Model.Data[i].OrderId">支付</a>&nbsp;<a href="JavaScript:viod(0);" name="a_cancel" orderid="@Model.Data[i].OrderId" ordertype="@ViewBag.Type">取消</a></td>
+            }
+            else if (Model.Data[i].Sataus == 3 && ViewBag.Type == 2)
+            {
+                <td width="10%"><a href="JavaScript:viod(0);" name="a_sale" ordertype="@Model.Data[i].OrderType" orderid="@Model.Data[i].OrderId">确认</a>&nbsp;<a href="javascript:viod(0);" name="a_orderDetail" orderId="@Model.Data[i].OrderId">订单详情</a></td>
+            }
+
+            else
+            {
+                <td width="10%"></td>
+            }
+
+
+        </tr>
+        }
+        
+       
+    }
+
+
+
+}

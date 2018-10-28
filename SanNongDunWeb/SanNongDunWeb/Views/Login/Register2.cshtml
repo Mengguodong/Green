@@ -1,0 +1,170 @@
+﻿@using Common;
+@{
+    ViewBag.HeaderTitle = "注册";
+    Layout = "~/Views/Shared/_LayoutLoginOrReg.cshtml";
+}
+
+<header class="wine_regHeader" style="height:25%;padding-top:20%">
+    <img src=@Auxiliary.GetStaticUrl("Show/images/2.png") />
+</header>
+<section style="padding-top: 20%">
+    <article class="wine_loginForm wine_regForm">
+        <form action="" id="formReg" method="post">
+            <label>
+                <input type="password" name="Pwd" class="wine_loginTxt" placeholder="密码" />
+                <img src=@Common.Auxiliary.GetStaticUrl("Show/images/login2.png") /><span></span>
+            </label>
+            <label>
+                <input type="password" name="newPwd" class="wine_loginTxt" placeholder="再次输入密码" />
+                <img src=@Common.Auxiliary.GetStaticUrl("Show/images/login2.png") /><span></span>
+            </label>
+            <label>
+                <input type="password" name="PayPwd" class="wine_loginTxt" placeholder="支付密码" />
+                <img src=@Common.Auxiliary.GetStaticUrl("Show/images/login2.png") /><span></span>
+            </label>
+            @*<label>
+                    <input type="text" name="ParentLoginName" class="wine_loginTxt" placeholder="推荐人手机号" />
+                    <img src=@Auxiliary.GetStaticUrl("Show/images/login1.png") /><span></span>
+                </label>*@
+
+            <input type="hidden" name="TeamParentId" value="@ViewBag.teamParentId" />
+            <input type="hidden" name="ParentLoginName" value="@ViewBag.parentLoginName" />
+            <input type="hidden" name="UserName" value="@ViewBag.Phone" />
+            <input type="hidden" name="ValidateCode" value="@ViewBag.ValidateCode" />
+
+            <input type="submit" id="btn_register" class="wine_loginSub" value="注册" />
+            <span class="wine_loginReg">已有账号？<a href="@PubConstant.WineGameShowUrl("login","index")">点击登录</a></span>
+        </form>
+
+    </article>
+</section>
+<script type="text/javascript">
+    //添加验证方法
+    //验证手机号
+    jQuery.validator.addMethod("IsPhone", function (value, element) {
+        return this.optional(element) || (/^1[34578]\d{9}$/.test(value));
+    }, "<span class='no'>手机号格式不正确</span>");
+    //验证密码位数
+    jQuery.validator.addMethod("IsPwd", function (value, element) {
+        return this.optional(element) || (value.length >= 6);
+    }, "<span class='no'>密码不得小于6位</span>");
+    //验证密码是否相同
+    jQuery.validator.addMethod("IsNewPwd", function (value, element) {
+        return this.optional(element) || (value == $("[name=Pwd]").val());
+    }, "<span class='no'>两次输入密码不一致</span>");
+
+
+    jQuery.validator.addMethod("IsPayPwd", function (value, element) {
+        return this.optional(element) || (value.length >= 6);
+    }, "<span class='no'>密码不得小于6位</span>");
+    //验证form表单的方法
+    function checkForm() {
+        $("#formReg").validate({
+            rules: {
+               
+                Pwd: {
+                    required: true,
+                    IsPwd: true
+                },
+                newPwd: {
+                    required: true,
+                    IsNewPwd: true
+                }
+                //,
+                //ParentLoginName: {
+                //    required: true,
+                //    IsPhone: true
+                //}
+                ,
+                PayPwd: {
+                    required: true,
+                    IsPayPwd: true
+                }
+
+            },
+            messages: {
+
+               
+                Pwd: {
+                    required: "<span class='er_noo ml15'>密码不得为空。</span>",
+                    IsPwd: "<span class='er_noo ml15'>密码不得少于6个字符。</span>"
+                },
+                newPwd: {
+                    required: "<span class='er_noo ml15'>密码不得为空。</span>",
+                    IsNewPwd: "<span class='er_noo ml15'>两次输入密码不一致</span>"
+                }
+                //,
+                //ParentLoginName: {
+                //    required: "<span class='er_noo ml15'>推荐人不得为空。</span>",
+                //    IsPhone: "<span class='er_noo ml15'>请输入有效的手机号。</span>"
+                //}
+                ,PayPwd: {
+                    required: "<span class='er_noo ml15'>支付密码不能为空。</span>",
+                    IsPayPwd: "<span class='er_noo ml15'>密码不得少于6个字符。</span>"
+                }
+             
+
+            },
+
+            success: function (element) {
+                //element.parent().find("span").html("<i class='yes'></i>");
+            },
+            submitHandler: function (form) {
+                var formdata = $("#formReg").serialize();
+                $.post(gpath.show_path + "login/registerajax", formdata, function (data) {
+                    if (data.result == true) {
+                        //$("#center").find("img").attr("src", gpath.static_path + "Show/images/success.png");
+                        //$("#center").find("span").text("注册成功");
+                        //$("#center").find("span").attr("isOk",1);
+                        //popCenterWindow();
+                        layer.open({
+                            content: '注册成功',
+                            btn: '我知道了',
+                            shadeClose: false,
+                            yes: function () {
+                                location.href = gpath.show_path + "Register/index";
+                            }
+                        });
+                    } else {
+                        layer.open({
+                            content: data.Msg,
+                            btn: '我知道了',
+                            shadeClose: false
+                        });
+                        //$("#center").find("img").attr("src", gpath.static_path + "Show/images/error1.png");
+                        //$("#center").find("span").text(data.Msg);
+                        //$("#center").find("span").attr("isOk", 0);
+                        //popCenterWindow();
+                    }
+
+                });
+            },
+            onkeyup: false,
+            errorElement: "span",
+            errorPlacement: function (error, element) {
+                element.parent().find("span").remove();
+                error.appendTo(element.parent());
+            }
+        });
+
+    }
+
+
+    $(function () {
+
+        if ($("#ParentMobile").val() != "") {
+            $("[name=ParentPhone]").attr("readonly", "readonly");
+        }
+
+        checkForm();
+        ////注册成功跳转
+        //$("#btn_ok").click(function () {
+        //    if ($("#center").find("span").attr("isOk") == 1) {
+        //        location.href = gpath.show_path + "login/index";
+        //    }
+
+
+
+        //});
+    });
+</script>

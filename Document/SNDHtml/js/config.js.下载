@@ -1,0 +1,8 @@
+// JavaScript Document
+
+var gpath = {
+       static_path: "http://statices.dssfxt.com/",
+    show_path: "http://www.dssfxt.com/",
+    management_path: "http://management.dssfxt.com/",
+    market_path:"http://market.dssfxt.com/"
+}

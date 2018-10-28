@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)http://statices.dssfxt.com/Show/html/wineQueueRule.html -->
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <link href="/show/css/mui.min.css" rel="stylesheet">
+	<title>升级规则</title>
+   	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			}
+			h1,h2,h4{
+				margin: 0;
+				padding: 0;
+			}
+			body,html{
+				font-size: 62.5%;
+				height: 100%;
+				font-family: "微软雅黑";
+				overflow: hidden;
+			}
+			.up_rules{
+			box-shadow: none;
+			}
+			.mui-bar{
+				position: inherit;
+				background: #E66F2F;
+			}
+			.mui-title{
+				color: #fff;
+				/*font-weight: bold;*/
+			}
+			.mui-icon{
+				color: #fff;
+			}
+			.wine_sjmain{	
+				width: 100%;		
+				height: 93.4%;
+				background: url(/show/images/sjbj.png) no-repeat center;
+				background-size: 100% 100%;
+				padding: 11% 5% 0 5%;
+			}
+			.wine_sjmain img{
+				width: 40%;
+				margin-left: 32%;
+			}
+			.wine_sjmain h4.rules_title{
+				width: 100%;
+				padding-bottom: 10px;
+				margin-top: 30%;
+				color:#212121;
+				font-size: 1.5rem;
+				font-weight: normal;
+			}
+		.wine_sjmain p.rule{
+			position: relative;
+			padding-left:18px;
+			color:#444444;
+			font-size: 1.2rem;
+		}
+		.wine_sjmain p.rule::before{
+			content:"";
+			position: absolute;
+			width: 4px;
+			height: 4px;
+			background: #e84936;
+			border-radius: 50%;
+			top:50%;
+			left:6px;
+		}
+		</style>
+</head>
+<body>
+	<header id="header" class="mui-bar mui-bar-nav wine_exHeader up_rules" onclick="RedirectUrl();">
+		<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		<h1 class="mui-title">升级规则</h1>
+	</header>
+	<section class="wine_sjmain">
+		<article>
+			<img src="/show/images/sj.png">
+			<h4 class="rules_title">升级规则:</h4>
+			<div>
+				<p class="rule">自己本身达到酒坊主级别。</p>
+				<p class="rule">本身酒坊主级别，直接销售4个酒坊主级别，系统自动为你进入排队程序。</p>
+				<p class="rule">每个酒坊主只有一次排队升级庄园的机会。</p>
+				<p class="rule">庄园级别可以拥有100个酒窖同时收益的权利。</p>
+			</div>
+		</article>
+	</section>
+	<script src="/show/js/jquery-1.8.3.js"></script>
+	<script src="/show/js/config.js"></script>
+    <script>
+        function RedirectUrl() {
+            location.href = gpath.show_path + "home/index";
+        }
+    </script>
+</body>
+</html>

@@ -30,6 +30,10 @@ namespace DataModel.ViewModel
             get { return pwd; }
             set { pwd = value; }
         }
+      /// <summary>
+      /// 再次输入密码
+      /// </summary>
+        public string newPwd { get; set; }
         /// <summary>
         /// 验证码
         /// </summary>
@@ -38,5 +42,9 @@ namespace DataModel.ViewModel
       /// 推荐人手机号
       /// </summary>
         public string ParentLoginName { get; set; }
+        public int ParentId { set;get; }
+        public string TeamParentId { set; get; }
+        public string PayPwd { get; set; }
+
     }
 }

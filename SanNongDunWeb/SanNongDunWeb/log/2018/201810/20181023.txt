@@ -1,0 +1,120 @@
+
+ 
+记录时间：2018-10-23 14:23:19,153 
+线程ID:[9] 
+日志级别：  ERROR 
+出错类：Dal.UserAccountDal property: [(null)] - 
+错误描述：Error:方法名：InsertCustomerAccount--作者：ggg
+传入参数：
+{"AccountId":0}
+错误信息：列名 'Score' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 Dapper.SqlMapper.xdf8cd2685f83d9b7(IDbConnection x6247f87bb5b6f658, IDbTransaction x3dfd1b9ab64a1d5f, String x7fcaad8f411d6a84, Action`2 xe7dd9b1c41f4335c, Object xa59bff7708de3a18, Nullable`1 xe21515f875bee7f8, Nullable`1 xbf98aa4a41384761)
+   在 Dapper.SqlMapper.Execute(IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Nullable`1 commandTimeout, Nullable`1 commandType)
+   在 Dapper.DapperEx.Insert[T](DbBase dbs, T t, IDbTransaction transaction, Nullable`1 commandTimeout)
+   在 Dal.UserAccountDal.AddCustomerAccount(AccountInfo customerAccount) 位置 C:\Users\Administrator\Desktop\liujie\Dal\UserAccountDal.cs:行号 59
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-10-23 14:24:48,796 
+线程ID:[8] 
+日志级别：  ERROR 
+出错类：Dal.UserAccountDal property: [(null)] - 
+错误描述：Error:方法名：InsertCustomerAccount--作者：ggg
+传入参数：
+{"AccountId":0}
+错误信息：列名 'Score' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 Dapper.SqlMapper.xdf8cd2685f83d9b7(IDbConnection x6247f87bb5b6f658, IDbTransaction x3dfd1b9ab64a1d5f, String x7fcaad8f411d6a84, Action`2 xe7dd9b1c41f4335c, Object xa59bff7708de3a18, Nullable`1 xe21515f875bee7f8, Nullable`1 xbf98aa4a41384761)
+   在 Dapper.SqlMapper.Execute(IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Nullable`1 commandTimeout, Nullable`1 commandType)
+   在 Dapper.DapperEx.Insert[T](DbBase dbs, T t, IDbTransaction transaction, Nullable`1 commandTimeout)
+   在 Dal.UserAccountDal.AddCustomerAccount(AccountInfo customerAccount) 位置 C:\Users\Administrator\Desktop\liujie\Dal\UserAccountDal.cs:行号 59
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-10-23 14:27:13,022 
+线程ID:[7] 
+日志级别：  ERROR 
+出错类：Dal.UserAccountDal property: [(null)] - 
+错误描述：Error:方法名：InsertCustomerAccount--作者：ggg
+传入参数：
+{"AccountId":0}
+错误信息：列名 'Score' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 Dapper.SqlMapper.xdf8cd2685f83d9b7(IDbConnection x6247f87bb5b6f658, IDbTransaction x3dfd1b9ab64a1d5f, String x7fcaad8f411d6a84, Action`2 xe7dd9b1c41f4335c, Object xa59bff7708de3a18, Nullable`1 xe21515f875bee7f8, Nullable`1 xbf98aa4a41384761)
+   在 Dapper.SqlMapper.Execute(IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Nullable`1 commandTimeout, Nullable`1 commandType)
+   在 Dapper.DapperEx.Insert[T](DbBase dbs, T t, IDbTransaction transaction, Nullable`1 commandTimeout)
+   在 Dal.UserAccountDal.AddCustomerAccount(AccountInfo customerAccount) 位置 C:\Users\Administrator\Desktop\liujie\Dal\UserAccountDal.cs:行号 59
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-10-23 14:27:43,530 
+线程ID:[7] 
+日志级别：  ERROR 
+出错类：Dal.UserAccountDal property: [(null)] - 
+错误描述：Error:方法名：InsertCustomerAccount--作者：ggg
+传入参数：
+{"AccountId":0}
+错误信息：列名 'Score' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 Dapper.SqlMapper.xdf8cd2685f83d9b7(IDbConnection x6247f87bb5b6f658, IDbTransaction x3dfd1b9ab64a1d5f, String x7fcaad8f411d6a84, Action`2 xe7dd9b1c41f4335c, Object xa59bff7708de3a18, Nullable`1 xe21515f875bee7f8, Nullable`1 xbf98aa4a41384761)
+   在 Dapper.SqlMapper.Execute(IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Nullable`1 commandTimeout, Nullable`1 commandType)
+   在 Dapper.DapperEx.Insert[T](DbBase dbs, T t, IDbTransaction transaction, Nullable`1 commandTimeout)
+   在 Dal.UserAccountDal.AddCustomerAccount(AccountInfo customerAccount) 位置 C:\Users\Administrator\Desktop\liujie\Dal\UserAccountDal.cs:行号 59
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-10-23 14:39:10,523 
+线程ID:[25] 
+日志级别：  ERROR 
+出错类：Dal.UserAccountDal property: [(null)] - 
+错误描述：Error:方法名：InsertCustomerAccount--作者：ggg
+传入参数：
+{"AccountId":0}
+错误信息：列名 'Score' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 Dapper.SqlMapper.xdf8cd2685f83d9b7(IDbConnection x6247f87bb5b6f658, IDbTransaction x3dfd1b9ab64a1d5f, String x7fcaad8f411d6a84, Action`2 xe7dd9b1c41f4335c, Object xa59bff7708de3a18, Nullable`1 xe21515f875bee7f8, Nullable`1 xbf98aa4a41384761)
+   在 Dapper.SqlMapper.Execute(IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Nullable`1 commandTimeout, Nullable`1 commandType)
+   在 Dapper.DapperEx.Insert[T](DbBase dbs, T t, IDbTransaction transaction, Nullable`1 commandTimeout)
+   在 Dal.UserAccountDal.AddCustomerAccount(AccountInfo customerAccount) 位置 C:\Users\Administrator\Desktop\liujie\Dal\UserAccountDal.cs:行号 59
+客户端ip:,请求连接：
+ 

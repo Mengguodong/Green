@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using Webdiyer.WebControls.Mvc
+@model PagedList<DataModel.LiuViewModel.StatusViewModel>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5> <small></small></h5>
+                    <div class="wine_search" style="display: inline-block;width:30%;text-align: center;">
+                        <!--搜索开始-->
+                        @using (Ajax.BeginForm("AdminStatusLogIndex", new { pageIndex = "" }, new AjaxOptions { HttpMethod = "Post", UpdateTargetId = "updatetargetId", InsertionMode = InsertionMode.Replace }, new { id = "searchForm" }))
+                        {
+
+                            <label>用户名：</label>
+                            <input type="search" name="userName" placeholder="用户名" x-webkit-speech="" lang="zh-CN">
+                            <input type="hidden" name="type" value="@ViewData["type"]" />
+                            @*<select name="adminLogType" id="moreselAge" multiple="multiple">*@
+                            @* <select name="adminLogType" id="moreselAge">
+        <option value="1" selected="selected">EP</option>
+       @if (Convert.ToInt32(ViewData["logType"]) == 1)
+            {
+                <option value="1" selected="selected">EP</option>
+
+            }
+
+            else if (Convert.ToInt32(ViewData["logType"]) == 3)
+            {
+                <option value="1" selected="selected">EP</option>
+                <option value="2">Zfc</option>
+            }
+            else if (Convert.ToInt32(ViewData["logType"]) == 4)
+            {
+                <option value="1" selected="selected">EP</option>
+            }
+            else
+            {
+
+                <option selected="selected">无</option>
+            }
+
+    </select>*@
+                            <button>查询</button>
+
+                        }
+
+                    </div>
+                    <div class="ibox-content" id="updatetargetId">
+                        @{
+                            //if (Convert.ToInt32(ViewData["logtype"]) == 3)
+                            //{ Html.RenderPartial("_LogInfoStatic", Model); }
+                            //else { Html.RenderPartial("_LogInfo", Model); }
+                            Html.RenderPartial("_AdminStatusLogIndex", Model);
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <section>
+        <script src="@Url.Content("~/HTML/Management/js/jquery.unobtrusive-ajax.min.js")"></script>
+        @{Html.RegisterMvcPagerScriptResource();}
+    </section>
+
+

@@ -1,0 +1,29 @@
+﻿@model  DataModel.RequestModel.Page<DataModel.LiuViewModel.StatusViewModel>
+
+@if (Model.Data != null)
+{
+    foreach (var item in Model.Data)
+    {
+        string titleName = "静态";
+        string phone = item.UserName;
+        if (item.LogType == 2)
+        {
+            titleName = "推荐";
+            phone = item.ReUserName;
+        }
+        {
+            <tr>
+                <td width="10%">@item.StatusLogId</td>
+                <td width="0%"></td>
+
+                <td width="20%">@Common.Auxiliary.ConvertMobilePhone(phone)</td>
+                <td width="0%"></td>
+                <td width="10%">@item.LogCount</td>
+                <td width="0%"></td>
+                <td width="30%"><time>@item.CreateTime.ToString("yyyy/MM/dd HH:mm:ss")</time></td>
+                <td width="0%"></td>
+                <td width="20%">@titleName</td>
+            </tr>
+        }
+    }
+}

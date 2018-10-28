@@ -1,0 +1,77 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>api测试</h2>
+<h1>UserName</h1>
+<input type="text" value="" id=""/>
+<h1>count</h1>
+<input type="text" value="" id="" />
+<h1>plusType:1,2</h1>
+<input type="text" value="" id="" />
+<h1>ep</h1>
+<input type="text" value="" id="" />
+
+<br/><br /><br />
+<button  id="a">getUserEp</button>
+<button id="b">UpdateUserEp</button>
+<button id="c">PlusActivationCard</button>
+
+<script type="text/javascript">
+    $(function () {
+        $("#a").click(function () {
+            $.ajax({
+                type: "get",
+                //url: "http://api.sndsacc.com/api/userinfo/getuserep",
+                url: "http://api.sndsacc.net/api/userinfo/getuserep",
+                data: { username:'15910685563' },
+                success: function (data) {
+                    if (data.msg == 'ok')
+                    {
+                        alert("ok");
+                    } else
+                    {
+                        alert("no");
+                    }
+                    
+                }
+            });
+           
+        });
+        $("#b").click(function () {
+            $.ajax({
+                type: "get",
+                //url: "http://api.sndsacc.com/api/userinfo/getuserep",
+                url: "http://api.sndsacc.net/api/userinfo/UpdateUserEp?username=15910685563&ep=1000&plusType=1 ",
+                success: function (data) {
+                    if (data.msg == 'ok') {
+                        alert("ok");
+                    } else {
+                        alert("no");
+                    }
+
+                }
+            });
+        });
+        $("#c").click(function () {
+            $.ajax({
+                type: "get",
+                //url: "http://api.sndsacc.com/api/userinfo/getuserep",
+                url: "http://api.sndsacc.net/api/userinfo/PlusActivationCard",
+                contentType: "application/json",
+                dataType: "text",
+                data: { username: '15910685563',count:222 },
+                success: function (data) {
+                    if (data.msg == 'ok') {
+                        alert("ok");
+                    } else {
+                        alert("no");
+                    }
+
+                }
+            });
+        });
+    });
+
+</script>

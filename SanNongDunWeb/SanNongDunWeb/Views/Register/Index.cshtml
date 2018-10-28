@@ -1,0 +1,418 @@
+﻿@{
+    Layout = null;
+
+    DataModel.UserInfo userInfo = ViewBag.UserInfo;
+
+    DataModel.UserInfo userLeft = ViewBag.userLeft;
+    DataModel.UserInfo userRight = ViewBag.userRight;
+    DataModel.UserInfo userLeftTwo = ViewBag.userLeftTwo;
+    DataModel.UserInfo userLeftRightTwo = ViewBag.userLeftRightTwo;
+    DataModel.UserInfo userRightLeftTwo2 = ViewBag.userRightLeftTwo2;
+    DataModel.UserInfo userRightTwo2 = ViewBag.userRightTwo2;
+
+}
+
+<!DOCTYPE html>
+<!-- saved from url=(0044)http://www.dssfxt.com/Performance/PrizeIndex -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="@Common.Auxiliary.GetStaticUrl("Show/css/regist.css")" />
+
+    <title>注册</title>
+    <script type="text/javascript" charset="utf-8" src=@Common.Auxiliary.GetStaticUrl("Show/js/mui.js")></script>
+    <script type="text/javascript" charset="utf-8" src=@Common.Auxiliary.GetStaticUrl("Show/js/zepto.min.js")></script>
+    <script type="text/javascript" charset="utf-8" src=@Common.Auxiliary.GetStaticUrl("Show/js/jquery-1.8.3.js")></script>
+    <script type="text/javascript" charset="utf-8" src=@Common.Auxiliary.GetStaticUrl("Show/js/config.js")></script>
+    <script type="text/javascript" charset="utf-8" src=@Common.Auxiliary.GetStaticUrl("Show/js/jquery.validate.js")></script>
+    <script type="text/javascript" charset="utf-8" src=@Common.Auxiliary.GetStaticUrl("Show/js/common.js")></script>
+    <script type="text/javascript" charset="utf-8" src=@Common.Auxiliary.GetStaticUrl("Management/js/plugins/layer_mobile/layer.js")></script>
+</head>
+<body>
+    <header class="regist" >
+        <div class="header_regist">
+            <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"><span class="return" onclick=""><</span></a>
+            
+            <div class="search">
+                <input type="text" placeholder="输入手机号码搜索" id="selectInput" />
+                <img src=@Common.Auxiliary.GetStaticUrl("Show/images/search-ico.png") alt="" onclick="selectRegister()" class=" search_icon" />
+
+            </div>
+        </div>
+    </header>
+    <section>
+        <div class="regist_box">
+            <div class="regist_show">
+                <div class="show-top">
+                    <p class="show-title"></p>
+                    <p class="">@Common.Auxiliary.ConvertMobilePhone(userInfo.UserName)</p>
+                </div>
+                <div class="show-bottom">
+                    <div class="show_A">
+                        <p class="p1">左区</p>
+                        <p class="p2">@ViewBag.leftSum</p>
+                    </div>
+                    <div class="show_B">
+                        <p class="p1">右区</p>
+                        <p class="p2">@ViewBag.rightSum</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="regist_list">
+                @*<input type="hidden" value="1" class="lefttaem" />*@
+                @*左区*@
+                @{
+                    string str = "待注册";
+                    if (userLeft != null)
+                    {
+                        str = userLeft.UserName.ToString();
+                        //font-size: 4vw;字体大小自适应
+                        <a href="/Register/Index?userName=@str" class="regist_icon1_no1"><span style="color: rgb(0,0,255); font-size: 12px; ">@Common.Auxiliary.ConvertMobilePhone(str)</span>  </a>
+                    }
+                    else
+                    {
+                        <a href="/login/Register1?TeamParentId=@userInfo.LeftId&parentLoginName=@userInfo.UserName" class="regist_icon1_no1">待注册</a>
+                    }
+
+
+                }
+
+                @*右区*@
+                @{
+                    string str1 = "待注册";
+                    if (userRight != null)
+                    {
+                        str1 = userRight.UserName.ToString();
+                        <a href="/Register/Index?userName=@str1" class="regist_icon_no2"><span style="color: rgb(0,0,255); font-size: 12px; ">@Common.Auxiliary.ConvertMobilePhone(str1)</span> </a>
+                    }
+                    else if (userLeft != null)
+                    {
+                        <a href="/login/Register1?TeamParentId=@userInfo.RightId&parentLoginName=@userInfo.UserName" class="regist_icon_no2">待注册</a>
+                    }
+                    else
+                    {
+                        <a href="javascript:;" class="regist_icon1_no3">不可注册</a>
+                    }
+
+                }
+                @*<a href="javascript:;" class="regist_icon1_no1">待注册</a>
+        <a href="javascript:;" class="regist_icon_no2">待注册</a>*@
+            </div>
+        </div>
+        <div class="regist_center"></div>
+        <div class="regist_bottom">
+            <div class="regist_bottom_left"></div>
+            <div class="regist_bottom_right"></div>
+        </div>
+        <div class="regist_last">
+            @*<input type="hidden" value="1" class="lefttaem"/>*@
+            @*<a href="javascript:;" class="regist_icon1_no3">不可注册</a>
+                @*左区—左*@
+            @{
+                string str2 = "待注册";
+                if (userLeftTwo != null)
+                {
+                    str2 = userLeftTwo.UserName.ToString();
+                    <a href="/Register/Index?userName=@str2" class="regist_icon1_no3"><span style="color: rgb(0,0,255); font-size: 12px; ">@Common.Auxiliary.ConvertMobilePhone(str2)</span></a>
+
+                }
+                else if (userRight != null)
+                {
+                    <a href="/login/Register1?TeamParentId=@userLeft.LeftId&parentLoginName=@userLeft.UserName" class="regist_icon1_no3">待注册</a>
+
+                }
+                else
+                {
+                    <a href="javascript:;" class="regist_icon1_no3">不可注册</a>
+                }
+
+}
+            @*<a href="javascript:;" class="regist_icon1_no4">不可注册</a>*@
+            @*左区—右*@
+            @{
+                string str3 = "待注册";
+                if (userLeftRightTwo != null)
+                {
+                    str3 = userLeftRightTwo.UserName.ToString();
+                    <a href="/Register/Index?userName=@str3" class="regist_icon1_no4"><span style="color: rgb(0,0,255); font-size: 12px; ">@Common.Auxiliary.ConvertMobilePhone(str3)</span></a>
+
+                }
+                else if (userLeftTwo != null)
+                { <a href="/login/Register1?TeamParentId=@userLeft.RightId&parentLoginName=@userLeft.UserName" class="regist_icon1_no4">待注册</a>
+
+                }
+                else
+                {
+                    <a href="javascript:;" class="regist_icon1_no4">不可注册</a>
+                }
+
+
+}
+
+
+            @*<a href="javascript:;" class="regist_icon1_no5">不可注册</a>*@
+            @*右区—左*@
+            @{
+                string str4 = "待注册";
+                if (userRightLeftTwo2 != null)
+                {
+                    str4 = userRightLeftTwo2.UserName.ToString();
+                    <a href="/Register/Index?userName=@str4" class="regist_icon1_no5"><span style="color: rgb(0,0,255); font-size: 12px; ">@Common.Auxiliary.ConvertMobilePhone(str4)</span></a>
+
+
+                }
+                else if (userRight != null)
+                {
+                    <a href="/login/Register1?TeamParentId=@userRight.LeftId&parentLoginName=@userRight.UserName" class="regist_icon1_no5">待注册</a>
+
+                }
+                else
+                {
+                    <a href="javascript:;" class="regist_icon1_no5">不可注册</a>
+                }
+
+
+}
+            @*<a href="javascript:;" class="regist_icon1_no6">不可注册</a>*@
+
+            @*右区—右*@
+            @{
+                string str5 = "待注册";
+                if (userRightTwo2 != null)
+                {
+                    str5 = userRightTwo2.UserName.ToString();
+                    <a href="/Register/Index?userName=@str5" class="regist_icon1_no6"><span style="color: rgb(0,0,255); font-size: 12px; ">@Common.Auxiliary.ConvertMobilePhone(str5)</span></a>
+
+                }
+                else if (userRightLeftTwo2 != null)
+                {
+                    <a href="/login/Register1?TeamParentId=@userRight.RightId&parentLoginName=@userRight.UserName" class="regist_icon1_no6">待注册</a>
+                }
+                else
+                {
+                    <a href="javascript:;" class="regist_icon1_no6">不可注册</a>
+                }
+
+}
+        </div>
+    </section>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+
+    });
+    function selectRegister() {
+
+        var userName = $("#selectInput").val();
+        //alert(userName);
+        window.location.href = gpath.show_path + "Register/Index?userName=" + userName;
+    }
+</script>
+
+
+
+
+
+@*@{
+        Layout = null;
+
+        DataModel.UserInfo userInfo = ViewBag.UserInfo;
+
+        DataModel.UserInfo userLeft = ViewBag.userLeft;
+        DataModel.UserInfo userRight = ViewBag.userRight;
+        DataModel.UserInfo userLeftTwo = ViewBag.userLeftTwo;
+        DataModel.UserInfo userLeftRightTwo = ViewBag.userLeftRightTwo;
+        DataModel.UserInfo userRightLeftTwo2 = ViewBag.userRightLeftTwo2;
+        DataModel.UserInfo userRightTwo2 = ViewBag.userRightTwo2;
+
+    }
+
+    <!DOCTYPE html>
+
+    <html>
+    <head>
+        <script type="text/javascript" charset="utf-8" src=@Common.Auxiliary.GetStaticUrl("Show/js/jquery-1.8.3.js")></script>
+        <script type="text/javascript" charset="utf-8" src=@Common.Auxiliary.GetStaticUrl("Show/js/config.js")></script>
+        <meta name="viewport" content="width=device-width" />
+        <title>LoginShow</title>
+    </head>
+    <body>
+        <div>
+            <input type="text" value="" id="selectInput"/>
+            <button id="subRegister" onclick="selectRegister()">查询</button>
+
+        </div>
+        <div>
+
+            <table>
+                <tr>
+                    <td>@userInfo.UserName</td>
+                </tr>
+            </table>
+
+
+            <table>
+                <tr>
+                    <td>
+                        左区
+                        @{
+                            string str = "待注册";
+                            if (userLeft != null)
+                            {
+                                str = userLeft.UserName.ToString();
+                                <a href="/Register/Index?userName=@str"> @str </a>
+                            }
+                            else
+                            {
+                                <a href="/login/Register1?TeamParentId=@userInfo.LeftId&parentLoginName=@userInfo.UserName">待注册</a>
+                            }
+
+                        }
+
+                    </td>
+                    <td>
+                        右区
+                        @{
+                            string str1 = "待注册";
+                            if (userRight != null)
+                            {
+                                str1 = userRight.UserName.ToString();
+                                <a href="/Register/Index?userName=@str1">@str1</a>
+                            }
+                            else
+                            {
+                                <a href="/login/Register1?TeamParentId=@userInfo.RightId&parentLoginName=@userInfo.UserName">待注册</a>
+                            }
+
+                        }
+
+                    </td>
+                </tr>
+
+
+
+            </table>
+            <table>
+                <tr>
+                    <td>
+                        左区—左
+                        @{
+                            string str2 = "待注册";
+                            if (userLeftTwo != null)
+                            {
+                                str2 = userLeftTwo.UserName.ToString();
+                                <a href="/Register/Index?userName=@str2">@str2</a>
+
+                            }
+                            else if (userLeft != null)
+                            {
+                                <a href="/login/Register1?TeamParentId=@userLeft.LeftId&parentLoginName=@userLeft.UserName">待注册</a>
+
+                            }
+                            else
+                            {
+                                @("不可注册")
+                            }
+
+                        }
+
+
+
+                    </td>
+
+                    <td>
+                        左区—右
+                        @{
+                            string str3 = "待注册";
+                            if (userLeftRightTwo != null)
+                            {
+                                str3 = userLeftRightTwo.UserName.ToString();
+                                <a href="/Register/Index?userName=@str3">@str3</a>
+
+                            }
+                            else if (userLeft != null)
+                            { <a href="/login/Register1?TeamParentId=@userLeft.RightId&parentLoginName=@userLeft.UserName">待注册</a>
+
+                            }
+                            else
+                            {
+                                @("不可注册")
+                            }
+
+
+                        }
+
+                    </td>
+
+                    <td>
+                        右区—左
+                        @{
+                            string str4 = "待注册";
+                            if (userRightLeftTwo2 != null)
+                            {
+                                str4 = userRightLeftTwo2.UserName.ToString();
+                                   <a href="/Register/Index?userName=@str4">@str4</a>
+
+
+                            }
+                            else if (userRight != null)
+                            {
+                                <a href="/login/Register1?TeamParentId=@userRight.LeftId&parentLoginName=@userRight.UserName">待注册</a>
+
+                            }
+                            else
+                            {
+                                @("不可注册")
+                            }
+
+
+                        }
+
+
+                    </td>
+
+                    <td>
+                        右区—右
+                        @{
+                            string str5 = "待注册";
+                            if (userRightTwo2 != null)
+                            {
+                                str5 = userRightTwo2.UserName.ToString();
+                                   <a href="/Register/Index?userName=@str5">@str5</a>
+
+                            }
+                            else if (userRight != null)
+                            {
+                                <a href="/login/Register1?TeamParentId=@userRight.RightId&parentLoginName=@userRight.UserName">待注册</a>
+                            }
+                            else
+                            {
+                                @("不可注册")
+                            }
+
+                        }
+
+
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+    </body>
+    </html>
+    <script type="text/javascript">
+        $(function () {
+
+        });
+        function selectRegister()
+        {
+
+            var userName = $("#selectInput").val();
+            //alert(userName);
+            window.location.href = gpath.show_path + "Register/Index?userName="+userName;
+        }
+    </script>*@

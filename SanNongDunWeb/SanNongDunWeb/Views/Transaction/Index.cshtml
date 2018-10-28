@@ -1,0 +1,192 @@
+﻿@{
+
+    ViewBag.HeaderTitle = "交易资产";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model DataModel.RequestModel.Page<DataModel.ViewModel.OrderViewModel>
+
+<link rel="stylesheet" type="text/css" href=@Common.Auxiliary.GetStaticUrl("Show/css/exchange.css") />
+
+<article class="wine_exMains">
+    <input type="hidden" value="1" id="pageIndex" />
+    <input type="hidden" value="@Model.PageYe" id="pageYe" />
+    <input type="hidden" value="@Model.PageSize" id="pageSize" />
+    <input type="hidden" id="type" value="@ViewBag.Type" />
+    <input type="hidden" id="isMoney"   value="@ViewBag.IsMoney" />
+    <input type="hidden"  id="orderId" value="" />
+    <input type="hidden" id="saleUserId" value="" />
+    <input type="hidden" id="zfcPrice" value="@ViewBag.ZfcPrice" />
+    <dl>
+       
+        <dd class="wine_exlist3" style="padding-left: 2%; width: 50%">
+            <input type="button" id="btnMyOrder" style="width: 100%" value="我的订单" class="wine_sub">
+         
+        </dd>
+        <dd class="wine_exlist3" style="padding-left: 2%; width: 50%">
+            <input type="button" id="btnSale" style="width: 100%" value="发起挂卖" class="wine_sub">
+        </dd>
+      
+    </dl>
+
+
+
+    <dl style="width:100%">
+
+        <dd class="wine_exlist3" style="padding-left: 2%; width: 30%">
+            <input type="button" id="btnEpMoney" style="width:100%" value="EP现金专区" class="wine_sub">
+        </dd>
+        <dd class="wine_exlist3" style="padding-left: 2%; width: 20%">
+            <input type="button" id="btnZfcMoney" style="width:165%;" value="ZFC现金专区" class="wine_sub">
+        </dd>
+        <dd class="wine_exlist3" style="padding-left: 13%; width: 50%">
+            <input type="button" id="btnEpZfc" style="width:90%;" value="EP-ZFC专区" class="wine_sub">
+        </dd>
+    </dl>
+    <table border="0" cellspacing="0" cellpadding="0" id="historyGetdata">
+        <thead>
+            <tr>
+                <th width="20%">发起人</th>
+
+
+                <th width="25%">挂卖时间</th>
+
+                <th width="15%">数量</th>
+
+                <th width="15%">单价</th>
+
+                <th width="15%">总价</th>
+
+                <th width="10%">操作</th>
+            </tr>
+        </thead>
+        <tbody id="wineQueueList">
+            @{
+                //ViewDataDictionary viewData = new ViewDataDictionary();
+                //viewData.Add("list", Model.List);
+                if (Model.Data != null)
+                {
+                    Html.RenderPartial("_Index", Model);
+                }
+            }
+        </tbody>
+    </table>
+    <!--提示框-->
+    <div class="window" id="center" style="height:200px;">
+        <div class="content">
+          
+            <span>请输入支付密码</span>
+            <input type="password" id="payPwd" value="" />
+        </div>
+        <div class="">
+            <button id="btn_ok" class="wine_mtBtn">确认</button>
+        </div>
+    </div>
+</article>
+
+<script type="text/javascript">
+
+    function showMsg(msg) {
+        layer.open({
+            content: msg,
+            btn: '我知道了',
+            shadeClose: false,
+            yes: function () {
+                window.location.reload();
+            }
+        });
+    }
+    $(function () {
+        //string payPwd,string zfcPrice string payPwd,int type, int Qty, decimal TotalPrice, int IsMoney=1
+        $("#btnSale").click(function () {
+            var zfcPrice = $("#zfcPrice").val();
+            location.href = gpath.show_path + "transaction/launchsale?zfcPrice="+zfcPrice;
+        });
+
+        $("#btnMyOrder").click(function () {
+
+            location.href = gpath.show_path + "transaction/myorders";
+
+        });
+
+        $("#btnBuy").live("click", function () {
+
+            $("#orderId").val($(this).attr("orderId"));
+            $("#saleUserId").val($(this).attr("saleruserid"));
+            $("#center").show();
+
+        })
+
+        $("#btn_ok").click(function () {
+            var orderId = $("#orderId").val();
+            var saleUserId = $("#saleUserId").val();
+            var PayPwd = $("#payPwd").val();
+            var type = $("#type").val();
+            var isMoney = $("#isMoney").val();
+            if (payPwd==undefined||payPwd=="") {
+
+                showMsg("支付密码不能为空");
+            }
+            $.post(gpath.show_path + "transaction/buy", { orderId: orderId, saleUserId: saleUserId, PayPwd: PayPwd, type: type, isMoeny: isMoney }, function (data) {
+
+                showMsg(data.msg);
+            });
+
+
+        });
+
+        $("[name=a_back]").click(function () {
+
+            location.href = gpath.show_path + "home/index";
+
+        });
+        $("#btnEpMoney").click(function () {
+
+            location.href = gpath.show_path + "transaction/index";
+
+        });
+
+        $("#btnZfcMoney").click(function () {
+            location.href = gpath.show_path + "transaction/index?type=2";
+        });
+
+        $("#btnEpZfc").click(function () {
+
+            location.href = gpath.show_path + "transaction/index?type=1&IsMoney=0";
+        });
+
+
+        var windowTop = 0;//初始话可视区域距离页面顶端的距离
+        $(window).scroll(function () {
+            var scrolls = $(this).scrollTop();//获取当前可视区域距离页面顶端的距离
+            if (scrolls >= windowTop) {//当B>A时，表示页面在向下滑动
+                windowTop = scrolls;
+                windowTop = windowTop + 400;
+
+                var isMoney = $("#isMoney").val();
+                var type = $("#type").val();
+                var pageYe = $("#pageYe").val();
+                var pageIndex = $("#pageIndex").val();
+                pageIndex++;
+                var pageSize = $("#pageSize").val();
+                if (pageYe >= pageIndex) {
+                    $.ajax({
+                        type: "post",
+                        url: gpath.show_path + "transaction/index",
+                        data: { pageIndex: pageIndex, type: type ,isMoney:isMoney},
+                        success: function (data) {
+                            $("#historyGetdata").append(data);
+                            var index = $("#pageIndex").val();
+                            index++;
+                            $("#pageIndex").val(index);
+                        }
+                    });
+                }
+
+            } else {//当B
+                //需要执行的操作
+                //windowTop=scrolls;
+            }
+        });
+    })
+
+</script>

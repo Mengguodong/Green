@@ -1,0 +1,5 @@
+C:\Users\Administrator\Desktop\sndsacc\UpdateLoginStatusService\obj\Debug\UpdateLoginStatusService.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\sndsacc\UpdateLoginStatusService\obj\Debug\UpdateLoginStatusService.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\liujie\UpdateLoginStatusService\obj\Debug\UpdateLoginStatusService.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\liujie\UpdateLoginStatusService\obj\Debug\UpdateLoginStatusService.csproj.CoreCompileInputs.cache
+C:\Users\sj\Desktop\Desktop\liujie\liujie\UpdateLoginStatusService\obj\Debug\UpdateLoginStatusService.csprojResolveAssemblyReference.cache

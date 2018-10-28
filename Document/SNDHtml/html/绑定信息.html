@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<!-- saved from url=(0039)http://www.dssfxt.com/user/bindingindex -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <title>绑定信息</title>
+    <link rel="stylesheet" type="text/css" href="../css/mui.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../css/account.css">
+    <link rel="stylesheet" type="text/css" href="../css/validate.css">
+    <link href="../css/layer.css" type="text/css" rel="styleSheet" id="layermcss">
+    <link rel="stylesheet" type="text/css" href="./绑定信息_files/exchange.css">
+    <script type="text/javascript" charset="utf-8">
+        mui.init();
+    </script>
+</head>
+<body class="mui-android mui-android-6 mui-android-6-0">
+    <header id="header" class="mui-bar mui-bar-nav">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #fff; "></a>
+        <h1 class="mui-title">绑定信息</h1>
+        <a style="font-size: 16px; padding-top: 13px; padding-right: 10px; color: #fff; " class="mui-pull-right" href="http://www.dssfxt.com/home/loginout">退出</a>
+    </header>
+    <section style="margin-top:44px;">
+        <article class="wine_indexMain">
+            <ul class="wine_show">
+        <li style="width:33%;">
+            <figure style="margin:0;">
+                <img src="../images/index3.png">
+                <figcaption>酒糟:<span id="LeesCount">0+(0)个</span></figcaption>
+            </figure>
+
+        </li>
+        <li style="width:33%;">
+            <figure style="margin:0;">
+                <img src="../images/index2.png">
+                <figcaption>酒豆:<span id="WineCoin">2226.6个</span></figcaption>
+            </figure>
+        </li>
+        <li style="width:33%;">
+            <figure style="margin:0;">
+                <img src="../images/index1.png">
+                <figcaption>成酒:<span id="FinishedWineRealNum">0升</span></figcaption>
+            </figure>
+        </li>
+        <li style="width:33%;">
+            <figure style="margin:0;">
+                <img src="../images/index4.png">
+                <figcaption>酒窖:<span id="WineCellar">1+(0)个</span></figcaption>
+            </figure>
+        </li>
+        <li style="width:33%;">
+            <figure style="margin:0;">
+                <img src="../images/integral2.png">
+                <figcaption>积分:<span id="Score">0</span></figcaption>
+            </figure>
+        </li>
+        <li style="width:33%;">
+            <figure style="margin:0;">
+                <img src="../images/money.png">
+                <figcaption>佣金:<span id="kilo">0</span></figcaption>
+            </figure>
+        </li>
+        <!--<li style="width:33%;">-->
+            <!--<a>酒窖剩余次数:<span id="WCRemainder">10次</span></a>-->
+        <!--</li>-->
+        
+        <!--<li style="width:100%;margin-top:-10px;">-->
+            <!--<figure style="margin-left:0px;" id="starImage">-->
+            <!--</figure>-->
+            <!--<button id="dianliang" style="float:inherit; margin-left: 50px; background: #E66F2F; color: #fff; border: 1px solid #E66F2F; display:none">点亮星星</button>-->
+            <!--<button id="niangzao" style="float: right;margin-right:10px;background:#E66F2F;color: #fff;border: 1px solid #E66F2F;">开始酿造</button>-->
+        <!--</li>-->
+
+    </ul>
+            <input type="hidden" id="StarLevel" value="3">
+    </article>
+        <article class="wine_changeList">
+            <form id="formBinding" novalidate="novalidate">
+            <ul class="ban">
+                <li><span>用户账号：</span><input type="text" readonly="readonly" value="15022109823"></li>
+                <li><span>实名认证：</span><input type="text" name="RealName" value="孟国栋" id="realname_no"><span></span></li>
+                <li><span>身份证号：</span><input type="text" name="IDCard" value="370828199003252137" id="idcard_no" readonly="readonly"><span></span></li>
+                <li><span>银行卡号：</span><input type="text" name="BankCardNo" value="111111111111111111111"><span></span></li>
+                <li class="bank">
+                    <span>开户银行：</span>
+                    <select name="BankName" bankname="中国工商银行" class="valid">
+                        <option value="0">请选择开户银行</option>
+                        <option value="value" selected="selected">中国工商银行</option>
+                        <option value="value">中国建设银行</option>
+                        <option value="value">中国农业银行</option>
+                        <option value="value">中国银行</option>
+                        <option value="value">中国邮政储蓄银行</option>
+                        <option value="value">交通银行</option>
+                        <option value="value">招商银行</option>
+                        <option value="value">中国民生银行</option>
+                        <option value="value">中国光大银行</option>
+                        <option value="value">华夏银行</option>
+                        <option value="value">北京银行</option>
+                    </select>
+                    <i class="down"></i>
+                     <!--<span for="BankName" generated="true" class="error"><i class="yes"></i></span></li>-->
+                <li>
+                    <span>收货地址：</span>
+                    <input type="text" name="DeliveryAddress" value="北京">
+                    <span></span>
+                </li>
+                <!--<li class="formal"><span style="color:red">*以上信息务必正确填写,以确保提现及时到账*</span></li>-->
+                <!--<li style="text-align: center;padding: 10% 0 30% 0;"><input type="submit" id="btn_binding" class="wine_changeBtn" value="确认修改"></li>-->
+            </ul>
+        </form>
+    <!--成功提示框-->
+             <div class="window" id="center">
+                <div class="content">
+            <img src="http://www.dssfxt.com/user/bindingindex">
+            <span></span>
+        </div>
+                <div class="">
+            <button id="btn_ok" class="wine_mtBtn">确认</button>
+        </div>
+            </div>
+         </article>
+        <div class="formal">
+            <span style="color:red">*以上信息务必正确填写,以确保提现及时到账*</span>
+        </div>
+        <div class="ban_btn">
+            <input type="submit" id="btn_binding" class="wine_changeBtn" value="确认修改">
+        </div>
+    </section>
+    <script type="text/javascript" charset="utf-8" src="../js/mui.js.下载"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/zepto.min.js.下载"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/jquery-1.8.3.js.下载"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/config.js.下载"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/jquery.validate.js.下载"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/common.js.下载"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/layer.js.下载"></script>
+    <script type="text/javascript">
+        $(function () {
+            $.post(gpath.show_path + "home/getcustomerenity", function (data) {
+                if (data) {
+                    $("#LeesCount").text(data.LeesCount + "+(" + data.FreezeLees + ")个");
+                    $("#WineCoin").text(data.WineCoin + "个");
+                    $("#FinishedWineRealNum").text(data.FinishedWineRealNum + "升");
+                    //$("#FinishedWineRealNum").text(data.FinishedWineTotal );
+                    $("#WineCellar").text(data.WineCellar + "+(" + data.FreezeWineCellar + ")个");
+                    $("#Score").text(data.Score);
+                    $("#WCRemainder").text(data.WCRemainder + "次");
+                    $("#StarLevel").val(data.StarLevel);
+                    if (data.IsReturn == 0) {
+                        return;
+                    }
+                    else if (data.IsReturn == 1) {
+                        showStarLevel(data.StarLevel);
+                        if ($("#StarLevel").val() != 3) {
+                            $("#dianliang").attr("style", "float:inherit; margin-left: 50px; background: #E66F2F; color: #fff; border: 1px solid #E66F2F; display:block");
+                        }
+                    }
+                }
+            });
+
+            function showStarLevel(level) {
+                var html = "";
+                switch (level) {
+                    case 0:
+                        html = '<img src=http://statices.dssfxt.com/Show/images/0x.png?v=5.0.0.0 style="width: 40%; height: auto; margin-top: -8px;" />';
+                        break;
+                    case 1:
+                        html = '<img src=http://statices.dssfxt.com/Show/images/1x.png?v=5.0.0.0 style="width: 40%; height: auto; margin-top: -8px;" />';
+                        break;
+                    case 2:
+                        html = '<img src=http://statices.dssfxt.com/Show/images/2x.png?v=5.0.0.0 style="width: 40%; height: auto; margin-top: -8px;" />';
+                        break;
+                    case 3:
+                        html = '<img src=http://statices.dssfxt.com/Show/images/3x.png?v=5.0.0.0 style="width: 40%; height: auto; margin-top: -8px;" />';
+                        break;
+
+                }
+                $("#starImage").append(html);
+            }
+
+
+            function showMsg(msg) {
+                layer.open({
+                    content: msg,
+                    btn: '我知道了',
+                    shadeClose: false,
+                    yes: function () {
+                        window.location.reload();
+                    }
+                });
+            }
+
+
+            $("#dianliang").click(function () {
+                if ($("#StarLevel").val() == 3) {
+                    showMsg("您目前无需点亮星星！");
+                    return;
+                }
+                $.post(gpath.show_path + "home/IllumeStarIndex", function (data) {
+                    layer.open({
+                        //title: [
+                        //   '提示',
+                        ////E66F2F
+                        //   'background-color:blue; color:#fff;'
+                        //],
+                        content: "您需要用" + data + "个酒豆点亮星星，是否点亮？"
+                        , btn: ['确定点亮', '取消']
+                        , yes: function (index) {
+                            layer.close(index);
+                            $.post(gpath.show_path + "home/IllumeStarAjax?spendCoin=" + data, function (data) {
+                                if (data.result) {
+                                    showMsg("点亮成功，继续加油哦！");
+                                } else {
+                                    showMsg(data.msg);
+                                }
+                            });
+                        }
+                    });
+
+                    //以下代码为PC版本的  layer弹窗
+                    //layer.confirm("您需要用" + data + "个酒豆点亮星星，是否点亮？", {
+                    //    btn: ['确定', '取消'] //按钮
+                    //}, function () {
+                    //    $.post(gpath.show_path + "home/IllumeStarAjax?spendCoin=" + data, function (data) {
+                    //        if (data.result) {
+                    //            layer.alert("点亮成功，继续加油哦！", {
+                    //                skin: 'layui-layer-molv'
+                    //              , closeBtn: 0
+                    //              , shift: 4 //动画类型
+                    //            });
+                    //        } else {
+                    //            layer.alert(data.msg, {
+                    //                skin: 'layui-layer-molv'
+                    //            , closeBtn: 0
+                    //            , shift: 4 //动画类型
+                    //            });
+                    //        }
+                    //    });
+                    //}, function () {
+                    //});
+                });
+            })
+            //$("#btn_ok").click(function () {
+            //    $.post(gpath.show_path + "home/IllumeStarAjax?spendCoin=" + $("#needWineCoin").val(), function (data) {
+            //        if (data.result) {
+            //            $("#center").find("img").attr("src", gpath.static_path + "Show/images/success.png");
+            //            $("#center").find("span").text("点亮成功，继续加油哦！");
+            //            //$("#center").find("span").attr("isOk", 0);
+            //            popCenterWindow();
+            //        } else {
+            //            //alert(data.msg);
+            //            $("#center").find("img").attr("src", gpath.static_path + "Show/images/error1.png");
+            //            $("#center").find("span").text(data.msg);
+            //            //$("#center").find("span").attr("isOk", 0);
+            //            popCenterWindow();
+            //        }
+            //    });
+            //})
+            $("#niangzao").click(function () {
+                var leesCount = parseInt($("#LeesCount").text());
+                var wineCellar = parseInt($("#WineCellar").text());
+                if (wineCellar == 0 || leesCount == 0) {
+                    if (wineCellar == 0 && leesCount > 0) {
+                        showMsg("酒窖不足,已停止酿造！");
+                        //酒窖剩余0
+                    }
+                    else if (wineCellar > 0 && leesCount == 0) {
+                        //酒糟剩余0
+                        showMsg("酒糟不足,已停止酿造！");
+                    }
+                    else {
+                        showMsg("酒窖和酒糟不足,已停止酿造！");
+                        //酒糟和酒窖为0
+                    }
+                    $("#niangzao").text("停止酿造");
+                    $("#niangzao").attr("disabled", "disabled");
+                }
+                else {
+                    window.location.href = "/Niangzaoing/Index";
+                }
+            })
+        })
+    </script>
+    <script type="text/javascript">
+
+        //添加验证方法
+
+        //验证姓名
+        jQuery.validator.addMethod("IsName", function (value, element) {
+            return this.optional(element) || (/^[\u4E00-\u9FA5]{1,6}$/.test(value));
+        }, "<span class='no'>姓名必须为中文</span>");
+
+        //验证身份证号
+        jQuery.validator.addMethod("IsIDCard", function (value, element) {
+            return this.optional(element) || (/(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/.test(value))
+        }, "<span class='no'>请输入有效的身份证号</span>");
+        //验证是否选择银行
+        jQuery.validator.addMethod("IsBankName", function (value, element) {
+            return this.optional(element) || (value!=0)
+        }, "<span class='no'>请选择开户银行</span>");
+
+        //
+        //验证form表单的方法
+        function checkForm() {
+            $("#formBinding").validate({
+                rules: {
+                    RealName: {
+                        required: true,
+                        IsName: true
+                    },
+                    IDCard: {
+                        required: true,
+                        IsIDCard: true
+                    },
+                    BankCardNo: {
+                        required: true
+
+                    },
+                    BankName: {
+                        IsBankName: true,
+                    },
+                    DeliveryAddress: {
+                        required: false,
+                    }
+                },
+                messages: {
+
+                    RealName: {
+                        required: "<span class='er_noo ml15'>姓名不能为空。</span>",
+                        IsName: "<span class='er_noo ml15'>姓名必须为中文。</span>"
+                    },
+                    IDCard: {
+                        required: "<span class='er_noo ml15'>身份证号不能为空。</span>",
+                        IsIDCard: "<span class='er_noo ml15'>请输入有效的身份证号。</span>"
+                    },
+                    BankCardNo: {
+                        required: "<span class='er_noo ml15'>银行卡号不能为空。</span>"
+
+                    },
+                    BankName: {
+                        IsBankName: "<span class='er_noo ml15'>请选择开户银行。</span>",
+
+                    },
+
+
+                },
+
+                success: function (element) {
+                    element.parent().find("span").html("<i class='yes'></i>");
+                },
+                submitHandler: function (form) {
+                    $("[name=BankName] option:selected").val($("[name=BankName] option:selected").text());
+                    var formData = $("#formBinding").serialize();
+
+                    $.post(gpath.show_path + "user/bindinguserinfo", formData, function (data) {
+                        if (data.result == true) {
+
+                            $("#center").find("img").attr("src", gpath.static_path + "Show/images/success.png");
+                            $("#center").find("span").text("修改成功");
+                            $("#center").find("span").attr("isOk", 1);
+                            popCenterWindow();
+
+
+
+                        } else {
+                            $("#center").find("img").attr("src", gpath.static_path + "Show/images/error1.png");
+                            $("#center").find("span").text("修改失败");
+                            $("#center").find("span").attr("isOk", 0);
+                            popCenterWindow();
+                        }
+
+
+                    });
+                },
+                onkeyup: false,
+                errorElement: "span",
+                errorPlacement: function (error, element) {
+                    element.parent().find("span").remove();
+                    error.appendTo(element.parent());
+                }
+            });
+
+        }
+
+
+        $(function () {
+
+            //默认选中银行名称
+            var dataBankName = $("[name=BankName]").attr("bankName");
+            $("[name=BankName] option").each(function () {
+                if ($(this).text()==dataBankName) {
+                    $(this).attr("selected", "selected");
+                }
+
+            });
+            var realname = $("#realname_no").val();
+            if (realname != '')
+            {
+                // $("#realname_no").attr("readonly", "readonly");
+            }
+            var realname = $("#idcard_no").val();
+            if (realname != '') {
+                $("#idcard_no").attr("readonly", "readonly");
+            }
+
+
+            checkForm();
+            //修改成功跳转
+            $("#btn_ok").click(function () {
+                if ($("#center").find("span").attr("isOk") == 1) {
+                    window.location.href = gpath.show_path + "user/index";
+                }
+
+
+
+            });
+
+        });
+
+
+
+
+    </script>
+</body>
+</html>

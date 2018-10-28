@@ -12,20 +12,19 @@ namespace Common.Web
     {
         #region 私有成员
 
-        private LoginUserInfo _CurrentUser = null;
-
+        private SND_LoginUserInfo _CurrentUser = null;
 
         #endregion
 
         /// <summary>
         /// 当前登录用户
         /// </summary>
-        public LoginUserInfo CurrentUser
+        public SND_LoginUserInfo CurrentUser
         {
             get
             {
                 if (_CurrentUser == null)
-                    _CurrentUser = ViewData["_CurrentUser"] as LoginUserInfo;
+                    _CurrentUser = ViewData["_CurrentUser"] as SND_LoginUserInfo;
                 return _CurrentUser;
             }
         }

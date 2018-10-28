@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!-- saved from url=(0039)http://www.dssfxt.com/Performance/index -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <link href="../css/mui.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../css/exchange.css">
+    <title>购买记录</title>
+</head>
+<body class="mui-ios mui-ios-9 mui-ios-9-1">
+<header id="header" class="mui-bar mui-bar-nav wine_exHeader">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <h1 class="mui-title">购买记录</h1>
+</header>
+<article class="wine_earnMains" style="margin-top:45px;">
+    <input type="hidden" value="2" id="pageIndex">
+    <input type="hidden" id="hasData" value="1">
+    <table>
+        <tbody><tr>
+            <td width="50%" style="font-size:14px;">我的当前购买记录：</td>
+            <td width="50%" style="color: gray; font-size: 14px;">0.00</td>
+        </tr>
+    </tbody>
+    </table>
+    <table border="0" cellspacing="0" cellpadding="0" id="PerformanceRecord" style="margin-top:2px;">
+        <tbody><tr>
+            <th width="50%">时间</th>
+            <th width="50%">业绩</th>
+        </tr>
+        </tbody>
+        <span style="font-size:14px; padding-left: 5px">暂无购买记录！<span>
+        </span></span>
+    </table>
+</article>
+<script src="../js/jquery-1.8.3.js.下载"></script>
+<script src="../js/config.js.下载"></script>
+<script src="../js/mui.min.js.下载"></script>
+<script src="../js/zepto.min.js.下载"></script>
+<script type="text/javascript">
+    //加载数据
+    function loadData() {
+        var pageIndex = $("#pageIndex").val();
+        var hasdata = $("#hasData").val();
+        if (hasdata == 1) {
+            $.post("/Performance/GetPersonalPerformanceRecord", { pageIndex: pageIndex }, function (data) {
+                if (data == "\r\n") {
+                    var html = '<span style="font-size:16px;">暂无星级记录！<span/>'
+                    $("#PerformanceRecord").append(html);
+                } else {
+                    $("#PerformanceRecord").append(data);
+                    if (data.trim().length == 0) {
+                        $("#hasData").val(0);
+                    }
+                }
+            });
+        }
+        else {
+
+        }
+        $("#pageIndex").val(parseInt($("#pageIndex").val()) + 1);
+    }
+
+    //加载完成页面元素执行事件注册
+    $(function () {
+        loadData();
+        var windowTop = 0;//初始话可视区域距离页面顶端的距离
+        $(window).scroll(function () {
+            var scrolls = $(this).scrollTop();//获取当前可视区域距离页面顶端的距离
+            if (scrolls >= windowTop) {//当B>A时，表示页面在向下滑动
+                //需要执行的操作
+                windowTop = scrolls + 400;
+                //alert(windowTop);
+                loadData();
+
+            } else {//当B
+                //需要执行的操作
+                //windowTop=scrolls;
+            }
+        });
+    })
+
+</script>
+</body>
+</html>

@@ -1,0 +1,202 @@
+﻿@{
+
+    ViewBag.HeaderTitle = "我的订单";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model DataModel.RequestModel.Page<DataModel.OrderInfo>
+
+<link rel="stylesheet" type="text/css" href=@Common.Auxiliary.GetStaticUrl("Show/css/exchange.css") />
+
+<article class="wine_exMains">
+    <input type="hidden" value="1" id="pageIndex" />
+    <input type="hidden" value="@Model.PageYe" id="pageYe" />
+    <input type="hidden" value="@Model.PageSize" id="pageSize" />
+    <input type="hidden" id="type" value="@ViewBag.Type" />
+    <input type="hidden" id="orderId" value="" />
+   
+
+    <dl style="width:100%">
+
+        <dd class="wine_exlist3" style="padding-left: 2%; width: 50%">
+            <input type="button" id="btnBuy" style="width:100%" value="我买入的" class="wine_sub">
+        </dd>
+
+        <dd class="wine_exlist3" style="padding-left: 2%; width: 50%">
+            <input type="button" id="btnSale" style="width:100%;" value="我卖出的" class="wine_sub">
+        </dd>
+    </dl>
+    <table border="0" cellspacing="0" cellpadding="0" id="historyGetdata">
+        <thead>
+            @if (ViewBag.Type==1)
+            {
+                  <tr>
+                <th width="5%">序号</th>
+
+                <th width="20%">挂卖时间</th>
+
+                <th width="20%">订单更新时间</th>
+
+                <th width="10%">数量</th>
+
+                <th width="10%">总价</th>
+
+                <th width="10%">交易方式</th>
+
+                <th width="15%">状态</th>
+
+                <th width="10%">操作</th>
+            </tr>
+            }else
+            {
+                   <tr>
+                <th width="5%">序号</th>
+
+                <th width="20%">挂卖时间</th>
+
+                <th width="20%">订单更新时间</th>
+
+                <th width="10%">数量</th>
+
+                <th width="10%">总价</th>
+
+                <th width="10%">交易方式</th>
+
+
+                   <th width="5%">押金</th>
+
+                <th width="15%">状态</th>
+
+                <th width="10%">操作</th>
+            </tr> 
+            }
+          
+        </thead>
+        <tbody id="wineQueueList">
+            @{              
+                if (Model.Data != null)
+                {
+                    Html.RenderPartial("_MyOrders", Model);
+                }
+            }
+        </tbody>
+    </table>
+    <!--提示框-->
+    <div class="window" id="center" style="height:200px;">
+        <div class="content">
+
+            <span>请输入支付密码</span>
+            <input type="password" id="payPwd" value="" />
+        </div>
+        <div class="">
+            <button id="btn_ok" class="wine_mtBtn">确认</button>
+        </div>
+    </div>
+</article>
+
+<script type="text/javascript">
+
+    function showMsg(msg) {
+        layer.open({
+            content: msg,
+            btn: '我知道了',
+            shadeClose: false,
+            yes: function () {
+                window.location.reload();
+            }
+        });
+    }
+    $(function () {
+
+        $("[name=a_cancel]").live("click", function () {
+
+            var type = $(this).attr("ordertype");
+            var orderId = $(this).attr("orderid");
+            if (type==1) {
+                $.post(gpath.show_path +"transaction/cancelorderbuyer", {orderId:orderId}, function (data) {
+                    showMsg(data.msg);
+                });
+
+            } else {
+                $.post(gpath.show_path + "transaction/cancelordersaler", { orderId: orderId }, function (data) {
+                    showMsg(data.msg);
+
+                });
+            }
+
+        });
+        $("[name=a_sale]").live("click", function () {
+
+            var orderId = $(this).attr("orderid");
+            var type = $(this).attr("orderType");
+
+            $.post(gpath.show_path + "transaction/updateorderstatus", { orderId: orderId, type: type }, function (data) {
+                showMsg(data.msg);
+
+            });
+
+        });
+
+        $("[name=a_Pay]").live("click", function () {
+            var orderId = $(this).attr("orderid");
+
+            location.href = gpath.show_path +"transaction/pay?orderId="+orderId;
+        });
+
+        $("[name=a_orderDetail]").live("click", function () {
+            var orderId = $(this).attr("orderid");
+            location.href = gpath.show_path + "transaction/orderdetail?orderId=" + orderId;
+
+        });
+
+        $("[name=a_back]").click(function () {
+
+            location.href = gpath.show_path + "home/index";
+
+        });
+        $("#btnBuy").click(function () {
+
+            location.href = gpath.show_path + "transaction/myorders";
+
+        });
+
+        $("#btnSale").click(function () {
+            location.href = gpath.show_path + "transaction/myorders?type=2";
+        });
+
+
+
+        var windowTop = 0;//初始话可视区域距离页面顶端的距离
+        $(window).scroll(function () {
+            var scrolls = $(this).scrollTop();//获取当前可视区域距离页面顶端的距离
+            if (scrolls >= windowTop) {//当B>A时，表示页面在向下滑动
+                windowTop = scrolls;
+                windowTop = windowTop + 400;
+
+                var type = $("#type").val();
+                var pageYe = $("#pageYe").val();
+                var pageIndex = $("#pageIndex").val();
+                pageIndex++;
+                var pageSize = $("#pageSize").val();
+                if (pageYe >= pageIndex) {
+                    $.ajax({
+                        type: "post",
+                        url: gpath.show_path + "transaction/myorders",
+                        data: { pageIndex: pageIndex, type: type},
+                        success: function (data) {
+                            $("#historyGetdata").append(data);
+                            var index = $("#pageIndex").val();
+                            index++;
+                            $("#pageIndex").val(index);
+                        }
+                    });
+                }
+
+            } else {//当B
+                //需要执行的操作
+                //windowTop=scrolls;
+            }
+        });
+    })
+
+</script>

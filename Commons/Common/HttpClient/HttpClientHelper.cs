@@ -486,7 +486,7 @@ namespace Common
                 return result;
                 //}
             }
-            catch
+            catch(Exception ex)
             {
                 LogHelper.ErrorFormat("url:{0},Obj:{1}",url,JsonConvertTool.SerializeObject(obj));
                 return default(T);

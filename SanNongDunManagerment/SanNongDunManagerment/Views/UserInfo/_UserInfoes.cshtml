@@ -1,0 +1,232 @@
+﻿@using Webdiyer.WebControls.Mvc
+@model PagedList<DataModel.ViewModel.UserIndexModel>
+           
+<table class="table table-striped table-bordered table-hover dataTables-example">
+    <thead>
+        <tr>
+            @*LogId, LogType, UserId, Number, CreateTime, AdminLogType*@
+
+        <tr>
+            <th>序号</th>
+            <th>用户编号</th>
+            <th>用户名</th>
+            <th>真实姓名</th>
+            <th>创建时间</th>
+           
+            <th>绿氧</th>
+            <th>积分</th>
+            <th>总资产</th>
+            <th>静态总数</th>
+            <th>左区业绩</th>
+            <th>右区业绩</th>
+            @*<th>直推ID</th>*@
+            <th>团队ID</th>
+           
+            <th>是否激活</th>
+            <th>用户状态</th>
+            <th>账户信息</th>
+            @* <th>操作</th>*@
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Count > 0)
+        {
+            foreach (var item in Model)
+            {
+                int status=item.UserStatus==1?0:1;
+                <tr class="gradeX">
+                    <td>@item.num</td>
+                    <td>@item.UserId</td>
+                    <td>@item.UserName</td>
+                    <td>
+                        @item.RealName
+                    </td>
+                    <td>@item.CreateTime.ToString()</td>
+
+
+
+                  
+                    <td class="center">@item.GreenCount</td>
+                    <td class="center">@item.Sorce</td>
+                    <td class="center">@item.GreenTotal</td>
+                    <td class="center">@item.StaticsRelease</td>
+                    <td class="center">@item.LeftAchievement</td>
+                  
+
+                    <td class="center">@item.RightAchievement</td>
+                    @*<td class="center">@item.ParentId</td>*@
+              
+
+                    <td class="center">@item.TeamParentId</td>
+                   
+                    <td class="center">@(item.IsActivation == 1 ? "已激活" : "未激活")</td>
+                    @*<td class="center"><a href="@(Common.PubConstant.WineGameManagementUrl("UserInfo", "UpdateStatics") + "?userId=" + item.UserId + "&status=" + status)">@(item.UserStatus == 1 ? "冻结账户" : "解除冻结")</a></td>*@
+                    <td class="center"><a href="javascript:;"onclick="UpdateStatus('@item.UserId','@status')">@(item.UserStatus == 1 ? "冻结账户" : "解除冻结")</a></td>
+                    <td class="center"><a href="@(Common.PubConstant.WineGameManagementUrl("AccountInfo", "index") + "?userId=" + item.UserId)">修改信息</a></td>
+                  
+
+
+                </tr>
+            }
+
+        }
+        else
+        {
+            <tr>
+                <td colspan="7" align="center">暂无数据</td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+<div class="pagin" style="position: relative;right: 25%;">
+    @if (Model != null && Model.Count > 0)
+    {
+        <div class="pageBlock">
+
+            @Ajax.Pager(Model, new PagerOptions
+                   {
+                       CssClass = "pageWrap",
+                       PrevPageText = "上一页",
+                       NextPageText = "下一页",
+                       ShowFirstLast = false,
+                       PagerItemTemplate = "<div class='pageWrap'>{0}</div>",
+                       PageIndexParameterName = "pageIndex",
+                       NumericPagerItemCount = 6,
+                       ShowPrevNext = true,
+                       //   CurrentPageNumberFormatString = "<span class='now numBtn'>{0}</span>",
+                       CurrentPagerItemTemplate = " <div class='pageWrap'><span class='now numBtn'>{0}</span></div>"
+                   }, new MvcAjaxOptions { UpdateTargetId = "updatetargetId", HttpMethod = "Post", DataFormId = "searchForm", OnComplete = "javascript:scrollTo(0,0);" })
+
+        </div>
+    }
+
+    <script type="text/javascript">
+        $(function () {
+            //用户激活
+            $("[name=a_activate]").click(function () {
+                var userId = $(this).attr("userdata");
+                parent.layer.prompt({
+                    title: '请输入充值金额',
+                    formType: 0 //prompt风格，支持0-2
+                }, function (count) {
+
+                    $.post(gpath.management_path + "user/activateuser", { userId: userId, wineCoin: count }, function (data) {
+                        if (data.result == true) {
+
+                            layer.msg("激活成功", { icon: 1, time: 2000 });
+                            location.reload();
+                        } else {
+                            layer.msg(data.msg, { icon: 1 });
+                        }
+
+                    });
+                });
+
+
+            });
+            //用户充值
+            $("[name=a_rechargeCoin]").click(function () {
+                var userId = $(this).attr("userdata");
+                layer.prompt({
+                    title: '请输入充值金额',
+                    formType: 0 //prompt风格，支持0-2
+                }, function (count) {
+                    $.post(gpath.management_path + "user/coinexchange", { userId: userId, coin: count }, function (data) {
+                        if (data.result == true) {
+
+                            layer.msg("充值成功", { icon: 1, time: 2000 });
+                            location.reload();
+                        } else {
+                            layer.msg(data.msg, { icon: 1 });
+                        }
+
+                    });
+                })
+
+
+            });
+
+            //重置密码
+            $("[name=a_resetPwd]").click(function () {
+                var userId = $(this).attr("userdata");
+                layer.prompt({
+                    title: '请输入密码',
+                    formType: 1 //prompt风格，支持0-2
+                }, function (newPwd) {
+                    $.post(gpath.management_path + "user/resetpwd", { userId: userId, newPwd: newPwd }, function (data) {
+                        if (data.result == true) {
+                            layer.msg("重置密码成功", { icon: 1, time: 2000 });
+                            location.reload();
+                        } else {
+                            layer.msg(data.msg, { icon: 1 });
+                        }
+
+                    });
+                });
+
+
+            });
+
+
+            //免费激活
+            $("[name=a_donateActivateUser]").click(function () {
+                var userId = $(this).attr("userdata");
+                parent.layer.prompt({
+                    title: '请确定激活',
+                    formType: 0 //prompt风格，支持0-2
+                }, function (count) {
+
+                    $.post(gpath.management_path + "user/DonateActivateUser", { userId: userId }, function (data) {
+                        if (data.result == true) {
+
+                            layer.msg("激活成功", { icon: 1, time: 2000 });
+                            location.reload();
+                        } else {
+                            layer.msg(data.msg, { icon: 1 });
+                        }
+
+                    });
+                });
+            });
+
+
+            //赠送酒窖
+            $("[name=a_wineCellar]").click(function () {
+                var userId = $(this).attr("userdata");
+                parent.layer.prompt({
+                    title: '请确定赠送酒窖',
+                    formType: 0 //prompt风格，支持0-2
+                }, function (count) {
+
+                    $.post(gpath.management_path + "user/DonatWineCellar", { userId: userId, wineCellar: count }, function (data) {
+                        if (data.result == true) {
+
+                            layer.msg("赠送酒窖成功", { icon: 1, time: 2000 });
+                            location.reload();
+                        } else {
+                            layer.msg(data.msg, { icon: 1 });
+                        }
+
+                    });
+                });
+            });
+
+        });
+
+
+        function UpdateStatus(userId,status) {
+            //alert(userId + "===" + status);
+            $.post(gpath.management_path + "userinfo/UpdateStatus", { userId: userId, status: status }, function (data) {
+                if (data.result == true) {
+
+                    layer.msg("修改成功", { icon: 1, time: 2000 });
+                    location.reload();
+                } else {
+                    layer.msg(data.msg, { icon: 1 });
+                }
+
+            });
+        }
+
+    </script>

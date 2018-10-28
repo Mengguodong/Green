@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)http://www.dssfxt.com/Team/index -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <title>直推业绩</title>
+    <link href="../css/mui.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../css/exchange.css">
+    <script src="../js/jquery-1.8.3.js.下载"></script>
+    <script src="../js/config.js.下载"></script>
+    <style type="text/css">
+        .wine_blankMains img{
+            display: inline-block;
+            width: 70%;
+            margin-top: 20%;
+            margin-left: 15%;
+        }
+        .wine_blankMains span{
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            font-size: 1.8rem;
+            margin-top: 17%;
+            color:#999999;
+        }
+    </style>
+</head>
+<body>
+    <header id="header" class="mui-bar mui-bar-nav wine_exHeader" onclick="RedirectUrl();">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title">直推业绩</h1>
+    </header>
+    <input type="hidden" value="6590" id="userIdHidd">
+    <input type="hidden" value="1" id="redirectValue">
+    <section>
+        <article class="wine_membersMains">
+            <div id="partialViewDiv">
+                <ul id="partialViewUl">
+                    <input type="hidden" value="1" id="pageIndex">
+                    <input type="hidden" value="1" id="pageYe">
+                    <input type="hidden" value="10" id="pageSize">
+                     <li class="wine_result">
+                         <div class="wine_membersList1 memberFirst First">
+                             <figure style="margin:0;">
+                                <img src="../images/2.png">
+                                <figcaption>级别:
+                                 <span>酒坊主</span>
+                                </figcaption>
+                            </figure>
+                        </div>
+                         <div class="wine_membersList2 membersList memberSecend">
+                            <span class="fw">用户ID：<i>177****3466</i></span>
+                             <span>关注时间：<time>2017/7/16 4:24:50</time></span>
+                        </div>
+                         <div class="wine_membersList3 memberThird">
+                            <span>0</span>
+                        </div>
+                     </li>
+                </ul>
+            </div>
+        </article>
+        <article class="wine_blankMains">
+            <img src="../images/recommend.png">
+            <span>您还没有推荐用户买酒,快去推荐吧</span>
+        </article>
+    </section>
+    <script>
+
+        ////加载完成页面元素执行事件注册
+        //$(function () {
+        //    loadData();
+        //    var windowTop = 0;//初始话可视区域距离页面顶端的距离
+        //    $(window).scroll(function () {
+        //        var scrolls = $(this).scrollTop();//获取当前可视区域距离页面顶端的距离
+        //        if (scrolls >= windowTop) {//当B>A时，表示页面在向下滑动
+        //            //需要执行的操作
+        //            windowTop = scrolls;
+        //            //alert(windowTop);
+        //            loadData();
+
+        //        } else {//当B
+        //            //需要执行的操作
+        //            //windowTop=scrolls;
+        //        }
+        //    });
+
+        //加载数据
+        //加载完成页面元素执行事件注册
+        $(function () {
+            var windowTop = 300;//初始话可视区域距离页面顶端的距离
+            $(window).scroll(function () {
+                var scrolls = $(this).scrollTop();//获取当前可视区域距离页面顶端的距离
+                if (scrolls >= windowTop) {//当B>A时，表示页面在向下滑动
+                    windowTop = scrolls;
+                    windowTop = windowTop + 1000;
+
+                    var pageYe = $("#pageYe").val();
+                    var pageIndex = $("#pageIndex").val();
+                    pageIndex++;
+                    var pageSize = $("#pageSize").val();
+                    var userId = $("#userIdHidd").val();
+                    if (pageYe >= pageIndex ) {
+                        $.ajax({
+                            type: "post",
+                            url: gpath.show_path + "Team/index",
+                            data: { userId: userId, pageIndex: pageIndex },
+                            success: function (data) {
+                                $("#partialViewUl").children('input').remove();
+                                $("#partialViewUl").append(data);
+                            }
+                        });
+                    }
+
+
+
+                } else {//当B
+                    //需要执行的操作
+                    //windowTop=scrolls;
+                }
+            });
+        });
+        function getTeamList(userId) {
+
+            $.ajax({
+                type: "post",
+                url: gpath.show_path + "Team/index",
+                data:{userId:userId},
+                success: function (data) {
+                    //alert(result);
+                    //if (result==0) {
+                    //    var url = "http://static.demowine.net/Show/html/wineQueueRule.html";
+                    //    window.location.href = url;
+                    //} else
+                    //{
+                    $("#partialViewUl").children('input').remove();
+                    $("#partialViewUl").children('li').remove();
+                    $("#partialViewUl").append(data);
+                    $("#userIdHidd").val(userId);
+                    //}
+                }
+            });
+
+        }
+        function RedirectUrl()
+        {
+            location.href = gpath.show_path + "home/index";
+        }
+    </script>
+ </body>
+</html>

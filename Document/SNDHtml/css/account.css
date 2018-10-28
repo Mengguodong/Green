@@ -1,0 +1,149 @@
+﻿@charset "utf-8";
+/*登录*/
+.login_bg{
+	background: url(../images/loading_bj.png) no-repeat;
+	background-size: 100% 100%;
+}
+.wine_loginHeader{
+	width:30%;
+	/*height: 31%;*/
+	margin: 0 auto;
+	padding: 20% 0;
+}
+.wine_range{
+	width: 100%;
+	background: #fff;
+	padding: 4% 10%;
+	border-radius: 12px;
+	box-sizing: border-box;
+}
+.wine_loginHeader img{
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+}
+.wine_loginForm input{
+	width: 80%;
+	margin-left: 10%;
+	border:none;
+	background: none;
+	border-bottom: 1px solid #fff;
+	padding: 4% 0;
+	padding-left:13%;
+	box-sizing: border-box;
+	color:#fff;
+}
+.wine_loginForm label{
+	position: relative;
+}
+.wine_loginForm label img{
+	display: inline-block;
+	width: 8%;
+	/*height: 30px;*/
+	margin-top: 10px;
+	position: absolute;
+	left: 14%;
+}
+.wine_loginForm .codeImg{
+    display:inline-block;
+    position:absolute;
+    top:-2px;
+    left:65%;
+    height:38px; 
+    width:25%;   
+}
+
+.wine_loginForm .wine_loginForget,.wine_loginReg{
+	display: block;
+	width: 80%;
+	margin-left: 10%;
+	text-align: right;
+	font-size:1.6rem;
+}
+.wine_loginForm .wine_loginSub{
+	margin-top: 20%;
+	margin-bottom:50%;
+	background:#e67233;
+	color:#fff;
+	font-size:1.8rem;
+	border-bottom: none;
+	padding:3.5% 0;
+	border-radius: 5px;
+	box-sizing: border-box;
+}
+/*注册*/
+.wine_regHeader{
+	width:20%;
+	height: 26%;
+	margin: 0 auto;
+	padding: 5% 0 5%;
+}
+.wine_regHeader img{
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+}
+.wine_regForm input{
+    margin-bottom:0;
+}
+.wine_regForm form label{
+    display:inline-block;
+    width:100%;
+   
+}
+.wine_regForm form label span{
+    display:inline-block;
+    width:100%;
+    height:20px;
+    line-height:20px;
+}
+.wine_regForm label img{
+	display: inline-block;
+	width: 7%;
+	height: 30px;
+	margin-top: 4px;
+	position: absolute;
+	left: 80%;
+}
+.wine_loginForm .wine_regCode{
+	width: 50%;
+    margin-bottom:5px;
+}
+.wine_loginForm .wine_regBtn{
+	width: 35%;
+	font-size:1.8rem;
+	color: #ccc;
+	margin-left: 4%;
+}
+.wine_loginForm .wine_regSub{
+	margin-top: 10%;
+	margin-bottom:2%
+}
+.wine_regLook{
+    display:block;float:right;position:absolute;left:60%;
+}
+/*苹果4*/
+@media all and (max-width:320px){
+	.wine_loginHeader{
+		height: 36%;
+	}
+    .wine_regLook{
+  position:absolute;left:50%;
+ }
+	.wine_regHeader{
+		height: 26%;
+		padding:5% 0 5%;
+	}
+}
+/*Nexus 5X*/
+@media all and (device-width:411px) and (device-height:731px){
+	.wine_loginHeader{
+		height: 36%;
+	}
+}
+/*苹果5*/
+@media all and (device-width:320px) and (device-height:568px){	
+	.wine_loginForm .wine_regBtn{
+		font-size: 1.8rem;
+	}
+}

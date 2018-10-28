@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)http://www.dssfxt.com/user/index -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="../css/mui.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../css/account.css">
+    <link rel="stylesheet" type="text/css" href="../css/validate.css">
+    <link rel="stylesheet" type="text/css" href="../css/exchange.css">
+    <title>用户中心</title>
+    <script type="text/javascript" charset="utf-8">
+        mui.init();
+    </script>
+</head>
+<body class="mui-android mui-android-6 mui-android-6-0">
+    <!--<header id="header" class="mui-bar mui-bar-nav">-->
+        <!--<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #fff; "></a>-->
+        <!--<h1 class="mui-title">用户中心</h1>-->
+        <!--<a style="font-size: 16px; padding-top: 13px; padding-right: 10px; color: #fff; " class="mui-pull-right" href="http://www.dssfxt.com/home/loginout">退出</a>-->
+    <!--</header>-->
+    <section style="margin-top:44px;">
+        <header id="header" class="mui-bar mui-bar-nav wine_exHeader">
+            <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+            <h1 class="mui-title">账户中心</h1>
+            <img src="../images/edit.png" alt="" class="center_edit">
+        </header>
+        <article class="wine_centerMain">
+            <img src="../images/center1.png">
+         </article>
+        <figure class="wine_centerFig" style="margin:0;">
+            <a href="javascript:;" class="center_user">
+                <img src="../images/center2.png">
+            </a>
+            <figcaption class="tel_info">150<span>****</span>9823</figcaption>
+        </figure>
+        <article class="wine_centerList">
+            <ul>
+            <li><span>实名认证：</span><i>孟国栋</i></li>
+            <li><span>身份证号：</span><i>370828199003252137</i></li>
+            <li><span>银行卡号：</span><i>111111111111111111111</i></li>
+            <li><span>开户银行：</span><i>中国工商银行</i></li>
+            <li><span>收货地址：</span><i>北京</i></li>
+            <!--<li style="padding: 3% 5% 29% 0;">-->
+            <!--<a href="http://www.dssfxt.com/user/bindingindex" style="color: #00f;">修改账户信息</a>-->
+        </li></ul>
+        </article>
+    </section>
+    <script type="text/javascript" charset="utf-8" src="../js/mui.js.下载"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/zepto.min.js.下载"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/jquery-1.8.3.js.下载"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/config.js.下载"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/jquery.validate.js.下载"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/common.js.下载"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/layer.js.下载"></script><link href="../css/layer.css" type="text/css" rel="styleSheet" id="layermcss">
+    <script type="text/javascript">
+        $(function () {
+            $("#btn_Ok").click(function () {
+                $.post(gpath.show_path + "user/createmylink", function (data) {
+
+                    if (data.result==true) {
+                        $("#MyLink").val(data.msg);
+                        $("#btn_Ok").attr("link", data.msg);
+                        alert(data.msg);
+                        alert("链接生成成功！赶快复制分享给小伙伴吧^_^");
+                    }
+                });
+
+            });
+
+
+        });
+    </script>
+</body>
+</html>

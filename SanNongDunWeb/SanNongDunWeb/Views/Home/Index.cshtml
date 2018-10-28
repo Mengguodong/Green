@@ -1,0 +1,151 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.HeaderTitle = ViewBag.HeaderTitle == null ? "首页" : ViewBag.HeaderTitle;
+    ViewBag.Date = DateTime.Now.ToString("D");
+    ViewBag.Total = ViewBag.Total == null ? 0 : ViewBag.Total;
+    ViewBag.IsOld = ViewBag.IsOld == null ? 0 : ViewBag.IsOld;
+}
+
+@section styles {
+    <link rel="stylesheet" type="text/css" href=@Common.Auxiliary.GetStaticUrl("Show/css/index.css") />
+}
+
+<article class="wine_indexMains">
+    <div class="wine_indexDeta">
+        <div class="indexMainTitle" id="divlevelName">@ViewBag.LevelName</div>
+        <div class="indexMainIcon">
+            <div class="mainsp">
+                <img src=@Common.Auxiliary.GetStaticUrl("Show/images/headimg/ep.png") class="center" />
+                <div class="center_title" style="font-size:1.2rem">
+                    <span class="bear">@*EP:*@</span>
+                    <span id="Ep"></span>
+                </div>
+            </div>
+            <div class="mainIcon2 mainIcon" style="font-size:1.2rem">
+                <img src=@Common.Auxiliary.GetStaticUrl("Show/images/headimg/card.png") />
+                <div>@*激活卡:*@</div>
+                <div id="ActivationCount"></div>
+            </div>
+            <div class="mainIcon3 mainIcon" style="font-size:1.2rem">
+                <img src=@Common.Auxiliary.GetStaticUrl("Show/images/bean.png") />
+                <div>@*ZFC:*@</div>
+                <div id="Zfc"></div>
+            </div>
+            <div class="mainIcon4 mainIcon" style="font-size:1.2rem">
+                <img src=@Common.Auxiliary.GetStaticUrl("Show/images/headimg/left.png") />
+                <div>
+                    左区业绩:
+                    <span id="LeftAchievement"></span>
+                </div>
+            </div>
+            <div class="mainIcon5 mainIcon" style="font-size:1.2rem">
+                <img src=@Common.Auxiliary.GetStaticUrl("Show/images/headimg/right.png") />
+                <div>
+                    右区业绩:
+                    <span id="RightAchievement"></span>
+                </div>
+            </div>
+            @*<div class="mainsp mainMoney" style="font-size:1.2rem">
+                <img src=@Common.Auxiliary.GetStaticUrl("Show/images/integral.png") class="center" />
+                <div class="center_title">
+                    <span class="bear">总资产:</span>
+                    <span id="TotalAssets"></span>
+                </div>
+            </div>*@
+           
+        </div>
+        <a>
+            <time style="font-size:1.6rem;">@ViewBag.Date</time>
+            <h4>总资产</h4>
+            <img src=@Common.Auxiliary.GetStaticUrl("Show/images/index13.png") class=" shoot">
+            <span style="font-size:2rem;">@ViewBag.Total </span>
+        </a>
+    </div>
+    <div class="show">
+        <div class="power">
+            @*<span class="show_power" style="font-size:1.6rem" onclick="gotohistory(@ViewBag.IsOld)">数据封存</span>*@
+            <span class="show_power" style="font-size:1.6rem" >复投<span id="TotalAssets"></span></span>
+        </div>
+        <ul>
+            <li>
+                <a class="wine_indexPic1" href="@Common.PubConstant.WineGameShowUrl("Record","StatusLogIndex")">
+                    <img src=@Common.Auxiliary.GetStaticUrl("Show/images/index5.png") />
+                    <span style="font-size:1.3rem">资产管理</span>
+                </a>
+            </li>
+            <li>
+                <a class="wine_indexPic2" href="@Common.PubConstant.WineGameShowUrl("Record", "HongBaoLogIndex")">
+                    <img src=@Common.Auxiliary.GetStaticUrl("Show/images/tuan.png") />
+                    <span style="font-size:1.3rem">红包</span>
+                </a>
+            </li>
+            <li style="border-right: 0;">
+                <a class="wine_indexPic3" href="@Common.PubConstant.WineGameShowUrl("Record", "ScoreLogIndex")">
+                    <img src=@Common.Auxiliary.GetStaticUrl("Show/images/index7.png") />
+                    <span style="font-size:1.3rem">积分</span>
+                </a>
+            </li>
+            <li>
+                <a class="wine_indexPic5" href="@Common.PubConstant.WineGameShowUrl("Register", "index")">
+                    <img src=@Common.Auxiliary.GetStaticUrl("Show/images/index8.png") />
+                    <span style="font-size:1.3rem">注册</span>
+                </a>
+            </li>
+            <li>
+              
+              
+                <a class="wine_indexPic6" href="@Common.PubConstant.ShopPath">
+                    <img src=@Common.Auxiliary.GetStaticUrl("Show/images/zhi.png") />
+                    <span style="font-size:1.3rem">商城</span>
+                </a>
+            </li>
+            <li style="border-right: 0">
+                <a class="wine_indexPic7" href="@Common.PubConstant.WineGameShowUrl("Setting", "Index")">
+                    <img src=@Common.Auxiliary.GetStaticUrl("Show/images/index10.png") />
+                    <span style="font-size:1.3rem">设置</span>
+                </a>
+            </li>
+        
+        </ul>
+    </div>
+</article>
+
+
+<script type="text/javascript">
+    $(function () {
+        $.post(gpath.show_path + "home/getcustomerenity", function (data) {
+            if (data) {
+              
+                //$("#divlevelName").text(data.WCLevelType);
+                $("#ActivationCount").text(data.ActivationCount );
+                $("#RightAchievement").text(data.RightAchievement );
+                $("#Ep").text(data.Ep );
+                $("#Zfc").text(data.Zfc );
+                $("#LeftAchievement").text(data.LeftAchievement);
+                $("#TotalAssets").text(data.TotalAssets);
+
+                //acc.Ep=0;
+                //acc.Zfc = 0;
+                //acc.TotalAssets = 0;
+                //acc.LeftAchievement = 0;
+                //acc.RightAchievement = 0;
+                //acc.ActivationCount = 0;
+            }
+        });
+
+
+
+    })
+
+    function gotohistory(a)
+    {
+        if(a==1)
+        {
+            window.location.href="/history";
+        }
+        else
+        {
+            alert("没有封存数据！");
+        }
+    }
+</script>

@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "IndexShow";
+}
+
+<!DOCTYPE html>
+<!-- saved from url=(0056)http://statices.dssfxt.net/show/html/team.html?v=5.0.0.0 -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <title>团队列表</title>
+    <link href="http://statices.sndsacc.com/show/css/mui.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="http://statices.sndsacc.net/show/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="http://statices.sndsacc.net/show/css/exchange.css" />
+    <script src="http://statices.sndsacc.net/show/js/jquery-1.8.3.js"></script>
+    <script src="http://statices.sndsacc.net/show/js/config.js"></script>
+    <style>
+        .wine_blankMains img {
+            display: inline-block;
+            width: 70%;
+            margin-top: 20%;
+            margin-left: 15%;
+        }
+
+        .wine_blankMains span {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            font-size: 1.8rem;
+            margin-top: 17%;
+            color: #999999;
+        }
+    </style>
+</head>
+<body style="background-image: url(http://statices.sndsacc.net/show/images/nolist.png)">
+    <header id="header" class="mui-bar mui-bar-nav wine_exHeader" onclick="RedirectUrl();">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+        @*<h1 class="mui-title">团队业绩</h1>*@
+    </header>
+    <section>
+
+        <article class="wine_blankMains">
+            <img style="width:86px;height:86px;padding-left:40%;padding-top:30%;" src="http://statices.sndsacc.net/show/images/2.png">
+            <span><input type="button" id="btn_Login" style="width:80%;height:50px;margin-top: 5%;margin-bottom:50%;background:#e67233;color:#fff;font-size:1.8rem;
+	border-bottom: none;
+	padding:3.5% 0;
+	border-radius: 5px;
+	box-sizing: border-box;" class="wine_loginSub" value="安卓下载地址"></span>
+        </article>
+    </section>
+
+    <script>
+        function RedirectUrl() {
+            location.href = gpath.show_path + "home/index";
+        }
+    </script>
+</body>
+</html>

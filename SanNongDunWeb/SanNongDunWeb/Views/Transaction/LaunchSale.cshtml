@@ -1,0 +1,142 @@
+﻿@{
+    ViewBag.HeaderTitle = "发起挂卖";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section style="margin-top:44px;">
+   
+    <article class="wine_exMains">
+        <form action="/" id="form_sale" method="post">
+            <div class="selling">
+                <span style="font-size:15px;"> 挂卖类型:</span>
+                <select name="type" id="">
+                    <option value="1">EP</option>
+                    <option value="2">ZFC</option>
+                </select>
+            </div>
+            <div class="trade_tyle">
+                <span style="font-size:15px;">交易方式:</span>
+                <select name="IsMoney">
+                    <option value="1">现金</option>
+                    <option value="0">ZFC</option>
+                </select>
+            </div>
+            <div class="sell_num">
+                <span style="font-size:15px;">挂卖数量:</span>
+                <input type="text" name="Qty" placeholder="请输入挂卖数量" />
+            </div>
+            <div class="total_price">
+                <span style="font-size:15px;">订单总价:</span>
+                <input type="text" name="TotalPrice" placeholder="请输入订单总价" />
+            </div>
+            <div class="pay_word">
+                <span style="font-size:15px;">支付密码:</span>
+                <input type="password" name="payPwd" placeholder="请输入支付密码" />
+            </div>
+            <div class="hand_sell" id="btn_sale" style="font-size:19px;">发起挂卖</div>
+        </form>
+    </article>
+</section>
+
+ @*<form action="/" id="form_sale" method="post">
+    <label>挂卖类型：</label>
+     <select name="type">
+         <option value="1">EP</option>
+         <option value="2">ZFC</option>
+     </select>
+    <label>交易方式：</label>
+     <select name="IsMoney">
+         <option value="1">现金</option>
+         <option value="0">ZFC</option>
+     </select>
+    <label>挂卖数量：</label>
+     <input type="text" name="Qty" value="" />
+
+    <label>订单总价：</label>
+     <input type="text" readonly="readonly" name="TotalPrice" value="" />
+    <label>请输入支付密码：</label>
+
+     <input type="password" name="payPwd" value="" />
+
+    <input type="button" id="btn_sale" value="发起挂卖" />
+</form>*@
+<input type="hidden" id="zfcPrice" value="@ViewBag.ZfcPrice" />
+<script type="text/javascript">
+    $(function () {
+        $("[name=Qty]").change(function () {
+
+            var reg = /^[1-9]\d*$/;
+            if (!reg.test($(this).val())) {
+                layer.open({
+                    content: "请输入正确的挂卖数量！",
+                    btn: '我知道了',
+                    shadeClose: false
+                });
+                return;
+            }
+            var type = $("[name=type]").val();
+            var isMoney = $("[name=IsMoney]").val();
+            var zfcPrice = $("#zfcPrice").val();
+            if (type=="1"&&isMoney=="0") {//zfc购买EP
+                $("[name=TotalPrice]").val($(this).val()*(1/zfcPrice));
+            } else if (type == "1" && isMoney == "1") {//现金购买EP
+                $("[name=TotalPrice]").val($(this).val());
+            } else {
+                $("[name=TotalPrice]").val($(this).val()*zfcPrice);
+            }
+
+        });
+
+        $("#btn_sale").click(function () {
+
+            var type = $("[name=type]").val();
+            var isMoney = $("[name=IsMoney]").val();
+            var Qty = $("[name=Qty]").val();
+
+            var reg = /^[1-9]\d*$/;
+            if (!reg.test(Qty)) {
+                layer.open({
+                    content: "请输入正确的挂卖数量！",
+                    btn: '我知道了',
+                    shadeClose: false
+                });
+                return;
+            }
+            if (Qty==""||Qty==undefined) {
+                layer.open({
+                    content: "请输入挂卖数量！",
+                    btn: '我知道了',
+                    shadeClose: false
+                });
+                return;
+            }
+
+            if (type == "2" && isMoney == "0") {
+                layer.open({
+                    content: "ZFC只能使用现金交易！",
+                    btn: '我知道了',
+                    shadeClose: false
+                });
+                return;
+            }
+            var formData = $("#form_sale").serialize();
+
+            $.post(gpath.show_path + "transaction/startsale", formData, function (data) {
+
+                showMsg(data.msg);
+            });
+
+        });
+
+    });
+    function showMsg(msg) {
+        layer.open({
+            content: msg,
+            btn: '我知道了',
+            shadeClose: false,
+            yes: function () {
+                window.location.reload();
+            }
+        });
+    }
+</script>

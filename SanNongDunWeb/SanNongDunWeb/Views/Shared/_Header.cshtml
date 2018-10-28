@@ -1,0 +1,73 @@
+﻿<article class="wine_indexMain">
+    <ul>
+        <li style="width:33%;">
+            <figure style="margin:0;">
+                <img src=@Common.Auxiliary.GetStaticUrl("Show/images/headimg/ep.png") />
+                <figcaption>积分:<span id="Ep"></span></figcaption>
+            </figure>
+
+        </li>
+        <li style="width:33%;">
+            <figure style="margin:0;">
+                <img src=@Common.Auxiliary.GetStaticUrl("Show/images/headimg/zfc.png") />
+                <figcaption>绿氧:<span id="Zfc"></span></figcaption>
+            </figure>
+        </li>
+        <li style="width:33%;">
+            <figure style="margin:0;">
+                <img src=@Common.Auxiliary.GetStaticUrl("Show/images/headimg/total.png") />
+                <figcaption>总资产:<span id="TotalAssets"></span></figcaption>
+            </figure>
+        </li>
+        <li style="width:33%;">
+            <figure style="margin:0; ">
+                <img src=@Common.Auxiliary.GetStaticUrl("Show/images/headimg/card.png") />
+                <figcaption>红包:<span id="ActivationCount"></span></figcaption>
+            </figure>
+        </li>
+        <li style="width:33%;">
+            <figure style="margin:0;">
+                <img src=@Common.Auxiliary.GetStaticUrl("Show/images/headimg/left.png") />
+                <figcaption>左区业绩:<span id="LeftAchievement"></span></figcaption>
+            </figure>
+            @* <a>积分：<span id="Score"></span></a>*@
+        </li>
+        <li style="width:33%;">
+            <figure style="margin:0;">
+                <img src=@Common.Auxiliary.GetStaticUrl("Show/images/headimg/right.png") />
+                <figcaption>
+                    右区业绩:
+                    <span id="RightAchievement">0</span>
+                </figcaption>
+            </figure>
+        </li>
+ 
+
+    </ul>
+</article>
+@*<script type="text/javascript" charset="utf-8" src=@Auxiliary.GetStaticUrl("Show/js/jquery-1.8.3.js")></script>*@
+<script type="text/javascript">
+    $(function () {
+        $.post(gpath.show_path + "home/getcustomerenity", function (data) {
+            if (data) {
+                //$("#LeesCount").text(data.LeesCount + "+(" + data.FreezeLees + ")个");
+                //$("#WineCoin").text(data.WineCoin + "个");
+                //$("#FinishedWineRealNum").text(data.FinishedWineRealNum + "升");
+                ////$("#FinishedWineRealNum").text(data.FinishedWineTotal );
+                //$("#WineCellar").text(data.WineCellar + "+(" + data.FreezeWineCellar + ")个");
+                //$("#Score").text(data.Score);
+                //$("#kilo").text(data.Commission);
+                $("#ActivationCount").text(data.ActivationCount);
+                $("#RightAchievement").text(data.RightAchievement);
+                $("#Ep").text(data.Ep);
+                $("#Zfc").text(data.Zfc);
+                $("#LeftAchievement").text(data.LeftAchievement);
+                $("#TotalAssets").text(data.TotalAssets);
+
+             
+                
+            }
+        });
+
+    })
+</script>

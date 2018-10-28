@@ -1,0 +1,33 @@
+﻿.ml15 {
+margin-left: 0px;
+margin-top:5px;
+}
+.er_noo {
+padding-left: 40px;
+background:no-repeat left center;
+display: inline-block;
+line-height: 18px;
+color: #d31a26;
+font-size:12px;
+float:left;
+}
+.yes {
+padding-left: 22px;
+background: no-repeat left center;
+margin-left: 3px;
+width:20px;
+height:20px;
+display:block;
+float:left;
+margin-top:5px;
+}
+.yes_Ico {
+display:block;
+float:left;
+
+}
+.error {
+display:block;
+float:left;
+
+}

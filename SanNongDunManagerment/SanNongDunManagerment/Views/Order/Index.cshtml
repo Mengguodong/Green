@@ -1,0 +1,96 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using Webdiyer.WebControls.Mvc
+@model PagedList<DataModel.ViewModel.OrderAdminModel>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5> <small></small></h5>
+                    <div class="wine_search" style="display: inline-block;width:50%;text-align: center;">
+                        <!--搜索开始-->
+                        @using (Ajax.BeginForm("Index", new { pageIndex = "" }, new AjaxOptions { HttpMethod = "Post", UpdateTargetId = "updatetargetId", InsertionMode = InsertionMode.Replace }, new { id = "searchForm" }))
+                        {
+
+                            <label>用户名：</label>
+                            <input type="search" name="phone" placeholder="用户名" x-webkit-speech="" lang="zh-CN">
+                            <label>订单类型：</label>
+                            <select name="type">
+                                <option selected value="-1">全部</option>
+                                <option  value="1">EP</option>
+                                <option value="2">Zfc</option>
+                            </select>
+                            <label>订单状态：</label>
+                            <select name="status">
+                                <option selected value="-1">全部</option>
+                                <option  value="1">在售</option>
+                                <option value="2">已锁定</option>
+                                <option value="3" >待确认</option>
+                                <option value="4">交易完成</option>
+                                <option value="5">已取消</option>
+                                <option value="6">已冻结</option>
+
+                            </select>
+                            <button>查询</button>
+
+                        }
+                    </div>
+                </div>
+                <div class="ibox-content" id="updatetargetId">
+                    @{Html.RenderPartial("_OrderList", Model);}
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<section>
+    <script src="@Url.Content("~/HTML/Management/js/jquery.unobtrusive-ajax.min.js")"></script>
+    @{Html.RegisterMvcPagerScriptResource();}
+</section>
+<script type="text/javascript">
+    $(function () {
+        $("[name=a_success]").live("click", function () {
+
+            var orderId = $(this).attr("orderId");
+            var sellUserId = $(this).attr("sellUserId");
+            var buyUserId = $(this).attr("buyUserId");
+            var orderType = $(this).attr("orderType");
+
+            $.post(management_path + "order/continuetransaction", { orderId: orderId, sellUserId: sellUserId, buyUserId: buyUserId ,orderType:orderType}, function (data) {
+
+                if (data.result==true) {
+                    alert("操作成功！");
+                    location.reload();
+
+                } else {
+                    alert(data.msg);
+                }
+
+            });
+
+
+        });
+
+        $("[name=a_fail]").live("click", function () {
+            var orderId = $(this).attr("orderId");
+            $.post(management_path + "order/canceltransaction", { orderId: orderId }, function (data) {
+
+                if (data.result == true) {
+                    alert("操作成功！");
+                    location.reload();
+
+                } else {
+                    alert(data.msg);
+                }
+            });
+
+        });
+
+
+    });
+
+</script>

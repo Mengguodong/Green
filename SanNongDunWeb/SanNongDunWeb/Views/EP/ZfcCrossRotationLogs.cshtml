@@ -1,0 +1,79 @@
+﻿@model  DataModel.RequestModel.Page<DataModel.CrossRotation>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section styles {
+    <link rel="stylesheet" type="text/css" href=@Common.Auxiliary.GetStaticUrl("Show/css/exchange.css") />
+}
+<header id="header" class="mui-bar mui-bar-nav wine_exHeader">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <h1 class="mui-title">ZFC赠送记录</h1>
+</header>
+
+
+<input type="hidden" value="1" id="pageIndex" />
+<input type="hidden" value="@Model.PageYe" id="pageYe" />
+<input type="hidden" value="@Model.PageSize" id="pageSize" />
+
+
+<article class="wine_earnMains">
+    <table border="0" cellspacing="0" cellpadding="0" id="historyGetdata">
+        <thead>
+            <tr>
+                <th width="20%">赠送时间</th>
+                <th width="55%">赠送钱包地址</th>
+                <th width="25%">赠送数量</th>
+            </tr>
+        </thead>
+        <tbody id="wineQueueList">
+            @{
+               
+                if (Model.Data != null)
+                {
+                    Html.RenderPartial("_ZfcCrossRotationLogs", Model);
+                }
+            }
+        </tbody>
+    </table>
+</article>
+
+
+
+<script>
+
+    //加载数据
+    //加载完成页面元素执行事件注册
+    $(function () {
+        var windowTop = 0;//初始话可视区域距离页面顶端的距离
+        $(window).scroll(function () {
+            var scrolls = $(this).scrollTop();//获取当前可视区域距离页面顶端的距离
+            if (scrolls >= windowTop) {//当B>A时，表示页面在向下滑动
+                windowTop = scrolls;
+                windowTop = windowTop + 400;
+
+                var pageYe = $("#pageYe").val();
+                var pageIndex = $("#pageIndex").val();
+                pageIndex++;
+                var pageSize = $("#pageSize").val();
+                if (pageYe >= pageIndex) {
+                    $.ajax({
+                        type: "get",
+                        url: gpath.show_path + "EP/ZfcCrossRotationLogs",
+                        data: { pageIndex: pageIndex },
+                        success: function (data) {
+                            $("#wineQueueList").append(data);
+                            var index = $("#pageIndex").val();
+                            index++;
+                            $("#pageIndex").val(index);
+                        }
+                    });
+                }
+
+            } else {//当B
+                //需要执行的操作
+                //windowTop=scrolls;
+            }
+        });
+    });
+
+</script>

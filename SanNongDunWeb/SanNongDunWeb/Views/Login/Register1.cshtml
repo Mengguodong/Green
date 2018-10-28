@@ -1,0 +1,165 @@
+﻿@using Common;
+@{
+    ViewBag.HeaderTitle = "注册";
+    Layout = "~/Views/Shared/_LayoutLoginOrReg.cshtml";
+}
+
+@*<header class="wine_regHeader" style="height:10%;">*@
+<header class="wine_regHeader" style="height:25%;padding-top:20%">
+    <img src=@Auxiliary.GetStaticUrl("Show/images/2.png") />
+</header >
+<section style="padding-top: 20%">
+    <article class="wine_loginForm wine_regForm">
+        <form action="" id="formReg" method="post">
+            <label>
+                <input type="text" name="UserName" class="wine_loginTxt" placeholder="手机号" />
+                 <img src=@Auxiliary.GetStaticUrl("Show/images/login1.png") /><span></span>
+            </label>
+   
+            <label>
+                <input type="text" name="ValidateCode" class="wine_regCode" placeholder="验证码" />
+              
+              
+                <a id="a_ValidateCode" isClick="0" href="javascript:void(0);">点击获取验证码</a>
+            </label>
+            <div style="margin-top: 22px;color: #fff;">
+                <input type="checkbox" id="Agreement" name="" value="" style="display: inline-block;width: 12px;height: 12px;">
+                <span>我已阅读并同意</span>
+                <a href=@(PubConstant.StaticUrl + "众联商城用户协议.html")>《众联商城用户协议》</a>
+            </div>
+                <input type="hidden" name="TeamParentId" value="@ViewBag.teamParentId" />
+                <input type="hidden" name="ParentLoginName" value="@ViewBag.parentLoginName" />
+                <input type="submit" id="btn_register" class="wine_loginSub" value="下一步" />
+
+</form>
+    </article>
+</section>
+<script type="text/javascript">
+    //添加验证方法
+    //验证手机号
+    jQuery.validator.addMethod("IsPhone", function (value, element) {
+        return this.optional(element) || (/^1[34578]\d{9}$/.test(value));
+    }, "<span class='no'>手机号格式不正确</span>");
+
+    //验证form表单的方法
+    function checkForm() {
+        $("#formReg").validate({
+            rules: {
+                UserName: {
+                    required: true,
+                    IsPhone:true
+                },
+       
+                ValidateCode: {
+                    required: true
+                }
+
+            },
+            messages: {
+               
+                UserName: {
+                    required: "<span class='er_noo ml15'>用户名不得为空。</span>",
+                    IsPhone: "<span class='er_noo ml15'>请输入有效的手机号。</span>"
+                },
+                ValidateCode: {
+                    required: "<span class='er_noo ml15'>验证码不得为空。</span>"
+                }
+             
+                },
+
+            success: function (element) {
+                //element.parent().find("span").html("<i class='yes'></i>");
+            },
+            submitHandler: function (form) {
+
+                var Agreement = $("#Agreement").attr("checked");
+                if (Agreement != "checked") {
+                    layer.open({
+                        content: "请选择是否已阅读用户协议",
+                        btn: '我知道了',
+                        shadeClose: false
+                    });
+                    return;
+                }
+                var formdata = $("#formReg").serialize();
+                $.post(gpath.show_path + "login/checkvalidatecode", formdata, function (data) {
+                    if (data.result == true) {
+
+                        var phone = $("[name=UserName]").val();
+                        var ValidateCode = $("[name=ValidateCode]").val();
+                        var TeamParentId = $("[name=TeamParentId]").val();
+                        var ParentLoginName = $("[name=ParentLoginName]").val();
+                   
+                        location.href = gpath.show_path + "login/register2?phone=" + phone + "&validcode=" + ValidateCode + "&ParentLoginName=" + ParentLoginName + "&TeamParentId=" + TeamParentId;
+
+                    } else {
+                        layer.open({
+                            content: data.Msg,
+                            btn: '我知道了',
+                            shadeClose: false
+                        });
+                    
+                    }
+
+                });
+            },
+            onkeyup: false,
+            errorElement: "span",
+            errorPlacement: function (error, element) {
+                element.parent().find("span").remove();
+                error.appendTo(element.parent());
+            }
+        });
+
+    }
+
+
+    $(function () {
+
+
+       
+
+        checkForm();
+        //获取验证码
+        $("#a_ValidateCode").click(function () {
+
+            var phone = $("[name=UserName]").val();
+            var isClick = $("#a_ValidateCode").attr("isClick");
+
+            if (isClick=="0") {
+
+                $.post(gpath.show_path + "login/GetPhoneCode", { phone: phone }, function (data) {
+
+                    if (data.result == true) {
+                        $("#a_ValidateCode").attr("isClick", "1");
+                        var i = 60;
+                        //读秒  设置  不可点击
+                        ref = setInterval(function () {
+                            i--;
+                            $("#a_ValidateCode").html("点击获取验证码("+i+")");
+
+                            if (i == 0) {
+                                $("#a_ValidateCode").html("点击获取验证码");
+                                $("#a_ValidateCode").attr("isClick", "0");
+                                clearInterval(ref);
+                               
+                            }
+                           
+                        }, 1000);
+
+                    } else {
+                        layer.open({
+                            content: data.msg,
+                            btn: '我知道了',
+                            shadeClose: false
+                        });
+                    }
+
+
+                });
+            }
+
+
+        });
+    });
+</script>

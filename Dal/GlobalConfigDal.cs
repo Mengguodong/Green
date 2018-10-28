@@ -13,34 +13,49 @@ namespace Dal
 {
     public class GlobalConfigDal : BaseDal
     {
-        /// <summary>
-        /// 根据用户id查账户实体
-        /// sj
-        /// </summary>
-        /// <param name="userId">用户id</param>
-        /// <returns></returns>
-        public GlobalConfig GetGlobalConfig( )
+        public string GetValue(string configKey)
         {
-         
-            GlobalConfig data = new GlobalConfig();
+            string configValue = "";
             try
             {
-                using (var db = ReadOnlySanNongDunConn())
+                if (!string.IsNullOrEmpty(configKey))
                 {
-                    string sql = @"select * from GlobalConfig";
-                    data = (GlobalConfig) db.DbConnecttion.ExecuteScalar(sql);
-                   
+                    using (var db = ReadOnlySanNongDunConn())
+                    {
+                        configValue = db.Query<GlobalConfig>(SqlQuery<GlobalConfig>.Builder(db).AndWhere(o => o.ConfigKey, OperationMethod.Equal, configKey)).FirstOrDefault().ConfigValue;
+                    }
                 }
+
             }
             catch (Exception ex)
             {
-
-                LogHelper.WriteLog(typeof(GlobalConfigDal), "GetGlobalConfig", Engineer.ggg, null, ex);
+                LogHelper.WriteLog(typeof(GlobalConfigDal), "GetValue", Engineer.ccc, configKey, ex);
             }
-         
-            return data;
+            return configValue;
         }
-      
+
+        public GlobalConfig GetGlobalConfig(string configKey)
+        {
+            GlobalConfig gc = null;
+            
+            try
+            {
+                if (!string.IsNullOrEmpty(configKey))
+                {
+                    using (var db = ReadOnlySanNongDunConn())
+                    {
+                        gc = db.Query<GlobalConfig>(SqlQuery<GlobalConfig>.Builder(db).AndWhere(o => o.ConfigKey, OperationMethod.Equal, configKey)).FirstOrDefault();
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                LogHelper.WriteLog(typeof(GlobalConfigDal), "GetGlobalConfig", Engineer.ccc, gc, ex);
+            }
+            return gc;
+        }
+
 
 
         /// <summary>
@@ -49,25 +64,49 @@ namespace Dal
         /// </summary>
         /// <param name="customerAccount">修改账户实体</param>
         /// <returns></returns>
-        public bool UpdateGlobalConfig(GlobalConfig globalConfig)
+        public bool UpdateGlobalConfig(GlobalConfig gc)
         {
 
             bool result = false;
             try
             {
-                if (globalConfig != null)
+                if (gc != null)
                 {
                     using (var db = BaseDal.WriteSanNongDunDbBase())
                     {
-                        result = db.Update(globalConfig);
+                        result = db.Update(gc);
                     }
                 }
 
             }
             catch (Exception ex)
             {
-                LogHelper.WriteLog(typeof(GlobalConfigDal), "UpdateGlobalConfig", Engineer.ccc, globalConfig, ex);
+                LogHelper.WriteLog(typeof(GlobalConfigDal), "UpdateGlobalConfig", Engineer.ccc, gc, ex);
             }
+            return result;
+        }
+        /// <summary>
+        /// 根据配置名称获取值
+        /// </summary>
+        /// <param name="configName"></param>
+        /// <returns></returns>
+        public string GetValueByConfigName(string configName)
+        {
+            string result = string.Empty;
+
+            try
+            {
+                using (var db = ReadOnlySanNongDunConn())
+                {
+                    result = db.Query<GlobalConfig>(SqlQuery<GlobalConfig>.Builder(db).AndWhere(o => o.ConfigKey, OperationMethod.Equal, configName)).FirstOrDefault().ConfigValue;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                LogHelper.WriteLog(typeof(GlobalConfigDal), "GetValueByConfigName", Engineer.ggg, new { configName = configName }, ex);
+            }
+
             return result;
         }
     }

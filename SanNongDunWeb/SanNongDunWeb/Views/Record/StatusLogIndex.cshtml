@@ -1,0 +1,114 @@
+﻿@model  DataModel.RequestModel.Page<DataModel.LiuViewModel.StatusViewModel>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section styles {
+    <link rel="stylesheet" type="text/css" href=@Common.Auxiliary.GetStaticUrl("Show/css/exchange.css") />
+}
+<header id="header" class="mui-bar mui-bar-nav wine_exHeader">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <h1 class="mui-title">@ViewBag.titleName</h1>
+</header>
+
+<input type="hidden" value="@ViewBag.type" id="type" />
+<input type="hidden" value="1" id="pageIndex" />
+<input type="hidden" value="@Model.PageYe" id="pageYe" />
+<input type="hidden" value="@Model.PageSize" id="pageSize" />
+<input type="hidden" value="@Model.Data" id="userId" />
+<dl style="width:100%">
+
+    <dd class="wine_exlist3" style="padding-left: 2%; width: 50%">
+        <input type="button" id="btnStatic" style="width:100%" value="推荐" class="wine_sub">
+    </dd>
+    <dd class="wine_exlist3" style="padding-left: 2%; width: 30%">
+        <input type="button" id="btnZfc" style="width:165%;" value="静态" class="wine_sub">
+    </dd>
+
+
+    @*<a href="@(Common.PubConstant.WineGameShowUrl("Exchange", "FinishedWineExchangeRecord")+"?type=3")">记录<i class="sign">></i></a>*@
+</dl>
+<article class="wine_earnMains">
+    <table border="0" cellspacing="0" cellpadding="0" id="historyGetdata">
+        <thead>
+            <tr>
+                <th width="10%">序号</th>
+                <th width="0%"></th>
+
+                <th width="35%">唯一ID</th>
+                <th width="0%"></th>
+                <th width="10%">数量</th>
+                <th width="0%"></th>
+                <th width="30%">时间</th>
+                <th width="0%"></th>
+                <th width="25%">类型</th>
+            </tr>
+        </thead>
+        <tbody id="wineQueueList">
+            @{
+
+                if (Model.Data != null)
+                {
+                    Html.RenderPartial("_StatusLogIndex", Model);
+                }
+            }
+        </tbody>
+    </table>
+</article>
+
+
+
+<script type="text/javascript">
+    $(function () {
+
+
+        $("#btnStatic").click(function () {
+
+            location.href = gpath.show_path + "Record/StatusLogIndex?type=1";
+
+        });
+
+        $("#btnZfc").click(function () {
+            location.href = gpath.show_path + "Record/StatusLogIndex?type=2";
+        });
+    });
+
+
+
+    //加载数据
+    //加载完成页面元素执行事件注册
+    $(function () {
+        var windowTop = 0;//初始话可视区域距离页面顶端的距离
+        $(window).scroll(function () {
+            var scrolls = $(this).scrollTop();//获取当前可视区域距离页面顶端的距离
+            if (scrolls >= windowTop) {//当B>A时，表示页面在向下滑动
+                windowTop = scrolls;
+                windowTop = windowTop + 400;
+
+                var type = $("#type").val();
+                var pageYe = $("#pageYe").val();
+                var pageIndex = $("#pageIndex").val();
+                pageIndex++;
+                var pageSize = $("#pageSize").val();
+                if (pageYe >= pageIndex) {
+                    $.ajax({
+                        type: "get",
+                        url: gpath.show_path + "Record/StatusLogIndex",
+                        data: { type: type, pageIndex: pageIndex },
+                        success: function (data) {
+                            $("#wineQueueList").append(data);
+                            var index = $("#pageIndex").val();
+                            index++;
+                            $("#pageIndex").val(index);
+                        }
+                    });
+                }
+
+            } else {//当B
+                //需要执行的操作
+                //windowTop=scrolls;
+            }
+        });
+    });
+
+</script>

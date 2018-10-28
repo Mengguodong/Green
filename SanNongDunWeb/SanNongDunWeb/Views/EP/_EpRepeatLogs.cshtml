@@ -1,0 +1,26 @@
+﻿@model  DataModel.RequestModel.Page<DataModel.LogInfo>
+
+@if (Model.Data != null)
+{
+    foreach (var item in Model.Data)
+    {
+        {
+            <tr>
+                <td width="60%"><time>@item.CreateTime</time></td>
+                @if (@item.LogType == 5)
+                {
+                    <td width="20">资产扩充</td>
+                }
+                else if (@item.LogType == 4)
+                {
+                    <td width="20">兑换中</td>
+                }
+                else if (item.LogType == 3)
+                {
+                    <td width="20">兑换失败</td>
+                }
+                <td width="20">EP(@item.Number)</td>
+            </tr>
+        }
+    }
+}

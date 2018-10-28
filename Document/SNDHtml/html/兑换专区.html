@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<!-- saved from url=(0036)http://www.dssfxt.com/Exchange/index -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <title>兑换专区</title>
+    <link rel="stylesheet" type="text/css" href="../css/mui.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/common.css">
+   
+   
+    <link rel="stylesheet" type="text/css" href="../css/exchange.css">
+    <link href="../css/layer.css" type="text/css" rel="styleSheet" id="layermcss">
+    <script type="text/javascript" charset="utf-8">
+        mui.init();
+    </script>
+</head>
+<body class="mui-android mui-android-6 mui-android-6-0">
+    <header id="header" class="mui-bar mui-bar-nav">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #fff; "></a>
+        <h1 class="mui-title">兑换专区</h1>
+        <a style="font-size: 16px; padding-top: 13px; padding-right: 10px; color: #fff; " class="mui-pull-right" href="http://www.dssfxt.com/home/loginout">退出</a>
+    </header>
+    <section style="margin-top:44px;">
+        <article class="wine_indexMain">
+            <ul class="wine_show"       >
+                <li style="width:33%;">
+                     <figure style="margin:0;">
+                         <img src="../images/index3.png">
+                         <figcaption>EP:<span id="LeesCount">0+(0)个</span></figcaption>
+                     </figure>
+                </li>
+                <li style="width:33%;">
+                     <figure style="margin:0;">
+                        <img src="../images/index2.png">
+                        <figcaption>ZFC:<span id="WineCoin">2226.6个</span></figcaption>
+                     </figure>
+                </li>
+                <li style="width:33%;">
+                    <figure style="margin:0;">
+                        <img src="../images/index1.png">
+                        <figcaption>总资产:<span id="FinishedWineRealNum">0升</span></figcaption>
+                    </figure>
+                 </li>
+                <li style="width:33%;">
+                    <figure style="margin:0;">
+                        <img src="../images/index4.png">
+                        <figcaption>激活卡:<span id="WineCellar">1+(0)个</span></figcaption>
+                    </figure>
+                </li>
+                <li style="width:33%;">
+                    <figure style="margin:0;">
+                        <img src="../images/integral2.png">
+                        <figcaption>左区业绩:<span id="Score">0</span></figcaption>
+                    </figure>
+                </li>
+                <li style="width:33%;">
+                    <figure style="margin:0;">
+                        <img src="../images/money.png">
+                        <figcaption>右区业绩:<span id="kilo">0</span></figcaption>
+                    </figure>
+                </li>
+            </ul>
+            <input type="hidden" id="StarLevel" value="3">
+        </article>
+        <article class="wine_exMains">
+            <div class="selling">
+                <span>挂卖类型:</span>
+                <select name="sell" id="">
+                    <option value="">EP</option>
+                </select>
+            </div>
+            <div class="trade_tyle">
+                <span>交易方式:</span>
+                <select name="sell" id="">
+                    <option value="trade">现金</option>
+                </select>
+            </div>
+            <div class="sell_num">
+                <span>挂卖数量:</span>
+                <input type="text" name="" placeholder="请输入挂卖数量"/>
+            </div>
+            <div class="total_price">
+                <span>订单总价:</span>
+                <input type="text" name="" placeholder="请输入订单总价"/>
+            </div>
+            <div class="pay_word">
+                <span>请输入支付密码:</span>
+                <input type="password" name="" placeholder="请输入支付密码"/>
+            </div>
+            <div class="hand_sell">发起挂卖</div>
+        </article>
+    </section>
+    <script type="text/javascript" charset="utf-8" src="../js/mui.js.下载"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/zepto.min.js.下载"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/jquery-1.8.3.js.下载"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/config.js.下载"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/jquery.validate.js.下载"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/common.js.下载"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/layer.js.下载"></script>
+    <script type="text/javascript">
+        $(function () {
+            $.post(gpath.show_path + "home/getcustomerenity", function (data) {
+                if (data) {
+                    $("#LeesCount").text(data.LeesCount + "+(" + data.FreezeLees + ")个");
+                    $("#WineCoin").text(data.WineCoin + "个");
+                    $("#FinishedWineRealNum").text(data.FinishedWineRealNum + "升");
+                    //$("#FinishedWineRealNum").text(data.FinishedWineTotal );
+                    $("#WineCellar").text(data.WineCellar + "+(" + data.FreezeWineCellar + ")个");
+                    $("#Score").text(data.Score);
+                    $("#WCRemainder").text(data.WCRemainder + "次");
+                    $("#StarLevel").val(data.StarLevel);
+                    if (data.IsReturn == 0) {
+                        return;
+                    }
+                    else if (data.IsReturn == 1) {
+                        showStarLevel(data.StarLevel);
+                        if ($("#StarLevel").val() != 3) {
+                            $("#dianliang").attr("style", "float:inherit; margin-left: 50px; background: #E66F2F; color: #fff; border: 1px solid #E66F2F; display:block");
+                        }
+                    }
+                }
+            });
+
+            function showStarLevel(level) {
+                var html = "";
+                switch (level) {
+                    case 0:
+                        html = '<img src=http://statices.dssfxt.com/Show/images/0x.png?v=5.0.0.0 style="width: 40%; height: auto; margin-top: -8px;" />';
+                        break;
+                    case 1:
+                        html = '<img src=http://statices.dssfxt.com/Show/images/1x.png?v=5.0.0.0 style="width: 40%; height: auto; margin-top: -8px;" />';
+                        break;
+                    case 2:
+                        html = '<img src=http://statices.dssfxt.com/Show/images/2x.png?v=5.0.0.0 style="width: 40%; height: auto; margin-top: -8px;" />';
+                        break;
+                    case 3:
+                        html = '<img src=http://statices.dssfxt.com/Show/images/3x.png?v=5.0.0.0 style="width: 40%; height: auto; margin-top: -8px;" />';
+                        break;
+
+                }
+                $("#starImage").append(html);
+            }
+            function showMsg(msg) {
+                layer.open({
+                    content: msg,
+                    btn: '我知道了',
+                    shadeClose: false,
+                    yes: function () {
+                        window.location.reload();
+                    }
+                });
+            }
+            $("#dianliang").click(function () {
+                if ($("#StarLevel").val() == 3) {
+                    showMsg("您目前无需点亮星星！");
+                    return;
+                }
+                $.post(gpath.show_path + "home/IllumeStarIndex", function (data) {
+                    layer.open({
+                        content: "您需要用" + data + "个酒豆点亮星星，是否点亮？"
+                        , btn: ['确定点亮', '取消']
+                        , yes: function (index) {
+                            layer.close(index);
+                            $.post(gpath.show_path + "home/IllumeStarAjax?spendCoin=" + data, function (data) {
+                                if (data.result) {
+                                    showMsg("点亮成功，继续加油哦！");
+                                } else {
+                                    showMsg(data.msg);
+                                }
+                            });
+                        }
+                    });
+
+            $("#niangzao").click(function () {
+                var leesCount = parseInt($("#LeesCount").text());
+                var wineCellar = parseInt($("#WineCellar").text());
+                if (wineCellar == 0 || leesCount == 0) {
+                    if (wineCellar == 0 && leesCount > 0) {
+                        showMsg("酒窖不足,已停止酿造！");
+                        //酒窖剩余0
+                    }
+                    else if (wineCellar > 0 && leesCount == 0) {
+                        //酒糟剩余0
+                        showMsg("酒糟不足,已停止酿造！");
+                    }
+                    else {
+                        showMsg("酒窖和酒糟不足,已停止酿造！");
+                        //酒糟和酒窖为0
+                    }
+                    $("#niangzao").text("停止酿造");
+                    $("#niangzao").attr("disabled", "disabled");
+                }
+                else {
+                    window.location.href = "/Niangzaoing/Index";
+                }
+            })
+        })
+    </script>
+    <script type="text/javascript">
+        var refreshPage = function () {
+            window.location.reload();
+        }
+        $("#btnJJExchange").click(function () {
+            var count = $("#JJJB").val();
+            var type = 2;
+            sendExchange(count, type);
+        })
+        $("#btnJZExchange").click(function () {
+            var count = $("#JZJB").val();
+            var type = 1;
+            sendExchange(count, type);
+        })
+        $("#btnFinishedWineExchange").click(function () {
+            var count = $("#finishedWine").val();
+            sendFinishedWineExchange(count);
+        })
+        $("#btnExchangeJBByFinishedWine").click(function () {
+            var count = $("#exchangeJBByFinishedWine").val();
+            var type = 4;
+            if (count == undefined || count == 0) {
+                showMsg("请输入兑换数量！");
+                return;
+            }
+            $("#btnExchangeJBByFinishedWine").attr("disabled", "disabled");
+            $("#btnExchangeJBByFinishedWine").removeAttr("onclick");
+            $.ajax({
+                url: '/Exchange/AddJZOrJJExchange',
+                type: 'POST',
+                async: false,//异步不启用，则可刷新，为true时直接执行到刷新，不等到数据返回alert；
+                data: { ExchangeCount: count, TradeType: type },
+                success: function (res) {
+                    showMsg(res);
+                },
+                error: function (err) {
+                    //  alert(err);
+                    console.log(err);
+                }
+            });
+            //window.location.reload();
+        })
+        $("#scoreExchange").click(function () {
+            var count = $("#score").val();
+            if (count == undefined || count == 0) {
+                showMsg("请输入兑换数量！");
+                return;
+            }
+            $.ajax({
+                url: '/Exchange/AddSorceExchange?count=' + count,
+                type: 'get',
+                async: false,//异步不启用，则可刷新，为true时直接执行到刷新，不等到数据返回alert；
+                success: function (res) {
+                    showMsg(res);
+                },
+                error: function (err) {
+                    //  alert(err);
+                    console.log(err);
+                }
+            });
+            //window.location.reload();
+        })
+        //发送酒糟、酒窖兑换请求
+        var sendExchange = function (count, type) {
+            if (count == undefined || count == 0) {
+                showMsg("请输入兑换数量！");
+                return;
+            }
+            $.ajax({
+                url: '/Exchange/AddJZOrJJExchange',
+                type: 'POST',
+                async: false,//异步不启用，则可刷新，为true时直接执行到刷新，不等到数据返回alert；
+                data: { ExchangeCount: count, TradeType: type },
+                success: function (res) {
+                    showMsg(res);
+                },
+                error: function (err) {
+                    //  alert(err);
+                    console.log(err);
+                }
+            });
+            //window.location.reload();
+        }
+        var sendFinishedWineExchange = function (count) {
+            if (count == undefined || count == 0) {
+                showMsg("请输入兑换数量！");
+                return;
+            }
+            $("#btnFinishedWineExchange").attr("disabled", "disabled");
+            $("#btnFinishedWineExchange").removeAttr("onclick");
+            $.ajax({
+                url: '/Exchange/FinishedWineExchange?count=' + count,
+                type: 'get',
+                async: false,//异步不启用，则可刷新，为true时直接执行到刷新，不等到数据返回alert；
+                success: function (res) {
+                    showMsg(res);
+                },
+                error: function (err) {
+                    //  alert(err);
+                    console.log(err);
+                }
+            });
+            //window.location.reload();
+        }
+        function showMsg(msg) {
+            layer.open({
+                content: msg,
+                btn: '我知道了',
+                shadeClose: false,
+                yes: function () {
+                    window.location.reload();
+                }
+            });
+        }
+        var sendIntegralExchange = function () {
+
+        }
+    </script>
+</body>
+</html>

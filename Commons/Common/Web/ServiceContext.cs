@@ -76,36 +76,36 @@ namespace Common.Web
         //    }
         //}
 
-        /// <summary>
-        /// 超市登录信息【cookie存储】
-        /// 创建人：menggd
-        /// 创建时间：2015年11月17日 17:07:01
-        /// </summary>
-        public LoginUserInfo CurrentUser
-        {
-            get
-            {
-                var value = Value;
-                if (!string.IsNullOrWhiteSpace(value))
-                {
-                    LoginUserInfo userinfo = null;
-                    try
-                    {
-                        //反序列化当前登录对象
-                        userinfo = JsonConvert.DeserializeObject<LoginUserInfo>(value);
-                    }
-                    catch (Exception ex)
-                    {
-                        LogHelper.WriteInfo(this.GetType(), ex.Message);
-                        userinfo = null;
-                    }
+        ///// <summary>
+        ///// 超市登录信息【cookie存储】
+        ///// 创建人：menggd
+        ///// 创建时间：2015年11月17日 17:07:01
+        ///// </summary>
+        //public LoginUserInfo CurrentUser
+        //{
+        //    get
+        //    {
+        //        var value = Value;
+        //        if (!string.IsNullOrWhiteSpace(value))
+        //        {
+        //            LoginUserInfo userinfo = null;
+        //            try
+        //            {
+        //                //反序列化当前登录对象
+        //                userinfo = JsonConvert.DeserializeObject<LoginUserInfo>(value);
+        //            }
+        //            catch (Exception ex)
+        //            {
+        //                LogHelper.WriteInfo(this.GetType(), ex.Message);
+        //                userinfo = null;
+        //            }
 
-                    return userinfo;
-                }
+        //            return userinfo;
+        //        }
 
-                return null;
-            }
-        }
+        //        return null;
+        //    }
+        //}
 
         /// <summary>
         /// 三农盾

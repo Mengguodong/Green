@@ -1,4 +1,8 @@
-﻿using Common;
+﻿using Aliyun.Acs.Core;
+using Aliyun.Acs.Core.Exceptions;
+using Aliyun.Acs.Core.Profile;
+using Aliyun.Acs.Sms.Model.V20160927;
+using Common;
 using Dal;
 using DataModel;
 using DataModel.RequestModel;
@@ -15,6 +19,67 @@ namespace Bll
     {
         UserDal _userDal = new UserDal();
         UserAccountDal _accountDal = new UserAccountDal();
+
+        public UserInfo GetUserByLeftId(string leftId)
+        {
+            return _userDal.GetUserByLeftId(leftId);
+        }
+              public UserInfo GetUserByRightId(string rightId)
+        {
+            return _userDal.GetUserByRightId(rightId);
+        }
+
+              public List<int> AdminGetUserIdList(string userName)
+        {
+            return _userDal.AdminGetUserIdList(userName);
+        }
+
+        /// <summary>
+        /// 获取下级用户
+        /// </summary>
+        /// <param name="leftId"></param>
+        /// <param name="rightId"></param>
+        /// <returns></returns>
+        //public Dictionary<string,UserInfo> GetUserLowTeamId(string leftId, string rightId) 
+        //{
+        //    Dictionary<string, UserInfo> dic = new Dictionary<string,UserInfo>();
+        //   UserInfo userLeft= _userDal.GetUserByLeftId(leftId);
+        //  UserInfo userRight=  _userDal.GetUserByRightId(rightId);
+        //  dic.Add(leftId, userLeft);
+        //  dic.Add(rightId, userRight);
+        //  if (userLeft != null)
+        //  {
+        //      UserInfo userLeftTwo = _userDal.GetUserByLeftId(userLeft.LeftId);
+        //      UserInfo userRightTwo = _userDal.GetUserByLeftId(userLeft.RightId);
+        //      dic.Add(userLeft.LeftId, userLeftTwo);
+        //      dic.Add(userLeft.RightId, userRightTwo);
+        //  }
+        //  //else 
+        //  //{
+        //  //    dic.Add(userLeft.LeftId, null);
+        //  //    dic.Add(userLeft.RightId,null);
+        //  //}
+        //  if (userRight != null)
+        //  {
+        //      UserInfo userLeftTwo2 = _userDal.GetUserByLeftId(userRight.LeftId);
+        //      UserInfo userRightTwo2 = _userDal.GetUserByLeftId(userRight.RightId);
+        //      dic.Add(userRight.LeftId, userLeftTwo2);
+        //      dic.Add(userRight.RightId, userRightTwo2);
+        //  }
+        //  //else {
+        //  //    dic.Add(userRight.LeftId, null);
+        //  //    dic.Add(userRight.RightId, null);
+        //  //}
+
+        //    return dic;
+        //}
+
+
+        public UserInfo GetUserInfoById(int userId)
+        {
+            return _userDal.GetUserInfoById(userId);
+        }
+
         ///<summary>
         ///用户分页列表+搜索
         ///Author：m
@@ -24,17 +89,17 @@ namespace Bll
         ///<param name="pageSize">当前页码</param>
         ///<param name="pageIndex">每页条数</param>
         ///<returns></returns>
-        public Page<UserIndexModel> GetUserInfoes(string userName, int pageSize, int pageIndex)
+        public Page<UserIndexModel> GetAdminUserInfoes(string userName, int pageSize, int pageIndex)
         {
             Page<UserIndexModel> pageList = null;
             try
             {
-              pageList =  _userDal.GetUserInfoes(userName, pageSize, pageIndex);
+                pageList = _userDal.GetAdminUserInfoes(userName, pageSize, pageIndex);
             }
             catch (Exception ex)
             {
 
-                LogHelper.WriteLog(typeof(UserBll), "GetUserInfoes", Engineer.ggg, new { userName = userName, pageSize = pageSize, pageIndex = pageIndex }, ex);
+                LogHelper.WriteLog(typeof(UserBll), "GetAdminUserInfoes", Engineer.ggg, new { userName = userName, pageSize = pageSize, pageIndex = pageIndex }, ex);
             }
             return pageList;
         }
@@ -48,12 +113,12 @@ namespace Bll
         /// <param name="pageSize"></param>
         /// <param name="pageIndex"></param>
         /// <returns></returns>
-        public UserIndexModel GetUserIndexModel(int userId)
+        public UserIndexModel GetAdminUserIndexModel(int userId)
         {
             UserIndexModel model = null;
             try
             {
-               model =  _userDal.GetUserIndexModel(userId);
+                model = _userDal.GetAdminUserIndexModel(userId);
             }
             catch (Exception ex)
             {
@@ -86,13 +151,14 @@ namespace Bll
 
             }
             //判断用户是否是管理员用户登录
-            if (userInfo.UserStatus != (int)UserType.General)
+            if (userInfo.UserType != SND_UserType.Admin)
             {
                 msg = "用户不存在";
                 return null;
             }
+
             //验证密码
-            if (pwd != Auxiliary.Md5Decrypt(userInfo.LoginPWD))
+            if (pwd != Auxiliary.Md5Decrypt(userInfo.Pwd))
             {
                 msg = "用户密码不正确";
 
@@ -100,607 +166,296 @@ namespace Bll
             else
             {
                 msg = "登录成功";
+                result = true;
+            }
+            if (result)
+            {
+                return userInfo;
+            }
+            else 
+            {
+                return userInfo=null;
+            }
+            
+        }
+        /// <summary>
+        /// 根据用户名获取用户信息
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <returns></returns>
+        public UserInfo GetUserInfoByUserName(string userName)
+        {
+            UserInfo user = new UserInfo();
+
+            user = _userDal.GetUserByLoginName(userName);
+
+            return user;
+        }
+
+
+        /// <summary>
+        /// 用户登录
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="pwd"></param>
+        /// <param name="msg"></param>
+        /// <returns></returns>
+        public UserInfo UserLogin(string userName, string pwd, out string msg)
+        {
+            bool resultTemp = false;
+
+            bool result = false;
+            //判断用户名是否存在
+            msg = "";
+            UserInfo userInfo = _userDal.GetUserByLoginName(userName);
+            if (userInfo == null)
+            {
+                msg = "用户不存在";
+                return userInfo;
+
+            }
+            //判断用户是否是普通用户登录
+            if (userInfo.UserType != SND_UserType.General)
+            {
+                msg = "用户不存在";
+                return null;
+            }
+            //验证密码
+            if (pwd != Auxiliary.Md5Decrypt(userInfo.Pwd))
+            {
+                msg = "用户密码不正确";
+                return null;
+            }
+            else
+            {
+                ////根据左右区业绩变动修改等级
+
+                //resultTemp = UpdateUserLevel(userInfo.UserId);
+
+                //if (resultTemp)
+                //{
+                //    userInfo = _userDal.GetUserByLoginName(userName);
+                //}
+                msg = "登录成功";
+
+            }
+            if (userInfo.UserStatus==0)
+            {
+                msg = "该账号已被停用，请联系客服解决";
+                return null;
+            }
+           
+
+            return userInfo;
+
+        }
+
+
+
+        /// <summary>
+        /// 注册
+        /// Author：mgd
+        /// Date：2016年12月11日13:30:03
+        /// </summary>
+        /// <param name="model">用户实体</param>
+        /// <param name="msg">错误消息</param>
+        /// <returns></returns>
+        public bool Register(UserRegisterModel model, out string msg)
+        {
+            int i = 1;
+            Random r = new Random();
+            i = r.Next(0, 100);
+            bool result = false;
+            msg = "";
+            //验证用户名是否存在
+            UserInfo userInfo = _userDal.GetUserByLoginName(model.UserName);
+            if (userInfo != null)
+            {
+                msg = "用户已存在";
+                return result;
+            }
+            //验证推荐人是否存在
+            UserInfo parentInfo = _userDal.GetUserByLoginName(model.ParentLoginName);
+            if (parentInfo == null || (parentInfo.UserType != SND_UserType.General && parentInfo.UserType != SND_UserType.Mother))
+            {
+                msg = "推荐人无效";
+                return result;
+            }
+
+            //注册
+            UserInfo userEntity = new UserInfo();
+            userEntity.UserName = model.UserName;
+            userEntity.Pwd = Auxiliary.Md5Encrypt(model.Pwd);//密码md5加密
+            userEntity.CreateTime = DateTime.Now;
+            userEntity.Level = 0;
+            userEntity.IsActivation = 1;
+            userEntity.LeftId = DateTime.Now.ToString("yyyyMMddHHmmssfff");
+            userEntity.ParentId = parentInfo.UserId;
+            userEntity.TeamType = 0;
+            userEntity.UserStatus = 1;
+            userEntity.UserType = SND_UserType.General;
+            userEntity.Phone = model.UserName;
+            userEntity.RightId = DateTime.Now.ToString("yyyyMMddHHmmssfff")+i.ToString();
+            userEntity.TeamParentId = model.TeamParentId;
+            userEntity.PayPwd = Auxiliary.Md5Encrypt(model.PayPwd);
+
+            int userId = _userDal.InserUser(userEntity);
+            if (userId <= 0)
+            {
+                msg = "注册失败";
+                return result;
+            }
+            else  //注册账户信息
+            {
+
+                AccountInfo customerAccount = new AccountInfo();
+
+              
+                customerAccount.CreateTime = DateTime.Now;
+                customerAccount.FreezeGreen = 0;
+                customerAccount.LeftAchievement = 0;
+                customerAccount.RightAchievement = 0;
+                customerAccount.GreenCount = 0;
+
+                customerAccount.GreenTotal = 0;
+                customerAccount.HongBao = 0;
+                customerAccount.LeftCount = 0;
+                customerAccount.Score = 0;
+                customerAccount.RightCount = 0;
+                customerAccount.StaticsRelease = 0;
+                customerAccount.UserId = userId;
+                customerAccount.UserName = model.UserName; ;
+
+                bool resultAccount = _accountDal.AddCustomerAccount(customerAccount);
+                result = resultAccount;
+
+                if (resultAccount)//注册成功更新推荐人信息
+                {
+                    //parentInfo.DownCount += 1;
+                    //if (parentInfo.DownCount >= 3)
+                    //{
+                    //    parentInfo.IsTeam = 1;
+                    //}
+                    //bool resultParent = UpdateUserInfo(parentInfo);
+
+                }
+
+            }
+            return result;
+        }
+
+
+        /// <summary>
+        /// 发送短信验证码
+        /// </summary>
+        /// <param name="smsRequest"></param>
+        /// <returns></returns>
+        public bool SendSmsNew(SMSCodeRequest smsRequest)
+        {
+            bool result = false;
+            IClientProfile profile = DefaultProfile.GetProfile("cn-beijing", "LTAIGFELCpSJxBno", "0P75iXBYEEy2mOUv6itFhzxkFaWwXU");
+            //IClientProfile profile = DefaultProfile.GetProfile("cn-beijing", "LTAIVpTlM5V7bC8j", "f3R43cN5IWv2Hd4CscciiojCsWDPQs");
+            IAcsClient client = new DefaultAcsClient(profile);
+            SingleSendSmsRequest requestSms = new SingleSendSmsRequest();
+            try
+            {
+                requestSms.SignName = "众联农业科技";
+                requestSms.TemplateCode = "SMS_70170128";
+                requestSms.RecNum = smsRequest.Phone;
+                requestSms.ParamString = "{'code':'" + smsRequest.Code + "'}";
+                SingleSendSmsResponse httpResponse = client.GetAcsResponse(requestSms);
+                result = true;
+            }
+            catch (ServerException e)
+            {
+                result = false;
+                LogHelper.Error(string.Format("手机号：{0}，{1}", smsRequest.Phone, e.ErrorMessage));
+            }
+            catch (ClientException e)
+            {
+                result = false;
+                LogHelper.Error(string.Format("手机号：{0}，{1}", smsRequest.Phone, e.ErrorMessage));
+            }
+            return result;
+        }
+
+
+
+
+
+
+        public bool UpdateUserInfo(UserInfo userInfo)
+        {
+            return _userDal.UpdateUserInfo(userInfo);
+        }
+        /// <summary>
+        /// 更新用户等级信息
+        /// </summary>
+        /// <param name="p"></param>
+        /// <returns></returns>
+        public bool UpdateUserLevel(int userId)
+        {
+
+            bool result = false;
+            int level = 1;
+
+            AccountInfo account = new AccountInfo();
+            account = _accountDal.GetAccByUserId(userId);
+            UserInfo userInfo = new UserInfo();
+            userInfo = GetUserInfoById(userId);
+
+            decimal achievement = 0;
+
+            if (account.LeftAchievement>account.RightAchievement)
+            {
+                achievement = account.RightAchievement;
+            }
+            else
+            {
+                achievement = account.LeftAchievement;
+            }
+
+
+
+            if (achievement < 1000000)
+            {
+                level = 1;
+            }
+            else if (1000000 <= achievement && achievement < 3500000)
+            {
+                level = 2;
+            }
+            else if (3500000 <= achievement && achievement < 7000000)
+            {
+                level = 3;
+            }
+            else if (7000000 <= achievement && achievement < 21000000)
+            {
+                level = 4;
+            }
+            else if (21000000 <= achievement)
+            {
+                level = 5;
+            }
+
+            if (userInfo.Level!=level) //等级发生改变
+            {
+                userInfo.Level = level;
 
             }
 
-            return userInfo;
+            result = UpdateUserInfo(userInfo);
+
+            if (!result)
+            {
+                LogHelper.WriteInfo(typeof(UserBll),"更新等级失败，用户ID："+userId);
+            }
+
+            return result;
         }
+
     
-        /// <summary>
-        /// 用户登录
-        /// Author：孟国栋
-        /// Date：2016年12月10日14:14:33
-        /// </summary>
-        /// <param name="userName">用户名</param>
-        /// <param name="pwd">密码</param>
-        /// <param name="msg">返回信息</param>
-        /// <returns></returns>
-        //public UserInfo UserLogin(string userName, string pwd, out string msg)
-        //{
 
-        //    bool result = false;
-        //    //判断用户名是否存在
-        //    msg = "";
-        //     UserInfo userInfo = _userDal.GetUserInfoByName(userName);
-        //    if (userInfo == null)
-        //    {
-        //        msg = "用户不存在";
-        //        return userInfo;
 
-        //    }
-        //    //判断用户是否是普通用户登录
-        //    if (userInfo.UserStatus != UserType.General)
-        //    {
-        //        msg = "用户不存在";
-        //        return null;
-        //    }
-        //    //验证密码
-        //    if (pwd != Auxiliary.Md5Decrypt(userInfo.Pwd))
-        //    {
-        //        msg = "用户密码不正确";
-        //        return null;
-        //    }
-        //    else
-        //    {
-        //        msg = "登录成功";
-
-        //    }
-
-        //    return userInfo;
-
-        //}
-
-     
-
-        ///// <summary>
-        ///// 注册
-        ///// Author：mgd
-        ///// Date：2016年12月11日13:30:03
-        ///// </summary>
-        ///// <param name="model">用户实体</param>
-        ///// <param name="msg">错误消息</param>
-        ///// <returns></returns>
-        //public bool Register(UserRegisterModel model, out string msg)
-        //{
-        //    bool result = false;
-        //    msg = "";
-        //    //验证用户名是否存在
-        //    UserInfo userInfo = _userDal.GetUserInfoByName(model.UserName);
-        //    if (userInfo != null)
-        //    {
-        //        msg = "用户已存在";
-        //        return result;
-        //    }
-        //    //验证推荐人是否存在
-        //    UserInfo parentInfo = _userDal.GetUserInfoByName(model.ParentLoginName);
-        //    if (parentInfo == null || (parentInfo.UserType != UserType.General && parentInfo.UserType != UserType.Mother))
-        //    {
-        //        msg = "推荐人无效";
-        //        return result;
-        //    }
-
-        //    //注册
-        //    UserInfo userEntity = new UserInfo();
-        //    userEntity.UserName = model.UserName;
-        //    userEntity.Pwd = Auxiliary.Md5Encrypt(model.Pwd);//密码md5加密
-        //    userEntity.MobilePhone = model.UserName;
-        //    userEntity.ParentId = parentInfo.UserId;
-        //    userEntity.CreateTime = DateTime.Now;
-        //    userEntity.UserStatues = 1;
-        //    userEntity.IsActivate = 0;
-        //    //获取酒农的等级ID    等级说明：type--1  酿酒工  2酒坊主   3 酒坊   4庄园
-        //    userEntity.LevelId = GetLevelInfos().Where(x => x.LevelType == LevelType.JiuNong).FirstOrDefault().LevelId;
-        //    //userEntity.LevelName = GetLevelInfos().Where(x => x.LevelType == LevelType.JiuNong).FirstOrDefault().LevelName;
-        //    userEntity.UserType = UserType.General;    // 1.普通用户  2.管理员   3.超级管理员
-        //    userEntity.IsDelete = 0;
-        //    userEntity.IsTestAccount = 0;
-        //    userEntity.IsReturn = 0;
-        //    userEntity.IsTeam = 0;
-        //    userEntity.DownCount = 0;
-        //    userEntity.IsQueue = 0;
-        //    userEntity.AuthenticationTime = DateTime.Now.AddYears(-100);
-        //    userEntity.BecomeTeamTime = DateTime.Now.AddYears(-100);
-        //    userEntity.BestLevelTime = DateTime.Now.AddYears(-100);
-
-        //    int userId = InserUser(userEntity);
-        //    if (userId <= 0)
-        //    {
-        //        msg = "注册失败";
-        //        return result;
-        //    }
-        //    else  //注册账户信息
-        //    {
-
-        //        CustomerAccount customerAccount = new CustomerAccount();
-        //        customerAccount.AccountStatus = 0;
-        //        customerAccount.CreateTime = DateTime.Now;
-        //        customerAccount.FinishedWineRealNum = 0;
-        //        customerAccount.FinishedWineTotal = 0;
-        //        customerAccount.IsDelete = 0;
-        //        customerAccount.LeesCount = 0;
-        //        customerAccount.Score = 0;
-        //        customerAccount.UserId = userId;//注册返回的用户ID
-        //        customerAccount.WCRemainder = 0;
-        //        customerAccount.WCTotalCount = 0;
-        //        customerAccount.WineCellar = 0;
-        //        customerAccount.WineCoin = 0;
-        //        bool resultAccount = AddCustomerAccount(customerAccount);
-        //        result = resultAccount;
-
-        //        if (resultAccount)//注册成功更新推荐人信息
-        //        {
-        //            parentInfo.DownCount += 1;
-        //            if (parentInfo.DownCount >= 3)
-        //            {
-        //                parentInfo.IsTeam = 1;
-        //            }
-        //            bool resultParent = UpdateUserInfo(parentInfo);
-
-        //        }
-
-        //    }
-        //    return result;
-        //}
-
-
-        /// <summary>
-        /// 插入账户信息
-        /// </summary>
-        /// <param name="model"></param>
-        /// <returns></returns>
-        //public bool AddCustomerAccount(CustomerAccount model)
-        //{
-        //    bool result = false;
-        //    try
-        //    {
-        //        string parameter = JsonConvertTool.SerializeObject(model);
-        //        string url = PubConstant.WineGameWebApi + "api/account/insertcustomeraccount";
-        //        result = HttpClientHelper.PostResponse(url, parameter) == "true" ? true : false;
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-
-        //        LogHelper.WriteLog(typeof(UserBLL), "AddCustomerAccount", Engineer.ggg, model, ex);
-        //    }
-        //    return result;
-
-        //}
-
-        /// <summary>
-        /// 注册返利方法
-        /// Author：mgd
-        /// Date：2016年12月11日17:36:25
-        /// </summary>
-        /// <param name="parentId">推荐人ID</param>
-        /// <returns></returns>
-        //public bool RegisterReturn(int parentId)
-        //{
-        //    bool result = false;
-        //    int returnType = 0;//0注册返利1酒窖返利
-        //    int consumptionCount = 100;//消费酒币数量
-        //    try
-        //    {
-        //        string url = string.Format(PubConstant.WineGameWebApi + "api/account/accountreturn?parentId={0}&returnType={1}&Count={2}", parentId, returnType, consumptionCount);
-
-        //        result = HttpClientHelper.GetResponse(url) == "true" ? true : false;
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-
-        //        LogHelper.WriteLog(typeof(UserBLL), "RegisterReturn", Engineer.ggg, new { parentId = parentId }, ex);
-        //        //throw;
-        //    }
-
-
-
-        //    return result;
-        //}
-
-
-
-        /// <summary>
-        /// 获取等级信息
-        /// </summary>
-        /// <returns></returns>
-        //public List<LevelInfo> GetLevelInfos()
-        //{
-        //    List<LevelInfo> list = new List<LevelInfo>();
-        //    try
-        //    {
-
-        //        string url = PubConstant.WineGameWebApi + "api/user/GetLevelInfos";
-
-        //        var result = HttpClientHelper.GetResponse<List<LevelInfo>>(url);
-
-        //        if (result != null)
-        //        {
-        //            list = result;
-        //        }
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-
-        //        LogHelper.WriteLog(typeof(UserBLL), "GetLevelInfoByLevelType", Engineer.ggg, null, ex);
-        //    }
-
-        //    return list;
-        //}
-      
-
-
-        /// <summary>
-        /// 绑定用户信息
-        /// Author:m
-        /// Date:2016年12月17日13:53:04
-        /// </summary>
-        /// <param name="model"></param>
-        /// <param name="msg"></param>
-        /// <returns></returns>
-        //public bool BindingUser(UserInfo model)
-        //{
-        //    bool result = false;
-        //    model.AuthenticationTime = DateTime.Now;
-        //    try
-        //    {
-        //        string url = PubConstant.WineGameWebApi + "api/user/updateuser";
-        //        string paramenterStr = JsonConvertTool.SerializeObject(model);
-        //        result = HttpClientHelper.PostResponse(url, paramenterStr) == "true" ? true : false;
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        LogHelper.WriteLog(typeof(UserBLL), "BindingUser", Engineer.ggg, model, ex);
-        //    }
-
-
-        //    return result;
-        //}
-        /// <summary>
-        /// 修改用户信息
-        /// Author:m
-        /// Date:2016年12月17日13:53:04
-        /// </summary>
-        /// <param name="model"></param>
-        /// <param name="msg"></param>
-        /// <returns></returns>
-        //public bool UpdateUserInfo(UserInfo model)
-        //{
-        //    bool result = false;
-
-        //    try
-        //    {
-        //        string url = PubConstant.WineGameWebApi + "api/user/updateuserinfo";
-        //        string paramenterStr = JsonConvertTool.SerializeObject(model);
-        //        result = HttpClientHelper.PostResponse(url, paramenterStr) == "true" ? true : false;
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        LogHelper.WriteLog(typeof(UserBLL), "UpdateUserInfo", Engineer.ggg, model, ex);
-        //    }
-
-
-        //    return result;
-        //}
-
-        /// <summary>
-        /// 修改密码
-        /// Author：m
-        /// Date：2016年12月17日14:49:35
-        /// </summary>
-        /// <param name="pwd">密码</param>
-        /// <param name="newPwd">新密码</param>
-        /// <param name="userId">用户ID</param>
-        /// <param name="msg">错误消息</param>
-        /// <returns></returns>
-        //public bool UpdatePwd(string pwd, string newPwd, int userId, out string msg)
-        //{
-        //    bool result = false;
-        //    msg = "";
-        //    UserInfo userInfo = new UserInfo();
-        //    userInfo = GetUserInfoById(userId);
-        //    if (userInfo == null)
-        //    {
-        //        msg = "获取用户信息出错";
-        //        return result;
-        //    }
-        //    if (pwd != Auxiliary.Md5Decrypt(userInfo.Pwd))//验证旧密码
-        //    {
-        //        msg = "旧密码错误";
-        //        return result;
-        //    }
-        //    result = UpdatePwdByUserId(userId, newPwd);
-        //    return result;
-
-        //}
-        /// <summary>
-        /// 根据用户名重置密码
-        /// </summary>
-        /// <param name="userId"></param>
-        /// <param name="newPwd"></param>
-        /// <returns></returns>
-        //public bool UpdatePwdByUserId(int userId, string newPwd)
-        //{
-        //    UserInfo userInfo = new UserInfo();
-        //    bool result = false;
-
-        //    userInfo.UserId = userId;
-        //    userInfo.Pwd = Auxiliary.Md5Encrypt(newPwd);//设置新密码
-
-        //    try
-        //    {
-        //        string url = PubConstant.WineGameWebApi + "api/user/updatepwd";
-        //        string paramenterStr = JsonConvertTool.SerializeObject(userInfo);
-        //        result = HttpClientHelper.PostResponse(url, paramenterStr) == "true" ? true : false;
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-
-        //        LogHelper.WriteLog(typeof(UserBLL), "UpdateUserInfo", Engineer.ggg, userInfo, ex);
-        //    }
-        //    return result;
-
-        //}
-     
-       
-
-        /// <summary>
-        /// 激活用户
-        /// </summary>
-        /// <param name="userId">用户ID</param>
-        /// <param name="wineCoin">充值酒币数</param>
-        /// <returns></returns>
-        //public bool ActivateUserByUserId(int userId, decimal wineCoin, int adminId, out string msg)
-        //{
-        //    int typeActivate = 2;////1.用户充值， 2.用户激活
-
-        //    bool result = false;
-        //    msg = "";
-        //    UserInfo user = new UserInfo();
-        //    //1.将用户状态改为已激活
-        //    user.UserId = userId;
-        //    user.IsActivate = 1;
-        //    //根据充值数量改变用户等级
-
-        //    List<LevelInfo> levelList = GetLevelInfos();
-
-        //    if (wineCoin < PubConstant.WorkHouse())//酒农
-        //    {
-        //        user.LevelId = levelList.Where(x => x.LevelType == LevelType.JiuNong).FirstOrDefault().LevelId;
-        //        //user.LevelName = levelList.Where(x => x.LevelType == LevelType.JiuNong).FirstOrDefault().LevelName;
-        //    }
-        //    else if (wineCoin >= PubConstant.WorkHouse() && wineCoin < PubConstant.WorkShop())//作坊
-        //    {
-        //        user.LevelId = levelList.Where(x => x.LevelType == LevelType.ZuoFang).FirstOrDefault().LevelId;
-        //        //user.LevelName = levelList.Where(x => x.LevelType == LevelType.ZuoFang).FirstOrDefault().LevelName;
-        //    }
-        //    else if (wineCoin == PubConstant.WorkShop())//车间
-        //    {
-        //        user.LevelId = levelList.Where(x => x.LevelType == LevelType.CheJian).FirstOrDefault().LevelId;
-        //        //user.LevelName = levelList.Where(x => x.LevelType == LevelType.ZuoFang).FirstOrDefault().LevelName; ;
-        //    }
-        //    else
-        //    {
-        //        user.LevelId = levelList.Where(x => x.LevelType == LevelType.JiuNong).FirstOrDefault().LevelId;
-        //    }
-        //    bool resultUser = ActivateUser(user);
-        //    if (!resultUser)
-        //    {
-        //        msg = "激活用户出错";
-        //        return result;
-        //    }
-        //    else
-        //    {
-        //        UserInfo userinfo = GetUserInfoById(userId);
-        //        if (userinfo != null)
-        //        {
-        //            marketBll.ActivateUpdateAllParentsDownCount(userinfo);
-        //        }
-        //        else
-        //        {
-        //            LogHelper.WriteInfo(typeof(UserBLL), "未获取到用户！", Engineer.ccc, user);
-        //        }
-        //    }
-
-        //    //2.给用户账户充值
-        //    bool resultCoin = coinExchangeBll.RechargeCoin(userId, wineCoin - 100, adminId, typeActivate);//激活账户，抽取100注册费
-
-
-        //    //3.返利
-        //    int parentUserId = GetParentIdByUserId(userId);
-        //    if (resultCoin)
-        //    {
-        //        //返利
-        //        bool isReturn = RegisterReturn(parentUserId);
-        //        UserInfo userinfo = GetUserInfoById(userId);
-        //        if (userinfo != null)
-        //        {
-        //            marketBll.RechargeUpdateAllParentsAchievement(userinfo, wineCoin - 100);
-        //        }
-        //        else
-        //        {
-        //            LogHelper.WriteInfo(typeof(UserBLL), "未获取到用户！", Engineer.ccc, new { userId = userId, money = wineCoin - 100 });
-        //        }
-        //        result = true;
-        //    }
-        //    else
-        //    {
-        //        msg = "账户充值失败";
-        //        return result;
-        //    }
-
-
-        //    return result;
-        //}
-
-        //======================
-        /// <summary>
-        /// 赠送激活用户
-        /// </summary>
-        /// <param name="userId">用户ID</param>
-        /// <returns></returns>
-        //public bool DonateActivateUserByUserId(int userId, out string msg)
-        //{
-        //    msg = "";
-        //    bool isTrue = false;
-        //    UserInfo user = new UserInfo();
-        //    //1.将用户状态改为已激活
-        //    user.UserId = userId;
-        //    user.IsActivate = 1;
-        //    List<LevelInfo> levelList = GetLevelInfos();
-        //    user.LevelId = levelList.Where(x => x.LevelType == LevelType.JiuNong).FirstOrDefault().LevelId;
-
-        //    isTrue = ActivateUser(user);
-        //    if (!isTrue)
-        //    {
-        //        msg = "激活用户出错";
-        //    }
-        //    else
-        //    {
-        //        UserInfo userinfo = GetUserInfoById(userId);
-        //        if (user != null)
-        //        {
-        //            marketBll.ActivateUpdateAllParentsDownCount(user);
-        //        }
-        //        else
-        //        {
-        //            LogHelper.WriteInfo(typeof(UserBLL), "未获取到用户！", Engineer.ccc, user);
-        //        }
-        //    }
-        //    return isTrue;
-        //}
-
-
-
-        /// <summary>
-        /// 赠送酒窖
-        /// </summary>
-        /// <param name="userId"></param>
-        /// <param name="wineCellar"></param>
-        /// <param name="msg"></param>
-        /// <returns></returns>
-        //public bool DonatWineCellar(int userId, int wineCellar, out string msg)
-        //{
-        //    bool isTrue = false;
-        //    msg = "";
-        //    CustomerAccount ca = accountBll.GetCustomerAccountByUserId(userId);
-        //    ca.WineCellar += wineCellar;
-        //    ca.WCRemainder += wineCellar * 10;
-        //    isTrue = accountBll.UpdateCustomerAccount(ca);
-        //    if (!isTrue)
-        //    {
-        //        msg = "赠送酒窖失败！";
-        //    }
-        //    return isTrue;
-        //}
-        //======================
-
-
-        /// <summary>
-        /// 根据用户ID获取父级Id
-        /// Author：m
-        /// Date：2016年12月23日15:06:30
-        /// </summary>
-        /// <param name="userId">用户ID</param>
-        /// <returns></returns>
-        //public int GetParentIdByUserId(int userId)
-        //{
-        //    int parentId = 0;
-        //    try
-        //    {
-        //        string url = PubConstant.WineGameWebApi + "api/user/getparentidbyuserid?userId=" + userId;
-
-        //        parentId = ConvertHelper.ToInt32(HttpClientHelper.GetResponse(url));
-        //    }
-        //    catch (Exception ex)
-        //    {
-
-        //        LogHelper.WriteLog(typeof(UserBLL), "GetParentIdByUserId", Engineer.ggg, new { userId = userId }, ex);
-        //        //throw;
-        //    }
-        //    return parentId;
-
-        //}
-
-        /// <summary>
-        /// 根据用户ID激活用户
-        /// </summary>
-        /// <param name="userId"></param>
-        /// <returns></returns>
-        //public bool ActivateUser(UserInfo model)
-        //{
-        //    bool result = false;
-        //    try
-        //    {
-
-        //        string parameter = JsonConvertTool.SerializeObject(model);
-
-        //        string url = PubConstant.WineGameWebApi + "api/user/activateuser";
-
-        //        result = HttpClientHelper.PostResponse(url, parameter) == "true" ? true : false;
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-
-        //        LogHelper.WriteLog(typeof(UserBLL), "ActivateUser", Engineer.ggg, model, ex);
-        //    }
-
-        //    return result;
-
-
-        //}
-
-        /// <summary>
-        /// 获取用户账户信息
-        /// </summary>
-        /// <param name="userId"></param>
-        /// <returns></returns>
-        //public UserAccountInfoModel GetUserAccountInfo(int userId)
-        //{
-        //    UserAccountInfoModel model = new UserAccountInfoModel();
-        //    if (userId > 0)
-        //    {
-        //        CustomerAccount customer = accountBll.GetCustomerAccountByUserId(userId);
-        //        UserInfo user = GetUserInfoById(userId);
-        //        if (customer != null && user != null)
-        //        {
-        //            model.UserName = user.UserName;
-        //            model.IsActivate = user.IsActivate;
-        //            model.LevelId = user.LevelId;
-        //            model.RealName = user.RealName;
-        //            model.BankCardNo = user.BankCardNo;
-        //            model.BankName = user.BankName;
-        //            model.IDCard = user.IDCard;
-        //            model.CreateTime = user.CreateTime;
-        //            model.MobilePhone = user.MobilePhone;
-        //            model.IsReturn = user.IsReturn;
-        //            model.DownCount = user.DownCount;
-        //            model.IsTeam = user.IsTeam;
-        //            model.DeliveryAddress = user.DeliveryAddress;
-
-        //            model.WineCoin = customer.WineCoin;
-        //            model.LeesCount = customer.LeesCount;
-        //            model.WineCellar = customer.WineCellar;
-        //            model.WCRemainder = customer.WCRemainder;
-        //            model.WCTotalCount = customer.WCTotalCount;
-        //            model.Score = customer.Score;
-        //            model.FinishedWineRealNum = customer.FinishedWineRealNum;
-        //            model.FinishedWineTotal = customer.FinishedWineTotal;
-        //            model.FreezeWine = customer.FreezeWine;
-
-        //        }
-        //        return model;
-
-        //    }
-        //    else
-        //    {
-        //        return model;
-        //    }
-        //}
     }
 }

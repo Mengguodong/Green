@@ -1,0 +1,14 @@
+﻿@charset "utf-8";
+/*page（底部分页）=============================================================*/
+		.pagin{position:relative;width:1200px;height:99px;margin-top:20px;padding:0 12px 20px 12px;text-align: right;overflow: hidden;}
+		.pageBlock a,.pageBlock span{ font-family:"微软雅黑"; font-size:14px;}
+		.pageBlock{font-size:12px;overflow:hidden;display:  inline-block !important; margin:15px auto;}
+		.pageBlock .pageWrap{height:25px;float:left;display:inline;margin:10px 6px;line-height:25px;font-size:14px;}
+		.pageBlock .pageWrap a{display:block;line-height:25px;padding:0 10px;*display:inline;zoom:1;text-decoration:none;color:#3d3d3d;}
+		.pageBlock .pageWrap span.now{display:block;line-height:25px;padding:0 2px;background:#1ab394;color:#fff; text-align:center;}
+		.pageBlock .pageWrap .numBtn{min-width:25px;text-align:center;padding:0;_padding:0 10px; color:#3d3d3d;}
+		.pageBlock .pageWrap .canot{display:block;line-height:25px;padding:0 12px;color:#3d3d3d;}
+		.pageBlock .pageWrap a:hover{text-decoration:none;background:#1ab394; color:#fff;}
+		.pageBlock .pageWrap .pageText{line-height:25px;color:#3d3d3d;}
+		.pageBlock .pageWrap .pageNum{width:25px;height:25px;padding:0 3px;line-height:25px;vertical-align:middle;text-align:center;_margin-top:-1px;}
+		.pageBlock .pageWrap .pageBtn{display:block;width:40px;height:25px;text-align:center;line-height:25px;border:none;padding:0;background:#444;color:#fff;cursor:pointer;}

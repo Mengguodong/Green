@@ -1,0 +1,91 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>后台管理系统 - 登录</title>
+    <link href="@Url.Content("~/HTML/Management/css/bootstrap.min.css?v=3.4.0")" rel="stylesheet">
+    <link href="@Url.Content("~/HTML/Management/css/font-awesome.min.css?v=4.3.0")" rel="stylesheet">
+    <link href="@Url.Content("~/HTML/Management/css/animate.min.css")" rel="stylesheet">
+    <link href="@Url.Content("~/HTML/Management/css/style.min.css?v=3.2.0")" rel="stylesheet">
+    <!-- 全局js -->
+    <script src="@Url.Content("~/HTML/Management/js/jquery-2.1.1.min.js")"></script>
+    <script src="@Url.Content("~/HTML/Management/js/bootstrap.min.js?v=3.4.0")"></script>
+    <script src="@Url.Content("~/HTML/Management/js/config.js")"></script>
+   ></script>
+    <script>if (window.top !== window.self) { window.top.location = window.location; }</script>
+
+    <script type="text/javascript">
+        $(function () {
+            $("#btnLogin").click(function () {
+                var userName = $("#userName").val();
+                var pwd = $("#pwd").val();
+                if (userName == null || userName == undefined || userName == "") {
+                    alert("请输入用户名");
+                    return;
+                }
+                if (pwd == null || pwd == undefined || pwd == "") {
+                    alert("请输入密码");
+                    return;
+                }
+                $.ajax({
+                    url: '@Url.Content("~/Login/UserLogin")',
+                    type: 'POST',
+                    async: false,//异步不启用，则可刷新，为true时直接执行到刷新，不等到数据返回alert；
+                    data: { UserName: userName, Pwd: pwd },
+                    success: function (res) {
+                        //alert(res.Msg);
+                        if (res.result==true) {
+                            location.href = gpath.management_path + "UserInfo/Index";
+                        } else {
+                            alert(res.Msg);
+                        }
+                       
+                     
+                    },
+                    error: function (err) {
+                          //alert(err);
+                        console.log(err);
+                    }
+                });
+                //window.location.reload();
+            })
+        });
+
+
+    </script>
+
+
+</head>
+
+
+
+<body class="gray-bg">
+    <div class="middle-box text-center loginscreen  animated fadeInDown">
+        <div>
+            <div>
+                <h6 class="logo-name">后台管理系统</h6>
+            </div>
+            <h2>欢迎使用</h2>
+            <form class="m-t" role="form" action="index.html">
+                <div class="form-group">
+                    <input type="text" id="userName" class="form-control" placeholder="用户名" required="required" value="">
+                </div>
+                <div class="form-group">
+                    <input type="password" id="pwd" class="form-control" placeholder="密码" required="required">
+                </div>
+                <button type="button" id="btnLogin" class="btn btn-primary block full-width m-b">登 录</button>
+                @*<p class="text-muted text-center">
+                        <a href="login.html#"><small>忘记密码了？</small></a> | <a href="register.html">注册一个新账号</a>
+                    </p>*@
+            </form>
+        </div>
+    </div>
+</body>
+</html>

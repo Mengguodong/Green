@@ -20,7 +20,7 @@ namespace SanNongDunManagerment
             log4net.Config.XmlConfigurator.Configure();
             #endregion
 
-            WebApiConfig.Register(GlobalConfiguration.Configuration);
+          //  WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }

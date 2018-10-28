@@ -1,0 +1,18 @@
+﻿@model  DataModel.RequestModel.Page<DataModel.CrossRotation>
+
+@if (Model.Data != null)
+{
+    foreach (var item in Model.Data)
+    {
+        {
+            <tr>
+             
+                <td width="30%"><time>@item.CreateTime</time></td>
+                    <td width="50">@item.REAccountName</td>
+               
+             
+                <td width="20">EP(@item.Qty)</td>
+            </tr>
+        }
+    }
+}

@@ -19,7 +19,7 @@ namespace Common.Web
             //获取BaseController的服务上下文
             var serviceContext = filterContext.Controller.GetServiceContext();
 
-            if (serviceContext != null && serviceContext.CurrentUser != null && serviceContext.CurrentUser.IsActivate == 1)
+            if (serviceContext != null && serviceContext.SND_CurrentUser != null && serviceContext.SND_CurrentUser.IsActivation == 1)
             {
                 //用户已激活
                 invalidRequestUrl = false;
@@ -30,7 +30,7 @@ namespace Common.Web
                 //跳转到激活页面
                 string ActivateUrl = PubConstant.ShowBaseUrl.TrimEnd('/');
                 filterContext.Result = new RedirectResult(ActivateUrl +
-                    new UrlHelper(filterContext.RequestContext).RouteUrl("Default", new { action = "activate", controller = "home" }));
+                    new UrlHelper(filterContext.RequestContext).RouteUrl("Default", new { action = "index", controller = "home" }));
             }
         }
 

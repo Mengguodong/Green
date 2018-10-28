@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.HeaderTitle = "设置中心";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model DataModel.UserInfo
+
+<link rel="stylesheet" type="text/css" href=@Common.Auxiliary.GetStaticUrl("Show/css/exchange.css") />
+
+<header id="header" class="mui-bar mui-bar-nav wine_exHeader">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <h1 class="mui-title">账户中心</h1>
+    <a href="@Common.PubConstant.WineGameShowUrl("Setting", "SetUserInfo")"><img src="@Common.Auxiliary.GetStaticUrl("Show/images/edit.png")" alt="" class="center_edit" /></a>
+</header>
+<article class="wine_centerMain">
+    <img src="@Common.Auxiliary.GetStaticUrl("Show/images/center1.png")" />
+</article>
+@if (Model != null)
+{
+    <figure class="wine_centerFig" style="margin:0;">
+        <a href="javascript:;" class="center_user">
+            <img src="@Common.Auxiliary.GetStaticUrl("Show/images/center2.png")" />
+        </a>
+        <figcaption class="tel_info">@Common.Auxiliary.ConvertMobilePhone(Model.UserName)</figcaption>
+    </figure>
+    <article class="wine_centerList">
+        <ul>
+            <li><span>钱包地址：</span><i>@Model.CreateTime</i></li>
+            <li><span>真实姓名：</span><i>@Model.RealName</i></li>
+            <li><span>银行卡号：</span><i>@Model.BankNumber</i></li>
+            <li><span>开户银行：</span><i>@Model.BankName</i></li>
+            <li><span>手机号码：</span><i>@Model.Phone</i></li>
+            <li><span>注册时间：</span><i>@Model.CreateTime</i></li>
+           
+
+            <!--<li style="padding: 3% 5% 29% 0;">-->
+            <!--<a href="http://www.dssfxt.com/user/bindingindex" style="color: #00f;">修改账户信息</a>-->
+
+        </ul>
+    </article>
+}

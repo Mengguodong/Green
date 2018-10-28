@@ -1,0 +1,250 @@
+﻿@{
+    ViewBag.HeaderTitle = "绑定信息";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model DataModel.UserInfo
+@*<link rel="stylesheet" type="text/css" href=@Auxiliary.GetStaticUrl("Show/css/exchange.css") />*@
+
+
+<article class="wine_changeList">
+    @if (Model != null)
+    {
+        string payPwd = string.IsNullOrEmpty(Model.PayPwd) ? "" : Common.Auxiliary.Md5Decrypt(Model.PayPwd);
+
+        string pwd = string.IsNullOrEmpty(Model.Pwd) ? "":Common.Auxiliary.Md5Decrypt(Model.Pwd) ;
+        <form id="formBinding" novalidate="novalidate">
+            <input type="hidden" name="UserId" value="@Model.UserId" />
+            <ul class="ban">
+                <li><span>用户账号：</span><input type="text" readonly="readonly" value="@Model.UserName" /></li>
+                <li><span>真实姓名：</span><input type="text" name="RealName" value="@(Model.RealName)" id="realname_no" /><span></span></li>
+                <li><span>银行卡号：</span><input type="text" name="BankNumber" value="@(Model.BankNumber)" /><span></span></li>
+
+                <li><span>修改电话：</span><input type="text" name="Phone" value="@(Model.Phone)" id="idcard_no" /><span></span></li>
+                <li><span>交易密码：</span><input type="password" name="PayPwd" value="@payPwd" id="idcard_no" /><span></span></li>
+                <li><span>修改密码：</span><input type="password" name="Pwd" value="@pwd"  id="idcard_no" /><span></span></li>
+
+
+                <li class="bank">
+                    <span>开户银行：</span>
+                    <select name="BankName" bankname="@(Model.BankName)" class="valid">
+                        <option value="0">请选择开户银行</option>
+                        <option value="value" selected="selected">中国工商银行</option>
+                        <option value="value">中国建设银行</option>
+                        <option value="value">中国农业银行</option>
+                        <option value="value">中国银行</option>
+                        <option value="value">中国邮政储蓄银行</option>
+                        <option value="value">交通银行</option>
+                        <option value="value">招商银行</option>
+                        <option value="value">中国民生银行</option>
+                        <option value="value">中国光大银行</option>
+                        <option value="value">华夏银行</option>
+                        <option value="value">北京银行</option>
+                    </select>
+                    <i class="down"></i>
+                    <!--<span for="BankName" generated="true" class="error"><i class="yes"></i></span></li>-->
+                    @*<li>
+                            <span>收货地址：</span>
+                            <input type="text" name="DeliveryAddress" value="@(Model.DeliveryAddress)" />
+                            <span></span>
+                        </li>*@
+                    <!--<li class="formal"><span style="color:red">*以上信息务必正确填写,以确保提现及时到账*</span></li>-->
+                    <!--<li style="text-align: center;padding: 10% 0 30% 0;"><input type="submit" id="btn_binding" class="wine_changeBtn" value="确认修改"></li>-->
+            </ul>
+        </form>
+    }
+    <!--成功提示框-->
+    <div class="window" id="center">
+        <div class="content">
+            <img src="">
+            <span></span>
+        </div>
+        <div class="">
+            <button id="btn_ok" class="wine_mtBtn">确认</button>
+        </div>
+    </div>
+</article>
+<div class="formal">
+    @*<span style="color:red">*以上信息务必正确填写,以确保提现及时到账*</span>*@
+</div>
+<div class="ban_btn">
+    <input type="submit" id="btn_binding" class="wine_changeBtn" value="确认修改">
+</div>
+
+
+<script type="text/javascript">
+
+    function checkForm() {
+
+        var result = new Object();
+
+        result.isTrue = true;
+
+        result.Msg = "";
+
+        var realName = $("[name=RealName]").val();
+        var reg = /[\u4E00-\u9FA5\uF900-\uFA2D]/;
+
+        if (reg.test(realName)) {
+            result.isTrue = true;
+        } else {
+            result.isTrue = false;
+            result.Msg = "姓名必须为中文!"
+
+            return result;
+        }
+        if (realName == "" || realName == undefined) {
+            result.isTrue = false;
+            result.Msg = "姓名不能为空!"
+
+            return result;
+        }
+
+        var Phone = $("[name=Phone]").val();
+
+        if (Phone == "" || Phone == undefined) {
+            result.isTrue = false;
+            result.Msg = "电话不能为空!"
+            return result;
+        }
+        var Pwd = $("[name=Pwd]").val();
+
+        if (Pwd.length < 6) {
+            result.isTrue = false;
+            result.Msg = "密码最少6位！!"
+            return result;
+        }
+
+
+        if (Pwd == "" || Pwd == undefined) {
+            result.isTrue = false;
+            result.Msg = "密码不能为空!"
+            return result;
+        }
+
+        var PayPwd = $("[name=PayPwd]").val();
+
+        if (PayPwd.length < 6) {
+            result.isTrue = false;
+            result.Msg = "交易密码最少6位！!"
+            return result;
+        }
+        if (PayPwd == "" || PayPwd == undefined) {
+            result.isTrue = false;
+            result.Msg = "交易密码不能为空!"
+            return result;
+        }
+
+
+
+        //var IDCard = $("[name=IDCard]").val();
+
+        //if (/(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/.test(IDCard)) {
+
+        //    result.isTrue = true;
+
+        //} else {
+        //    result.isTrue = false;
+        //    result.Msg = "请输入有效的身份证号码!"
+
+        //    return result;
+        //}
+        //if (IDCard == "" || IDCard == undefined) {
+        //    result.isTrue = false;
+        //    result.Msg = "身份证号码不能为空!"
+        //    return result;
+
+        //}
+
+        var BankNumber = $("[name=BankNumber]").val();
+
+        if (BankNumber == "" || BankNumber == undefined) {
+
+            result.isTrue = false;
+            result.Msg = "银行卡号不能为空!";
+
+            return result;
+        }
+        var bankName = $("[name=BankName] option:selected").val();
+
+        if (bankName == 0) {
+
+            result.isTrue = false;
+            result.Msg = "请选择开户行!";
+        }
+
+        return result;
+
+    }
+
+
+    $(function () {
+
+        $("#btn_binding").click(function () {
+
+            var result = checkForm();
+
+            if (result.isTrue) {
+
+                $("[name=BankName] option:selected").val($("[name=BankName] option:selected").text());
+                var formData = $("#formBinding").serialize();
+                $.post(gpath.show_path + "Setting/bindinguserinfo", formData, function (data) {
+                    if (data.result == true) {
+                        layer.open({
+                            content: "修改成功！",
+                            btn: '我知道了',
+                            shadeClose: false,
+                            yes: function () {
+                                window.location.href = gpath.show_path + "Setting/index";
+                            }
+                        });
+                    } else {
+                        layer.open({
+                            content: "修改失败！",
+                            btn: '我知道了',
+                            shadeClose: false
+                        });
+                    }
+                });
+
+            } else {
+                layer.open({
+                    content: result.Msg,
+                    btn: '我知道了',
+                    shadeClose: false
+                });
+            }
+        })
+
+        //默认选中银行名称
+        var dataBankName = $("[name=BankName]").attr("bankName");
+        $("[name=BankName] option").each(function () {
+            if ($(this).text() == dataBankName) {
+                $(this).attr("selected", "selected");
+            }
+
+        });
+        var realname = $("#realname_no").val();
+        if (realname != '') {
+            // $("#realname_no").attr("readonly", "readonly");
+        }
+        var realname = $("#idcard_no").val();
+        if (realname != '') {
+          //  $("#idcard_no").attr("readonly", "readonly");
+        }
+
+
+
+        //修改成功跳转
+        $("#btn_ok").click(function () {
+            if ($("#center").find("span").attr("isOk") == 1) {
+                window.location.href = gpath.show_path + "user/index";
+            }
+
+        });
+
+    });
+
+
+
+
+</script>

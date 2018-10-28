@@ -1,0 +1,189 @@
+﻿@model DataModel.UserInfo
+@{
+    ViewBag.HeaderTitle = "激活专区";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" type="text/css" href=@Common.Auxiliary.GetStaticUrl("Show/css/exchange.css") />
+
+<article class="wine_exMains">
+    @*<input type="hidden" value="1" id="pageIndex" />
+    <input type="hidden" value="@Model.PageYe" id="pageYe" />
+    <input type="hidden" value="@Model.PageSize" id="pageSize" />
+    <input type="hidden" id="type" value="@ViewBag.Type" />*@
+    <dl>
+        <h6>激活登录号</h6>
+        <dt class="wine_exlist"><i>请输入：</i></dt>
+        <dd class="wine_exlist2">
+            <label><input type="text" id="ActivationUserName" value=""></label>
+        </dd>
+        <dd class="wine_exlist3">
+            <input type="button" id="btnActivation" value="提交" class="wine_sub">
+        </dd>
+        @*<a href="@(Common.PubConstant.WineGameShowUrl("EP", "EpRepeatLogs") + "?tradeType=5")">记录<i class="sign">></i></a>*@
+        <a href="@(Common.PubConstant.WineGameShowUrl("Account", "ActivationCardExchange") + "?activationType=1")">记录<i class="sign"></i></a>
+    </dl>
+
+    <dl>
+        <h6>激活卡赠送</h6>
+        <dt class="wine_exlist"><i>数量（个）</i></dt>
+        <dd class="wine_exlist2">
+            <label><input type="text" id="activationCount" value=""/></label>
+
+        </dd>
+        <br />
+        <br />
+        <br />
+        <dt class="wine_exlist"><i>赠送登录号</i></dt>
+        <dd class="wine_exlist2">
+            <label><input type="text" id="reUserName" value=""/></label>
+
+        </dd>
+        <dd class="wine_exlist3">
+            <input type="button" id="btnGiveActivationCard" value="提交" class="wine_sub"/>
+        </dd>
+        <a href="@(Common.PubConstant.WineGameShowUrl("Account", "ActivationCardExchange") + "?activationType=2")">记录<i class="sign"></i></a>
+    </dl>
+    
+    <dl style="width: 100%; margin-top: 6%;">
+
+  
+        <dd class="wine_exlist3" style="padding-left: 25%; width: 80%; " onclick="goShop()">
+            <input type="button" id="btnDynamic" style="width:90%;" onclick="goShop()" value="生成激活卡" class="wine_sub" />
+        </dd>
+        @*<dd class="wine_exlist3"  onclick="goShop()">
+            <input type="button" id="btnDynamic"  onclick="goShop()" value="生成激活卡" class="wine_sub" />
+        </dd>*@
+      
+    </dl>
+  
+</article>
+
+<script type="text/javascript">
+
+    $(function () {
+        $("#btnActivation").click(function () {
+            var ActivationUserName = $("#ActivationUserName").val();
+            //var type = 5;
+            sendExchange(ActivationUserName);
+        })
+
+        $("#btnGiveActivationCard").click(function () {
+            var count = $("#activationCount").val();
+            var reUserName = $("#reUserName").val();
+            sendEPGiveExchange(count, reUserName);
+        })
+
+    })
+
+
+    var refreshPage = function () {
+        window.location.reload();
+    }
+
+
+    var sendExchange = function (ActivationUserName) {
+        if (ActivationUserName == undefined || ActivationUserName == "") {
+            showMsg("激活登录号不能为空！");
+            return;
+        }
+        var reg = /^1[34578]\d{9}$/;
+        if (!reg.test(ActivationUserName))
+        {
+            showMsg("请输入正确的登录账号！");
+            return;
+        }
+      
+        $.ajax({
+            url: '@Url.Content("~/Account/ActivationCard")',
+            type: 'POST',
+            async: false,//异步不启用，则可刷新，为true时直接执行到刷新，不等到数据返回alert；
+            //data: { ExchangeCount: count, TradeType: type },
+            data: { ActivationUserName: ActivationUserName },
+            success: function (res) {
+                showMsg(res.msg);
+            },
+            error: function (err) {
+
+                console.log(err);
+            }
+        });
+        //window.location.reload();
+    }
+   
+
+    var sendEPGiveExchange = function (count, reUserName) {
+        if (count == undefined || count == 0) {
+            layer.open({
+                content: "请输入赠送数量！",
+                btn: '我知道了',
+                shadeClose: false
+            });
+            return;
+        }
+     
+        if (reUserName == undefined || reUserName == "") {
+            layer.open({
+                content: "请输入赠送登录账号！",
+                btn: '我知道了',
+                shadeClose: false
+            });
+            return;
+        }
+
+        var reg = /^[1-9]\d*$/;
+        if (!reg.test(count)) {
+            layer.open({
+                content: "请输入正确的赠送数量！",
+                btn: '我知道了',
+                shadeClose: false
+            });
+            return;
+        }
+
+        if (count > 10) {
+            layer.open({
+                content: "单次赠送不能超过10！",
+                btn: '我知道了',
+                shadeClose: false
+            });
+            return;
+        }
+
+        $.ajax({
+            url: '@Url.Content("~/Account/GiveActivationCard")',
+            type: 'post',
+            data: { count: count, reUserName: reUserName },
+            async: false,//异步不启用，则可刷新，为true时直接执行到刷新，不等到数据返回alert；
+            success: function (res) {
+                showMsg(res.msg);
+
+            },
+            error: function (err) {
+                //  alert(err);
+                console.log(err);
+            }
+        });
+        //window.location.reload();
+    }
+
+  
+
+    function showMsg(msg) {
+        layer.open({
+            content: msg,
+            btn: '我知道了',
+            shadeClose: false,
+            yes: function () {
+                window.location.reload();
+            }
+        });
+    }
+    function goShop()
+    {
+        //alert("去商城了！");
+        window.location.href = "@Common.PubConstant.ShopPath";
+    }
+   
+
+</script>

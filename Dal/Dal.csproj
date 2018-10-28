@@ -45,13 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ComputingPowerDal.cs" />
-    <Compile Include="FinanceDal.cs" />
     <Compile Include="GlobalConfigDal.cs" />
-    <Compile Include="LevelInfoDal.cs" />
-    <Compile Include="OrderInfoDal.cs" />
-    <Compile Include="RechargeLockCoinDal.cs" />
+    <Compile Include="HongBaoLogDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScoreLogDal.cs" />
+    <Compile Include="StatusLogDal.cs" />
+    <Compile Include="TiXianLogDal.cs" />
     <Compile Include="UserAccountDal.cs" />
     <Compile Include="UserDal.cs" />
   </ItemGroup>
