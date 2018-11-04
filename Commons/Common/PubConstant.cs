@@ -152,6 +152,7 @@
             }
         }
         #endregion
+<<<<<<< HEAD
         /// <summary>
         /// 商城API
         /// </summary>
@@ -160,6 +161,16 @@
             get {
                 return Auxiliary.ConfigKey("shopapi.baseurl");
             }
+=======
+        /// <summary>
+        /// 商城API
+        /// </summary>
+        public static string ShopApi
+        {
+            get {
+                return Auxiliary.ConfigKey("shopapi.baseurl");
+            }
+>>>>>>> 2018-11-5好
         }
 
 

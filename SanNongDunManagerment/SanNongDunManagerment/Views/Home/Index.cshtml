@@ -24,7 +24,7 @@
             $.ajax({
                 type: "get",
                 //url: "http://api.sndsacc.com/api/userinfo/getuserep",
-                url: "http://api.sndsacc.net/api/userinfo/getuserep",
+                url: "http://greenApi.discountmassworld.com/api/userinfo/getuserep",
                 data: { username:'15910685563' },
                 success: function (data) {
                     if (data.msg == 'ok')
@@ -43,7 +43,7 @@
             $.ajax({
                 type: "get",
                 //url: "http://api.sndsacc.com/api/userinfo/getuserep",
-                url: "http://api.sndsacc.net/api/userinfo/UpdateUserEp?username=15910685563&ep=1000&plusType=1 ",
+                url: "http://greenApi.discountmassworld.com/api/userinfo/UpdateUserEp?username=15910685563&ep=1000&plusType=1 ",
                 success: function (data) {
                     if (data.msg == 'ok') {
                         alert("ok");
@@ -58,7 +58,7 @@
             $.ajax({
                 type: "get",
                 //url: "http://api.sndsacc.com/api/userinfo/getuserep",
-                url: "http://api.sndsacc.net/api/userinfo/PlusActivationCard",
+                url: "http://greenApi.discountmassworld.com/api/userinfo/PlusActivationCard",
                 contentType: "application/json",
                 dataType: "text",
                 data: { username: '15910685563',count:222 },
