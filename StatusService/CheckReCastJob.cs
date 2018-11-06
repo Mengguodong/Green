@@ -23,6 +23,10 @@ namespace StatusService
                 AccountInfo acc = accDal.GetAccByUserId(item.UserId);
                 if (acc.GreenTotal >= (item.OutNum * 4))
                 {
+                    if (acc.StaticsRelease >= (item.Level * 330)) 
+                    {
+                        item.Level = 0;//分润点清0；
+                    }
                     item.IsActivation = 0;
                    bool isTrue = userDal.UpdateUserInfo(item);
                     if (!isTrue)

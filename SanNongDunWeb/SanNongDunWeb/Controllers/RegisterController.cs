@@ -26,12 +26,14 @@ namespace SanNongDunWeb.Controllers
             UserInfo userLeftRightTwo = null;
             UserInfo userRightLeftTwo2 = null;
             UserInfo userRightTwo2 = null;
+            UserInfo endUserLeft = null;
 
             decimal leftSum = 0;
             decimal rightSum = 0;
             string leftStr = "";
             string rightStr = "";
 
+            UserInfo userSession = userBll.GetUserInfoById(_ServiceContext.SND_CurrentUser.UserId);
 
             if (!string.IsNullOrEmpty(userName))
             {
@@ -84,6 +86,16 @@ namespace SanNongDunWeb.Controllers
                 userRightTwo2 = userBll.GetUserByLeftId(userRight.RightId);
             }
 
+            if (_ServiceContext != null && _ServiceContext.SND_CurrentUser != null && _ServiceContext.SND_CurrentUser.UserId > 0)
+            {
+           
+                //一直寻找左区最后一个用户
+             endUserLeft = userBll.GetEndUserLeft(userSession);
+            }
+
+
+            ViewBag.parentLoginName = userSession.UserName;
+
             ViewBag.userLeft = userLeft;
             ViewBag.userRight = userRight;
             ViewBag.userLeftTwo = userLeftTwo;
@@ -94,10 +106,10 @@ namespace SanNongDunWeb.Controllers
             ViewBag.leftSum = leftSum;
             ViewBag.rightSum = rightSum;
 
-
+            ViewBag.endUserLeft = endUserLeft;
             return View();
         }
-
+           
 
 
 

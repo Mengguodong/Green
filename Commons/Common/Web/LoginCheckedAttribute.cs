@@ -24,6 +24,8 @@ namespace Common.Web
             int port = filterContext.HttpContext.Request.Url.Port;//url的端口号
             var returnUrl = filterContext.HttpContext.Request.Url.AbsoluteUri;//完整url地址
             returnUrl = returnUrl.Replace(":" + port.ToString(), "");//将端口号移除
+            returnUrl = returnUrl.TrimEnd('/');
+
             //获取BaseController的服务上下文
             var serviceContext = filterContext.Controller.GetServiceContext();
             //判定BaseController服务上下文和当前用户是否为空
@@ -37,14 +39,26 @@ namespace Common.Web
             {
                 //未登录状态，跳转登录页
                 //去除跳转地址栏双“//”问题 
-                if (returnUrl.Substring(0, returnUrl.IndexOf(".") + 1) == PubConstant.ShowBaseUrl.TrimEnd('/').Substring(0, PubConstant.ShowBaseUrl.TrimEnd('/').IndexOf(".") + 1))
+
+                string returnUrlNew = returnUrl.Substring(0, returnUrl.IndexOf(".") + 1);
+                string showBaseUrl = PubConstant.ShowBaseUrl.TrimEnd('/').Substring(0, PubConstant.ShowBaseUrl.TrimEnd('/').IndexOf(".") + 1);
+
+                if (returnUrlNew.ToLower() == showBaseUrl.ToLower())
                 {
                     string LoginUrl = PubConstant.ShowBaseUrl.TrimEnd('/');
                     filterContext.Result = new RedirectResult(LoginUrl +
                         new UrlHelper(filterContext.RequestContext).RouteUrl("Default", new { action = "index", controller = "login", returnUrl = returnUrl }));
 
                 }
-                else if (returnUrl.Substring(0, returnUrl.IndexOf(".") + 1) == PubConstant.ManagementBaseUrl.TrimEnd('/').Substring(0, PubConstant.ManagementBaseUrl.TrimEnd('/').IndexOf(".") + 1))
+
+                //if (returnUrl.Substring(0, returnUrl.IndexOf(".") + 1) == PubConstant.ShowBaseUrl.TrimEnd('/').Substring(0, PubConstant.ShowBaseUrl.TrimEnd('/').IndexOf(".") + 1))
+                //{
+                //    string LoginUrl = PubConstant.ShowBaseUrl.TrimEnd('/');
+                //    filterContext.Result = new RedirectResult(LoginUrl +
+                //        new UrlHelper(filterContext.RequestContext).RouteUrl("Default", new { action = "index", controller = "login", returnUrl = returnUrl }));
+
+                //}
+                else if (returnUrl.Substring(0, returnUrl.IndexOf(".") + 1).ToLower() == PubConstant.ManagementBaseUrl.TrimEnd('/').Substring(0, PubConstant.ManagementBaseUrl.TrimEnd('/').IndexOf(".") + 1).ToLower())
                 {
                     string LoginUrl = PubConstant.ManagementBaseUrl.TrimEnd('/');
                     filterContext.Result = new RedirectResult(LoginUrl +

@@ -1,0 +1,1720 @@
+
+ 
+记录时间：2018-11-06 00:14:07,147 
+线程ID:[9] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：System.Data.SqlClient.SqlException (0x80131904): 用户 'sa' 登录失败。
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 DapperEx.DbBase..ctor(String connectionStringName)
+   在 Database.BaseDal.ReadOnlySanNongDunConn() 位置 f:\git\lvyang\Green\DataBaseDAL\Database\BaseDal.cs:行号 31
+   在 Dal.UserDal.GetUserByLoginName(String loginName) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 192
+ClientConnectionId:d999bd05-e67c-4a5f-99da-6d13026e0f45
+Error Number:18456,State:1,Class:14
+ 
+
+ 
+记录时间：2018-11-06 00:15:45,232 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：UpdateUserInfo--作者：ggg
+传入参数：
+{"UserId":3,"UserName":"15910685563","Pwd":"C765E6661D3A8B33","PayPwd":"C765E6661D3A8B33","Phone":"15910685563","IdCard":null,"RealName":"花大富豪","BankName":"中国工商银行","BankNumber":"12345678987897","CreateTime":"2018-08-24T00:06:48.787","LeftId":"20180824000648787","RightId":"2018082400064878829","TeamParentId":"qwe123","ParentId":2,"Level":7,"UserStatus":1,"IsActivation":1,"UserType":1,"TeamType":0,"TodayIsLogin":1,"YesTodayIsLogin":0,"OutNum":0}
+错误信息：列名 'OutNum' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 Dapper.SqlMapper.xdf8cd2685f83d9b7(IDbConnection x6247f87bb5b6f658, IDbTransaction x3dfd1b9ab64a1d5f, String x7fcaad8f411d6a84, Action`2 xe7dd9b1c41f4335c, Object xa59bff7708de3a18, Nullable`1 xe21515f875bee7f8, Nullable`1 xbf98aa4a41384761)
+   在 Dapper.SqlMapper.Execute(IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Nullable`1 commandTimeout, Nullable`1 commandType)
+   在 Dapper.DapperEx.Update[T](DbBase dbs, T t, SqlQuery sql)
+   在 Dal.UserDal.UpdateUserInfo(UserInfo userInfo) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1112
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 00:18:12,371 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：UpdateUserInfo--作者：ggg
+传入参数：
+{"UserId":3,"UserName":"15910685563","Pwd":"C765E6661D3A8B33","PayPwd":"C765E6661D3A8B33","Phone":"15910685563","IdCard":null,"RealName":"花大富豪","BankName":"中国工商银行","BankNumber":"12345678987897","CreateTime":"2018-08-24T00:06:48.787","LeftId":"20180824000648787","RightId":"2018082400064878829","TeamParentId":"qwe123","ParentId":2,"Level":7,"UserStatus":1,"IsActivation":1,"UserType":1,"TeamType":0,"TodayIsLogin":1,"YesTodayIsLogin":0,"OutNum":0}
+错误信息：列名 'OutNum' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 Dapper.SqlMapper.xdf8cd2685f83d9b7(IDbConnection x6247f87bb5b6f658, IDbTransaction x3dfd1b9ab64a1d5f, String x7fcaad8f411d6a84, Action`2 xe7dd9b1c41f4335c, Object xa59bff7708de3a18, Nullable`1 xe21515f875bee7f8, Nullable`1 xbf98aa4a41384761)
+   在 Dapper.SqlMapper.Execute(IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Nullable`1 commandTimeout, Nullable`1 commandType)
+   在 Dapper.DapperEx.Update[T](DbBase dbs, T t, SqlQuery sql)
+   在 Dal.UserDal.UpdateUserInfo(UserInfo userInfo) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1112
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 00:24:50,016 
+线程ID:[7] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：UpdateUserInfo--作者：ggg
+传入参数：
+{"UserId":3,"UserName":"15910685563","Pwd":"C765E6661D3A8B33","PayPwd":"C765E6661D3A8B33","Phone":"15910685563","IdCard":null,"RealName":"花大富豪","BankName":"中国工商银行","BankNumber":"12345678987897","CreateTime":"2018-08-24T00:06:48.787","LeftId":"20180824000648787","RightId":"2018082400064878829","TeamParentId":"qwe123","ParentId":2,"Level":2,"UserStatus":1,"IsActivation":1,"UserType":1,"TeamType":0,"TodayIsLogin":1,"YesTodayIsLogin":0,"OutNum":0}
+错误信息：列名 'OutNum' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 Dapper.SqlMapper.xdf8cd2685f83d9b7(IDbConnection x6247f87bb5b6f658, IDbTransaction x3dfd1b9ab64a1d5f, String x7fcaad8f411d6a84, Action`2 xe7dd9b1c41f4335c, Object xa59bff7708de3a18, Nullable`1 xe21515f875bee7f8, Nullable`1 xbf98aa4a41384761)
+   在 Dapper.SqlMapper.Execute(IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Nullable`1 commandTimeout, Nullable`1 commandType)
+   在 Dapper.DapperEx.Update[T](DbBase dbs, T t, SqlQuery sql)
+   在 Dal.UserDal.UpdateUserInfo(UserInfo userInfo) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1112
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 00:24:50,016 
+线程ID:[6] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：UpdateUserInfo--作者：ggg
+传入参数：
+{"UserId":3,"UserName":"15910685563","Pwd":"C765E6661D3A8B33","PayPwd":"C765E6661D3A8B33","Phone":"15910685563","IdCard":null,"RealName":"花大富豪","BankName":"中国工商银行","BankNumber":"12345678987897","CreateTime":"2018-08-24T00:06:48.787","LeftId":"20180824000648787","RightId":"2018082400064878829","TeamParentId":"qwe123","ParentId":2,"Level":2,"UserStatus":1,"IsActivation":1,"UserType":1,"TeamType":0,"TodayIsLogin":1,"YesTodayIsLogin":0,"OutNum":0}
+错误信息：列名 'OutNum' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 Dapper.SqlMapper.xdf8cd2685f83d9b7(IDbConnection x6247f87bb5b6f658, IDbTransaction x3dfd1b9ab64a1d5f, String x7fcaad8f411d6a84, Action`2 xe7dd9b1c41f4335c, Object xa59bff7708de3a18, Nullable`1 xe21515f875bee7f8, Nullable`1 xbf98aa4a41384761)
+   在 Dapper.SqlMapper.Execute(IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Nullable`1 commandTimeout, Nullable`1 commandType)
+   在 Dapper.DapperEx.Update[T](DbBase dbs, T t, SqlQuery sql)
+   在 Dal.UserDal.UpdateUserInfo(UserInfo userInfo) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1112
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 00:29:03,498 
+线程ID:[6] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetLeftUserByTeamParentId--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetLeftUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1261
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 00:29:04,466 
+线程ID:[6] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetRightUserByTeamParentId--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetRightUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1316
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 00:40:09,491 
+线程ID:[25] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetLeftUserByTeamParentId--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetLeftUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1261
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 00:40:09,491 
+线程ID:[28] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetLeftUserByTeamParentId--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetLeftUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1261
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 00:40:09,491 
+线程ID:[6] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetLeftUserByTeamParentId--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetLeftUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1261
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 00:40:09,491 
+线程ID:[24] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetLeftUserByTeamParentId--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetLeftUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1261
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 00:40:09,499 
+线程ID:[30] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetLeftUserByTeamParentId--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetLeftUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1261
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 00:40:09,854 
+线程ID:[28] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetRightUserByTeamParentId--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetRightUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1316
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 00:40:09,888 
+线程ID:[24] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetRightUserByTeamParentId--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetRightUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1316
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 00:40:09,889 
+线程ID:[6] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetRightUserByTeamParentId--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetRightUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1316
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 00:40:09,913 
+线程ID:[30] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetRightUserByTeamParentId--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetRightUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1316
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 00:40:09,916 
+线程ID:[25] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetRightUserByTeamParentId--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetRightUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1316
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 00:40:11,211 
+线程ID:[24] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetLeftUserByTeamParentId--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetLeftUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1261
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 00:40:11,280 
+线程ID:[24] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetRightUserByTeamParentId--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetRightUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1316
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 00:40:41,532 
+线程ID:[24] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetLeftUserByTeamParentId--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetLeftUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1261
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 00:40:41,604 
+线程ID:[24] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetRightUserByTeamParentId--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetRightUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1316
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 00:41:04,459 
+线程ID:[6] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetLeftUserByTeamParentId--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetLeftUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1261
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 00:41:04,537 
+线程ID:[6] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetRightUserByTeamParentId--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetRightUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1316
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 19:25:41,390 
+线程ID:[8] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：System.Data.SqlClient.SqlException (0x80131904): 用户 'sa' 登录失败。
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 DapperEx.DbBase..ctor(String connectionStringName)
+   在 Dal.UserDal.GetUserByLoginName(String loginName) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 192
+ClientConnectionId:20e95bd9-7fb0-4302-81b9-c3415b12ed42
+Error Number:18456,State:1,Class:14
+ 
+
+ 
+记录时间：2018-11-06 19:25:41,390 
+线程ID:[9] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：System.Data.SqlClient.SqlException (0x80131904): 用户 'sa' 登录失败。
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 DapperEx.DbBase..ctor(String connectionStringName)
+   在 Dal.UserDal.GetUserByLoginName(String loginName) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 192
+ClientConnectionId:20e95bd9-7fb0-4302-81b9-c3415b12ed42
+Error Number:18456,State:1,Class:14
+ 
+
+ 
+记录时间：2018-11-06 19:25:41,391 
+线程ID:[5] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：System.Data.SqlClient.SqlException (0x80131904): 用户 'sa' 登录失败。
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 DapperEx.DbBase..ctor(String connectionStringName)
+   在 Dal.UserDal.GetUserByLoginName(String loginName) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 192
+ClientConnectionId:20e95bd9-7fb0-4302-81b9-c3415b12ed42
+Error Number:18456,State:1,Class:14
+ 
+
+ 
+记录时间：2018-11-06 19:25:41,391 
+线程ID:[7] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：System.Data.SqlClient.SqlException (0x80131904): 用户 'sa' 登录失败。
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 DapperEx.DbBase..ctor(String connectionStringName)
+   在 Dal.UserDal.GetUserByLoginName(String loginName) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 192
+ClientConnectionId:20e95bd9-7fb0-4302-81b9-c3415b12ed42
+Error Number:18456,State:1,Class:14
+ 
+
+ 
+记录时间：2018-11-06 19:25:45,801 
+线程ID:[8] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：System.Data.SqlClient.SqlException (0x80131904): 用户 'sa' 登录失败。
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 DapperEx.DbBase..ctor(String connectionStringName)
+   在 Dal.UserDal.GetUserByLoginName(String loginName) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 192
+ClientConnectionId:20e95bd9-7fb0-4302-81b9-c3415b12ed42
+Error Number:18456,State:1,Class:14
+ 
+
+ 
+记录时间：2018-11-06 19:25:59,859 
+线程ID:[9] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：System.Data.SqlClient.SqlException (0x80131904): 用户 'sa' 登录失败。
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 DapperEx.DbBase..ctor(String connectionStringName)
+   在 Dal.UserDal.GetUserByLoginName(String loginName) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 192
+ClientConnectionId:1be40189-019b-49d9-8bbe-0a4d56b94957
+Error Number:18456,State:1,Class:14
+ 
+
+ 
+记录时间：2018-11-06 19:26:06,397 
+线程ID:[9] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：System.Data.SqlClient.SqlException (0x80131904): 用户 'sa' 登录失败。
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 DapperEx.DbBase..ctor(String connectionStringName)
+   在 Dal.UserDal.GetUserByLoginName(String loginName) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 192
+ClientConnectionId:1be40189-019b-49d9-8bbe-0a4d56b94957
+Error Number:18456,State:1,Class:14
+ 
+
+ 
+记录时间：2018-11-06 19:26:06,888 
+线程ID:[7] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：System.Data.SqlClient.SqlException (0x80131904): 用户 'sa' 登录失败。
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 DapperEx.DbBase..ctor(String connectionStringName)
+   在 Dal.UserDal.GetUserByLoginName(String loginName) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 192
+ClientConnectionId:1be40189-019b-49d9-8bbe-0a4d56b94957
+Error Number:18456,State:1,Class:14
+ 
+
+ 
+记录时间：2018-11-06 19:26:07,117 
+线程ID:[8] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：System.Data.SqlClient.SqlException (0x80131904): 用户 'sa' 登录失败。
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 DapperEx.DbBase..ctor(String connectionStringName)
+   在 Dal.UserDal.GetUserByLoginName(String loginName) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 192
+ClientConnectionId:1be40189-019b-49d9-8bbe-0a4d56b94957
+Error Number:18456,State:1,Class:14
+ 
+
+ 
+记录时间：2018-11-06 19:26:07,298 
+线程ID:[5] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：System.Data.SqlClient.SqlException (0x80131904): 用户 'sa' 登录失败。
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 DapperEx.DbBase..ctor(String connectionStringName)
+   在 Dal.UserDal.GetUserByLoginName(String loginName) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 192
+ClientConnectionId:1be40189-019b-49d9-8bbe-0a4d56b94957
+Error Number:18456,State:1,Class:14
+ 
+
+ 
+记录时间：2018-11-06 19:26:07,467 
+线程ID:[9] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：System.Data.SqlClient.SqlException (0x80131904): 用户 'sa' 登录失败。
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 DapperEx.DbBase..ctor(String connectionStringName)
+   在 Dal.UserDal.GetUserByLoginName(String loginName) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 192
+ClientConnectionId:1be40189-019b-49d9-8bbe-0a4d56b94957
+Error Number:18456,State:1,Class:14
+ 
+
+ 
+记录时间：2018-11-06 19:26:07,678 
+线程ID:[7] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：System.Data.SqlClient.SqlException (0x80131904): 用户 'sa' 登录失败。
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 DapperEx.DbBase..ctor(String connectionStringName)
+   在 Dal.UserDal.GetUserByLoginName(String loginName) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 192
+ClientConnectionId:1be40189-019b-49d9-8bbe-0a4d56b94957
+Error Number:18456,State:1,Class:14
+ 
+
+ 
+记录时间：2018-11-06 19:26:07,837 
+线程ID:[8] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：System.Data.SqlClient.SqlException (0x80131904): 用户 'sa' 登录失败。
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 DapperEx.DbBase..ctor(String connectionStringName)
+   在 Dal.UserDal.GetUserByLoginName(String loginName) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 192
+ClientConnectionId:1be40189-019b-49d9-8bbe-0a4d56b94957
+Error Number:18456,State:1,Class:14
+ 
+
+ 
+记录时间：2018-11-06 19:26:08,024 
+线程ID:[9] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：System.Data.SqlClient.SqlException (0x80131904): 用户 'sa' 登录失败。
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 DapperEx.DbBase..ctor(String connectionStringName)
+   在 Dal.UserDal.GetUserByLoginName(String loginName) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 192
+ClientConnectionId:1be40189-019b-49d9-8bbe-0a4d56b94957
+Error Number:18456,State:1,Class:14
+ 
+
+ 
+记录时间：2018-11-06 19:26:08,196 
+线程ID:[8] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：System.Data.SqlClient.SqlException (0x80131904): 用户 'sa' 登录失败。
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 DapperEx.DbBase..ctor(String connectionStringName)
+   在 Dal.UserDal.GetUserByLoginName(String loginName) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 192
+ClientConnectionId:1be40189-019b-49d9-8bbe-0a4d56b94957
+Error Number:18456,State:1,Class:14
+ 
+
+ 
+记录时间：2018-11-06 19:26:08,378 
+线程ID:[7] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：System.Data.SqlClient.SqlException (0x80131904): 用户 'sa' 登录失败。
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 DapperEx.DbBase..ctor(String connectionStringName)
+   在 Dal.UserDal.GetUserByLoginName(String loginName) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 192
+ClientConnectionId:1be40189-019b-49d9-8bbe-0a4d56b94957
+Error Number:18456,State:1,Class:14
+ 
+
+ 
+记录时间：2018-11-06 19:26:08,530 
+线程ID:[9] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：System.Data.SqlClient.SqlException (0x80131904): 用户 'sa' 登录失败。
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 DapperEx.DbBase..ctor(String connectionStringName)
+   在 Dal.UserDal.GetUserByLoginName(String loginName) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 192
+ClientConnectionId:1be40189-019b-49d9-8bbe-0a4d56b94957
+Error Number:18456,State:1,Class:14
+ 
+
+ 
+记录时间：2018-11-06 19:26:08,668 
+线程ID:[8] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：System.Data.SqlClient.SqlException (0x80131904): 用户 'sa' 登录失败。
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 DapperEx.DbBase..ctor(String connectionStringName)
+   在 Dal.UserDal.GetUserByLoginName(String loginName) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 192
+ClientConnectionId:1be40189-019b-49d9-8bbe-0a4d56b94957
+Error Number:18456,State:1,Class:14
+ 
+
+ 
+记录时间：2018-11-06 19:26:08,882 
+线程ID:[5] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：System.Data.SqlClient.SqlException (0x80131904): 用户 'sa' 登录失败。
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 DapperEx.DbBase..ctor(String connectionStringName)
+   在 Dal.UserDal.GetUserByLoginName(String loginName) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 192
+ClientConnectionId:1be40189-019b-49d9-8bbe-0a4d56b94957
+Error Number:18456,State:1,Class:14
+ 
+
+ 
+记录时间：2018-11-06 19:26:09,050 
+线程ID:[9] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：System.Data.SqlClient.SqlException (0x80131904): 用户 'sa' 登录失败。
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 DapperEx.DbBase..ctor(String connectionStringName)
+   在 Dal.UserDal.GetUserByLoginName(String loginName) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 192
+ClientConnectionId:1be40189-019b-49d9-8bbe-0a4d56b94957
+Error Number:18456,State:1,Class:14
+ 
+
+ 
+记录时间：2018-11-06 19:26:09,228 
+线程ID:[8] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：System.Data.SqlClient.SqlException (0x80131904): 用户 'sa' 登录失败。
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 DapperEx.DbBase..ctor(String connectionStringName)
+   在 Dal.UserDal.GetUserByLoginName(String loginName) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 192
+ClientConnectionId:1be40189-019b-49d9-8bbe-0a4d56b94957
+Error Number:18456,State:1,Class:14
+ 
+
+ 
+记录时间：2018-11-06 19:26:09,395 
+线程ID:[7] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：System.Data.SqlClient.SqlException (0x80131904): 用户 'sa' 登录失败。
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 DapperEx.DbBase..ctor(String connectionStringName)
+   在 Dal.UserDal.GetUserByLoginName(String loginName) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 192
+ClientConnectionId:1be40189-019b-49d9-8bbe-0a4d56b94957
+Error Number:18456,State:1,Class:14
+ 
+
+ 
+记录时间：2018-11-06 19:26:09,584 
+线程ID:[5] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：System.Data.SqlClient.SqlException (0x80131904): 用户 'sa' 登录失败。
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 DapperEx.DbBase..ctor(String connectionStringName)
+   在 Dal.UserDal.GetUserByLoginName(String loginName) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 192
+ClientConnectionId:1be40189-019b-49d9-8bbe-0a4d56b94957
+Error Number:18456,State:1,Class:14
+ 
+
+ 
+记录时间：2018-11-06 19:27:11,491 
+线程ID:[11] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetLeftUserByTeamParentId++=====teamParentId=--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetLeftUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1253
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 19:27:11,492 
+线程ID:[7] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetLeftUserByTeamParentId++=====teamParentId=--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetLeftUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1261
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 19:27:11,495 
+线程ID:[5] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetLeftUserByTeamParentId++=====teamParentId=--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetLeftUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1261
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 19:27:11,521 
+线程ID:[11] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetRightUserByTeamParentId=====+teamParentId=--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetRightUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1316
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 19:27:11,521 
+线程ID:[5] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetRightUserByTeamParentId=====+teamParentId=--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetRightUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1316
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 19:27:11,491 
+线程ID:[8] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetLeftUserByTeamParentId++=====teamParentId=--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetLeftUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1261
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 19:27:11,522 
+线程ID:[7] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetRightUserByTeamParentId=====+teamParentId=--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetRightUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1308
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 19:27:11,524 
+线程ID:[8] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetRightUserByTeamParentId=====+teamParentId=--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetRightUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1316
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 19:27:11,826 
+线程ID:[8] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetLeftUserByTeamParentId++=====teamParentId=--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetLeftUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1261
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 19:27:11,826 
+线程ID:[7] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetLeftUserByTeamParentId++=====teamParentId=--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetLeftUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1261
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 19:27:11,826 
+线程ID:[5] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetLeftUserByTeamParentId++=====teamParentId=--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetLeftUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1261
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 19:27:11,827 
+线程ID:[11] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetLeftUserByTeamParentId++=====teamParentId=--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetLeftUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1261
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 19:27:11,827 
+线程ID:[8] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetRightUserByTeamParentId=====+teamParentId=--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetRightUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1316
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 19:27:11,827 
+线程ID:[7] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetRightUserByTeamParentId=====+teamParentId=--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetRightUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1316
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 19:27:11,827 
+线程ID:[5] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetRightUserByTeamParentId=====+teamParentId=--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetRightUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1316
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 19:27:11,827 
+线程ID:[11] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetRightUserByTeamParentId=====+teamParentId=--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetRightUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1316
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 19:27:11,847 
+线程ID:[7] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetLeftUserByTeamParentId++=====teamParentId=--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetLeftUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1261
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 19:27:11,847 
+线程ID:[8] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetLeftUserByTeamParentId++=====teamParentId=--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetLeftUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1261
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 19:27:11,847 
+线程ID:[7] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetRightUserByTeamParentId=====+teamParentId=--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetRightUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1316
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 19:27:11,847 
+线程ID:[8] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetRightUserByTeamParentId=====+teamParentId=--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetRightUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1316
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 19:27:11,848 
+线程ID:[11] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetLeftUserByTeamParentId++=====teamParentId=--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetLeftUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1261
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 19:27:11,848 
+线程ID:[5] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetLeftUserByTeamParentId++=====teamParentId=--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetLeftUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1261
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 19:27:11,848 
+线程ID:[11] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetRightUserByTeamParentId=====+teamParentId=--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetRightUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1316
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 19:27:11,848 
+线程ID:[5] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetRightUserByTeamParentId=====+teamParentId=--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetRightUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1316
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 19:27:11,857 
+线程ID:[7] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetLeftUserByTeamParentId++=====teamParentId=--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetLeftUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1261
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 19:27:11,857 
+线程ID:[7] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetRightUserByTeamParentId=====+teamParentId=--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetRightUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1316
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 19:27:11,861 
+线程ID:[11] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetLeftUserByTeamParentId++=====teamParentId=--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetLeftUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1261
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 19:27:11,861 
+线程ID:[5] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetLeftUserByTeamParentId++=====teamParentId=--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetLeftUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1261
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 19:27:11,861 
+线程ID:[11] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetRightUserByTeamParentId=====+teamParentId=--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetRightUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1316
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 19:27:11,861 
+线程ID:[8] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetLeftUserByTeamParentId++=====teamParentId=--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetLeftUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1261
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 19:27:11,862 
+线程ID:[5] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetRightUserByTeamParentId=====+teamParentId=--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetRightUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1316
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 19:27:11,862 
+线程ID:[8] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetRightUserByTeamParentId=====+teamParentId=--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetRightUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1316
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 19:27:11,864 
+线程ID:[7] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetLeftUserByTeamParentId++=====teamParentId=--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetLeftUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1261
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 19:27:11,864 
+线程ID:[7] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetRightUserByTeamParentId=====+teamParentId=--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetRightUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1316
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 19:27:11,873 
+线程ID:[5] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetLeftUserByTeamParentId++=====teamParentId=--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetLeftUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1261
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 19:27:11,873 
+线程ID:[8] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetLeftUserByTeamParentId++=====teamParentId=--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetLeftUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1261
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 19:27:11,873 
+线程ID:[5] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetRightUserByTeamParentId=====+teamParentId=--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetRightUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1316
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 19:27:11,873 
+线程ID:[8] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetRightUserByTeamParentId=====+teamParentId=--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetRightUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1316
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 19:27:11,874 
+线程ID:[11] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetLeftUserByTeamParentId++=====teamParentId=--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetLeftUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1261
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 19:27:11,875 
+线程ID:[11] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetRightUserByTeamParentId=====+teamParentId=--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetRightUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1316
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 19:27:11,880 
+线程ID:[7] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetLeftUserByTeamParentId++=====teamParentId=--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetLeftUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1261
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 19:27:11,880 
+线程ID:[8] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetLeftUserByTeamParentId++=====teamParentId=--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetLeftUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1261
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 19:27:11,880 
+线程ID:[7] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetRightUserByTeamParentId=====+teamParentId=--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetRightUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1316
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 19:27:11,880 
+线程ID:[8] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetRightUserByTeamParentId=====+teamParentId=--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetRightUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1316
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 19:27:11,882 
+线程ID:[11] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetLeftUserByTeamParentId++=====teamParentId=--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetLeftUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1261
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 19:27:11,883 
+线程ID:[5] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetLeftUserByTeamParentId++=====teamParentId=--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetLeftUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1261
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 19:27:11,883 
+线程ID:[11] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetRightUserByTeamParentId=====+teamParentId=--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetRightUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1316
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 19:27:11,883 
+线程ID:[5] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetRightUserByTeamParentId=====+teamParentId=--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetRightUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1316
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 19:27:11,911 
+线程ID:[8] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetLeftUserByTeamParentId++=====teamParentId=--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetLeftUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1261
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 19:27:11,911 
+线程ID:[8] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetRightUserByTeamParentId=====+teamParentId=--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetRightUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1316
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 19:27:11,919 
+线程ID:[7] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetLeftUserByTeamParentId++=====teamParentId=--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetLeftUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1261
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 19:27:11,919 
+线程ID:[7] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetRightUserByTeamParentId=====+teamParentId=--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetRightUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1316
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 19:38:27,280 
+线程ID:[5] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetLeftUserByTeamParentId++=====teamParentId=--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetLeftUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1261
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-06 19:38:27,679 
+线程ID:[5] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetRightUserByTeamParentId=====+teamParentId=--作者：ggg
+传入参数：
+
+错误信息：未将对象引用设置到对象的实例。
+   在 DapperEx.SqlQuery`1.xf66729fe4856d5b4(OperationMethod x1306445c04667cc7, String xe01ae93d9fe5a880, Object xbcea506a33cf9111)
+   在 DapperEx.SqlQuery`1.x5ca7781f9ea811cd(Expression`1 x9d8871ea6eadec29, OperationMethod x1437816edeb48c46, Object xbcea506a33cf9111, Boolean x073881d015d2f9c2)
+   在 DapperEx.SqlQuery`1.AndWhere(Expression`1 expr, OperationMethod operation, Object value)
+   在 Dal.UserDal.GetRightUserByTeamParentId(String teamParentId) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1316
+客户端ip:,请求连接：
+ 

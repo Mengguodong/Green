@@ -227,6 +227,7 @@ namespace SndApi.Controllers
         /// <summary>
         /// 订单结束流程
         /// </summary> 
+        [HttpGet]
         public ReturnModel OrderOverApi(string userName, int count)
         {
             ReturnModel returnModel = new ReturnModel();
@@ -236,6 +237,14 @@ namespace SndApi.Controllers
             if (user != null)
             {
                 user.Level += count;
+                user.OutNum += count;
+                if (user.Level >= 2)
+                {
+                    user.OutNum = 2;
+                    user.Level = 2;
+                }
+
+
                 user.IsActivation = 1;
                 returnModel.IsTrue = _userDal.UpdateUserInfo(user);
                 if (returnModel.IsTrue)
@@ -297,8 +306,8 @@ namespace SndApi.Controllers
                     //向上递归添加业绩
                     GetUpTeamList(user, count);
                     //添加每日新增业绩
-                  GlobalConfig gc=  _GlobalConfigDal.GetGlobalConfig("EveryDate");
-                  gc.ConfigValue = (Convert.ToDecimal(gc.ConfigValue) + (count * 330)).ToString();
+                    GlobalConfig gc = _GlobalConfigDal.GetGlobalConfig("EveryDate");
+                    gc.ConfigValue = (Convert.ToDecimal(gc.ConfigValue) + (count * 330)).ToString();
                     _GlobalConfigDal.UpdateGlobalConfig(gc);
                 }
                 else
@@ -313,7 +322,10 @@ namespace SndApi.Controllers
 
         private void GetUpTeamList(UserInfo user,int count)
         {
-            List<UserInfo> list = new List<UserInfo>();
+            if (user != null) 
+            {
+            
+            }
           UserInfo leftUser= _userDal.GetLeftUserByTeamParentId(user.TeamParentId);
             UserInfo rightUser=_userDal.GetRightUserByTeamParentId(user.TeamParentId);
             if (leftUser == null&& rightUser==null)

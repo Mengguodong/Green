@@ -1,0 +1,345 @@
+
+ 
+记录时间：2018-11-05 21:10:57,243 
+线程ID:[8] 
+日志级别：  ERROR 
+出错类：DataModel.HongBaoLog property: [(null)] - 
+错误描述：Error:方法名：AdminGetHongBaoLog--作者：ggg
+传入参数：
+{"userId":0,"pageIndex":1,"pageSize":15,"type":1}
+错误信息：从索引 51 处开始，初始化字符串的格式不符合规范。
+   在 System.Data.Common.DbConnectionOptions.GetKeyValuePair(String connectionString, Int32 currentPosition, StringBuilder buffer, Boolean useOdbcRules, String& keyname, String& keyvalue)
+   在 System.Data.Common.DbConnectionOptions.ParseInternal(Hashtable parsetable, String connectionString, Boolean buildChain, Hashtable synonyms, Boolean firstKey)
+   在 System.Data.Common.DbConnectionOptions..ctor(String connectionString, Hashtable synonyms, Boolean useOdbcRules)
+   在 System.Data.SqlClient.SqlConnectionString..ctor(String connectionString)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnectionOptions(String connectionString, DbConnectionOptions previous)
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnectionPoolGroup(DbConnectionPoolKey key, DbConnectionPoolGroupOptions poolOptions, DbConnectionOptions& userConnectionOptions)
+   在 System.Data.SqlClient.SqlConnection.ConnectionString_Set(DbConnectionPoolKey key)
+   在 System.Data.SqlClient.SqlConnection.set_ConnectionString(String value)
+   在 DapperEx.DbBase..ctor(String connectionStringName)
+   在 Database.BaseDal.ReadOnlySanNongDunConn() 位置 f:\git\lvyang\Green\DataBaseDAL\Database\BaseDal.cs:行号 31
+   在 Dal.HongBaoLogDal.AdminGetHongBaoLog(Int32 userId, Int32 pageIndex, Int32 pageSize, Int32 type) 位置 f:\git\lvyang\Green\Dal\HongBaoLogDal.cs:行号 113
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-05 21:10:59,671 
+线程ID:[8] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetAdminUserInfoes--作者：ggg
+传入参数：
+{"userName":"","pageIndex":1,"pageSize":15}
+错误信息：从索引 51 处开始，初始化字符串的格式不符合规范。
+   在 System.Data.Common.DbConnectionOptions.GetKeyValuePair(String connectionString, Int32 currentPosition, StringBuilder buffer, Boolean useOdbcRules, String& keyname, String& keyvalue)
+   在 System.Data.Common.DbConnectionOptions.ParseInternal(Hashtable parsetable, String connectionString, Boolean buildChain, Hashtable synonyms, Boolean firstKey)
+   在 System.Data.Common.DbConnectionOptions..ctor(String connectionString, Hashtable synonyms, Boolean useOdbcRules)
+   在 System.Data.SqlClient.SqlConnectionString..ctor(String connectionString)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnectionOptions(String connectionString, DbConnectionOptions previous)
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnectionPoolGroup(DbConnectionPoolKey key, DbConnectionPoolGroupOptions poolOptions, DbConnectionOptions& userConnectionOptions)
+   在 System.Data.SqlClient.SqlConnection.ConnectionString_Set(DbConnectionPoolKey key)
+   在 System.Data.SqlClient.SqlConnection.set_ConnectionString(String value)
+   在 DapperEx.DbBase..ctor(String connectionStringName)
+   在 Database.BaseDal.ReadOnlySanNongDunConn() 位置 f:\git\lvyang\Green\DataBaseDAL\Database\BaseDal.cs:行号 31
+   在 Dal.UserDal.GetAdminUserInfoes(String userName, Int32 pageSize, Int32 pageIndex) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 118
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-05 21:11:03,268 
+线程ID:[8] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetAdminUserInfoes--作者：ggg
+传入参数：
+{"userName":"","pageIndex":1,"pageSize":15}
+错误信息：从索引 51 处开始，初始化字符串的格式不符合规范。
+   在 System.Data.Common.DbConnectionOptions.GetKeyValuePair(String connectionString, Int32 currentPosition, StringBuilder buffer, Boolean useOdbcRules, String& keyname, String& keyvalue)
+   在 System.Data.Common.DbConnectionOptions.ParseInternal(Hashtable parsetable, String connectionString, Boolean buildChain, Hashtable synonyms, Boolean firstKey)
+   在 System.Data.Common.DbConnectionOptions..ctor(String connectionString, Hashtable synonyms, Boolean useOdbcRules)
+   在 System.Data.SqlClient.SqlConnectionString..ctor(String connectionString)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnectionOptions(String connectionString, DbConnectionOptions previous)
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnectionPoolGroup(DbConnectionPoolKey key, DbConnectionPoolGroupOptions poolOptions, DbConnectionOptions& userConnectionOptions)
+   在 System.Data.SqlClient.SqlConnection.ConnectionString_Set(DbConnectionPoolKey key)
+   在 System.Data.SqlClient.SqlConnection.set_ConnectionString(String value)
+   在 DapperEx.DbBase..ctor(String connectionStringName)
+   在 Database.BaseDal.ReadOnlySanNongDunConn() 位置 f:\git\lvyang\Green\DataBaseDAL\Database\BaseDal.cs:行号 31
+   在 Dal.UserDal.GetAdminUserInfoes(String userName, Int32 pageSize, Int32 pageIndex) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 118
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-05 21:11:34,154 
+线程ID:[7] 
+日志级别：  ERROR 
+出错类：DataModel.HongBaoLog property: [(null)] - 
+错误描述：Error:方法名：AdminGetHongBaoLog--作者：ggg
+传入参数：
+{"userId":0,"pageIndex":1,"pageSize":15,"type":1}
+错误信息：从索引 51 处开始，初始化字符串的格式不符合规范。
+   在 System.Data.Common.DbConnectionOptions.GetKeyValuePair(String connectionString, Int32 currentPosition, StringBuilder buffer, Boolean useOdbcRules, String& keyname, String& keyvalue)
+   在 System.Data.Common.DbConnectionOptions.ParseInternal(Hashtable parsetable, String connectionString, Boolean buildChain, Hashtable synonyms, Boolean firstKey)
+   在 System.Data.Common.DbConnectionOptions..ctor(String connectionString, Hashtable synonyms, Boolean useOdbcRules)
+   在 System.Data.SqlClient.SqlConnectionString..ctor(String connectionString)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnectionOptions(String connectionString, DbConnectionOptions previous)
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnectionPoolGroup(DbConnectionPoolKey key, DbConnectionPoolGroupOptions poolOptions, DbConnectionOptions& userConnectionOptions)
+   在 System.Data.SqlClient.SqlConnection.ConnectionString_Set(DbConnectionPoolKey key)
+   在 System.Data.SqlClient.SqlConnection.set_ConnectionString(String value)
+   在 DapperEx.DbBase..ctor(String connectionStringName)
+   在 Database.BaseDal.ReadOnlySanNongDunConn() 位置 f:\git\lvyang\Green\DataBaseDAL\Database\BaseDal.cs:行号 31
+   在 Dal.HongBaoLogDal.AdminGetHongBaoLog(Int32 userId, Int32 pageIndex, Int32 pageSize, Int32 type) 位置 f:\git\lvyang\Green\Dal\HongBaoLogDal.cs:行号 113
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-05 21:11:38,646 
+线程ID:[8] 
+日志级别：  ERROR 
+出错类：DataModel.HongBaoLog property: [(null)] - 
+错误描述：Error:方法名：AdminGetHongBaoLog--作者：ggg
+传入参数：
+{"userId":0,"pageIndex":1,"pageSize":15,"type":2}
+错误信息：从索引 51 处开始，初始化字符串的格式不符合规范。
+   在 System.Data.Common.DbConnectionOptions.GetKeyValuePair(String connectionString, Int32 currentPosition, StringBuilder buffer, Boolean useOdbcRules, String& keyname, String& keyvalue)
+   在 System.Data.Common.DbConnectionOptions.ParseInternal(Hashtable parsetable, String connectionString, Boolean buildChain, Hashtable synonyms, Boolean firstKey)
+   在 System.Data.Common.DbConnectionOptions..ctor(String connectionString, Hashtable synonyms, Boolean useOdbcRules)
+   在 System.Data.SqlClient.SqlConnectionString..ctor(String connectionString)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnectionOptions(String connectionString, DbConnectionOptions previous)
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnectionPoolGroup(DbConnectionPoolKey key, DbConnectionPoolGroupOptions poolOptions, DbConnectionOptions& userConnectionOptions)
+   在 System.Data.SqlClient.SqlConnection.ConnectionString_Set(DbConnectionPoolKey key)
+   在 System.Data.SqlClient.SqlConnection.set_ConnectionString(String value)
+   在 DapperEx.DbBase..ctor(String connectionStringName)
+   在 Database.BaseDal.ReadOnlySanNongDunConn() 位置 f:\git\lvyang\Green\DataBaseDAL\Database\BaseDal.cs:行号 31
+   在 Dal.HongBaoLogDal.AdminGetHongBaoLog(Int32 userId, Int32 pageIndex, Int32 pageSize, Int32 type) 位置 f:\git\lvyang\Green\Dal\HongBaoLogDal.cs:行号 113
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-05 21:11:40,791 
+线程ID:[7] 
+日志级别：  ERROR 
+出错类：DataModel.StatusLog property: [(null)] - 
+错误描述：Error:方法名：AdminGetStatusLog--作者：ggg
+传入参数：
+{"userId":0,"pageIndex":1,"pageSize":15,"type":1}
+错误信息：从索引 51 处开始，初始化字符串的格式不符合规范。
+   在 System.Data.Common.DbConnectionOptions.GetKeyValuePair(String connectionString, Int32 currentPosition, StringBuilder buffer, Boolean useOdbcRules, String& keyname, String& keyvalue)
+   在 System.Data.Common.DbConnectionOptions.ParseInternal(Hashtable parsetable, String connectionString, Boolean buildChain, Hashtable synonyms, Boolean firstKey)
+   在 System.Data.Common.DbConnectionOptions..ctor(String connectionString, Hashtable synonyms, Boolean useOdbcRules)
+   在 System.Data.SqlClient.SqlConnectionString..ctor(String connectionString)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnectionOptions(String connectionString, DbConnectionOptions previous)
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnectionPoolGroup(DbConnectionPoolKey key, DbConnectionPoolGroupOptions poolOptions, DbConnectionOptions& userConnectionOptions)
+   在 System.Data.SqlClient.SqlConnection.ConnectionString_Set(DbConnectionPoolKey key)
+   在 System.Data.SqlClient.SqlConnection.set_ConnectionString(String value)
+   在 DapperEx.DbBase..ctor(String connectionStringName)
+   在 Database.BaseDal.ReadOnlySanNongDunConn() 位置 f:\git\lvyang\Green\DataBaseDAL\Database\BaseDal.cs:行号 31
+   在 Dal.StatusLogDal.AdminGetStatusLog(Int32 userId, Int32 pageIndex, Int32 pageSize, Int32 type) 位置 f:\git\lvyang\Green\Dal\StatusLogDal.cs:行号 109
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-05 21:11:43,674 
+线程ID:[7] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetSumMoney--作者：ggg
+传入参数：
+
+错误信息：从索引 51 处开始，初始化字符串的格式不符合规范。
+   在 System.Data.Common.DbConnectionOptions.GetKeyValuePair(String connectionString, Int32 currentPosition, StringBuilder buffer, Boolean useOdbcRules, String& keyname, String& keyvalue)
+   在 System.Data.Common.DbConnectionOptions.ParseInternal(Hashtable parsetable, String connectionString, Boolean buildChain, Hashtable synonyms, Boolean firstKey)
+   在 System.Data.Common.DbConnectionOptions..ctor(String connectionString, Hashtable synonyms, Boolean useOdbcRules)
+   在 System.Data.SqlClient.SqlConnectionString..ctor(String connectionString)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnectionOptions(String connectionString, DbConnectionOptions previous)
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnectionPoolGroup(DbConnectionPoolKey key, DbConnectionPoolGroupOptions poolOptions, DbConnectionOptions& userConnectionOptions)
+   在 System.Data.SqlClient.SqlConnection.ConnectionString_Set(DbConnectionPoolKey key)
+   在 System.Data.SqlClient.SqlConnection.set_ConnectionString(String value)
+   在 DapperEx.DbBase..ctor(String connectionStringName)
+   在 Database.BaseDal.ReadOnlySanNongDunConn() 位置 f:\git\lvyang\Green\DataBaseDAL\Database\BaseDal.cs:行号 31
+   在 Dal.UserDal.GetSumMoney(Nullable`1 begin, Nullable`1 end) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1151
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-05 21:11:43,774 
+线程ID:[7] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetSumMoney--作者：ggg
+传入参数：
+
+错误信息：从索引 51 处开始，初始化字符串的格式不符合规范。
+   在 System.Data.Common.DbConnectionOptions.GetKeyValuePair(String connectionString, Int32 currentPosition, StringBuilder buffer, Boolean useOdbcRules, String& keyname, String& keyvalue)
+   在 System.Data.Common.DbConnectionOptions.ParseInternal(Hashtable parsetable, String connectionString, Boolean buildChain, Hashtable synonyms, Boolean firstKey)
+   在 System.Data.Common.DbConnectionOptions..ctor(String connectionString, Hashtable synonyms, Boolean useOdbcRules)
+   在 System.Data.SqlClient.SqlConnectionString..ctor(String connectionString)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnectionOptions(String connectionString, DbConnectionOptions previous)
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnectionPoolGroup(DbConnectionPoolKey key, DbConnectionPoolGroupOptions poolOptions, DbConnectionOptions& userConnectionOptions)
+   在 System.Data.SqlClient.SqlConnection.ConnectionString_Set(DbConnectionPoolKey key)
+   在 System.Data.SqlClient.SqlConnection.set_ConnectionString(String value)
+   在 DapperEx.DbBase..ctor(String connectionStringName)
+   在 Database.BaseDal.ReadOnlySanNongDunConn() 位置 f:\git\lvyang\Green\DataBaseDAL\Database\BaseDal.cs:行号 31
+   在 Dal.UserAccountDal.GetSumGreenAndScore(Nullable`1 begin, Nullable`1 end) 位置 f:\git\lvyang\Green\Dal\UserAccountDal.cs:行号 674
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-05 21:11:43,866 
+线程ID:[7] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetAllActivationUser--作者：ggg
+传入参数：
+
+错误信息：从索引 51 处开始，初始化字符串的格式不符合规范。
+   在 System.Data.Common.DbConnectionOptions.GetKeyValuePair(String connectionString, Int32 currentPosition, StringBuilder buffer, Boolean useOdbcRules, String& keyname, String& keyvalue)
+   在 System.Data.Common.DbConnectionOptions.ParseInternal(Hashtable parsetable, String connectionString, Boolean buildChain, Hashtable synonyms, Boolean firstKey)
+   在 System.Data.Common.DbConnectionOptions..ctor(String connectionString, Hashtable synonyms, Boolean useOdbcRules)
+   在 System.Data.SqlClient.SqlConnectionString..ctor(String connectionString)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnectionOptions(String connectionString, DbConnectionOptions previous)
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnectionPoolGroup(DbConnectionPoolKey key, DbConnectionPoolGroupOptions poolOptions, DbConnectionOptions& userConnectionOptions)
+   在 System.Data.SqlClient.SqlConnection.ConnectionString_Set(DbConnectionPoolKey key)
+   在 System.Data.SqlClient.SqlConnection.set_ConnectionString(String value)
+   在 DapperEx.DbBase..ctor(String connectionStringName)
+   在 Database.BaseDal.ReadOnlySanNongDunConn() 位置 f:\git\lvyang\Green\DataBaseDAL\Database\BaseDal.cs:行号 31
+   在 Dal.UserDal.GetAllActivationUser() 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1178
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-05 21:11:43,962 
+线程ID:[7] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetAllUser--作者：ggg
+传入参数：
+
+错误信息：从索引 51 处开始，初始化字符串的格式不符合规范。
+   在 System.Data.Common.DbConnectionOptions.GetKeyValuePair(String connectionString, Int32 currentPosition, StringBuilder buffer, Boolean useOdbcRules, String& keyname, String& keyvalue)
+   在 System.Data.Common.DbConnectionOptions.ParseInternal(Hashtable parsetable, String connectionString, Boolean buildChain, Hashtable synonyms, Boolean firstKey)
+   在 System.Data.Common.DbConnectionOptions..ctor(String connectionString, Hashtable synonyms, Boolean useOdbcRules)
+   在 System.Data.SqlClient.SqlConnectionString..ctor(String connectionString)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnectionOptions(String connectionString, DbConnectionOptions previous)
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnectionPoolGroup(DbConnectionPoolKey key, DbConnectionPoolGroupOptions poolOptions, DbConnectionOptions& userConnectionOptions)
+   在 System.Data.SqlClient.SqlConnection.ConnectionString_Set(DbConnectionPoolKey key)
+   在 System.Data.SqlClient.SqlConnection.set_ConnectionString(String value)
+   在 DapperEx.DbBase..ctor(String connectionStringName)
+   在 Database.BaseDal.ReadOnlySanNongDunConn() 位置 f:\git\lvyang\Green\DataBaseDAL\Database\BaseDal.cs:行号 31
+   在 Dal.UserDal.GetAllUser() 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 1203
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-05 21:11:44,058 
+线程ID:[7] 
+日志级别：  ERROR 
+出错类：Dal.UserAccountDal property: [(null)] - 
+错误描述：Error:方法名：GetTotalAssets--作者：ggg
+传入参数：
+
+错误信息：从索引 51 处开始，初始化字符串的格式不符合规范。
+   在 System.Data.Common.DbConnectionOptions.GetKeyValuePair(String connectionString, Int32 currentPosition, StringBuilder buffer, Boolean useOdbcRules, String& keyname, String& keyvalue)
+   在 System.Data.Common.DbConnectionOptions.ParseInternal(Hashtable parsetable, String connectionString, Boolean buildChain, Hashtable synonyms, Boolean firstKey)
+   在 System.Data.Common.DbConnectionOptions..ctor(String connectionString, Hashtable synonyms, Boolean useOdbcRules)
+   在 System.Data.SqlClient.SqlConnectionString..ctor(String connectionString)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnectionOptions(String connectionString, DbConnectionOptions previous)
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnectionPoolGroup(DbConnectionPoolKey key, DbConnectionPoolGroupOptions poolOptions, DbConnectionOptions& userConnectionOptions)
+   在 System.Data.SqlClient.SqlConnection.ConnectionString_Set(DbConnectionPoolKey key)
+   在 System.Data.SqlClient.SqlConnection.set_ConnectionString(String value)
+   在 DapperEx.DbBase..ctor(String connectionStringName)
+   在 Database.BaseDal.ReadOnlySanNongDunConn() 位置 f:\git\lvyang\Green\DataBaseDAL\Database\BaseDal.cs:行号 31
+   在 Dal.UserAccountDal.GetTotalAssets(Nullable`1 begin, Nullable`1 end) 位置 f:\git\lvyang\Green\Dal\UserAccountDal.cs:行号 328
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-05 21:12:12,072 
+线程ID:[8] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetAdminUserInfoes--作者：ggg
+传入参数：
+{"userName":"","pageIndex":1,"pageSize":15}
+错误信息：从索引 51 处开始，初始化字符串的格式不符合规范。
+   在 System.Data.Common.DbConnectionOptions.GetKeyValuePair(String connectionString, Int32 currentPosition, StringBuilder buffer, Boolean useOdbcRules, String& keyname, String& keyvalue)
+   在 System.Data.Common.DbConnectionOptions.ParseInternal(Hashtable parsetable, String connectionString, Boolean buildChain, Hashtable synonyms, Boolean firstKey)
+   在 System.Data.Common.DbConnectionOptions..ctor(String connectionString, Hashtable synonyms, Boolean useOdbcRules)
+   在 System.Data.SqlClient.SqlConnectionString..ctor(String connectionString)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnectionOptions(String connectionString, DbConnectionOptions previous)
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnectionPoolGroup(DbConnectionPoolKey key, DbConnectionPoolGroupOptions poolOptions, DbConnectionOptions& userConnectionOptions)
+   在 System.Data.SqlClient.SqlConnection.ConnectionString_Set(DbConnectionPoolKey key)
+   在 System.Data.SqlClient.SqlConnection.set_ConnectionString(String value)
+   在 DapperEx.DbBase..ctor(String connectionStringName)
+   在 Database.BaseDal.ReadOnlySanNongDunConn() 位置 f:\git\lvyang\Green\DataBaseDAL\Database\BaseDal.cs:行号 31
+   在 Dal.UserDal.GetAdminUserInfoes(String userName, Int32 pageSize, Int32 pageIndex) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 118
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-05 21:12:15,289 
+线程ID:[7] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetAdminUserInfoes--作者：ggg
+传入参数：
+{"userName":"","pageIndex":1,"pageSize":15}
+错误信息：从索引 51 处开始，初始化字符串的格式不符合规范。
+   在 System.Data.Common.DbConnectionOptions.GetKeyValuePair(String connectionString, Int32 currentPosition, StringBuilder buffer, Boolean useOdbcRules, String& keyname, String& keyvalue)
+   在 System.Data.Common.DbConnectionOptions.ParseInternal(Hashtable parsetable, String connectionString, Boolean buildChain, Hashtable synonyms, Boolean firstKey)
+   在 System.Data.Common.DbConnectionOptions..ctor(String connectionString, Hashtable synonyms, Boolean useOdbcRules)
+   在 System.Data.SqlClient.SqlConnectionString..ctor(String connectionString)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnectionOptions(String connectionString, DbConnectionOptions previous)
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnectionPoolGroup(DbConnectionPoolKey key, DbConnectionPoolGroupOptions poolOptions, DbConnectionOptions& userConnectionOptions)
+   在 System.Data.SqlClient.SqlConnection.ConnectionString_Set(DbConnectionPoolKey key)
+   在 System.Data.SqlClient.SqlConnection.set_ConnectionString(String value)
+   在 DapperEx.DbBase..ctor(String connectionStringName)
+   在 Database.BaseDal.ReadOnlySanNongDunConn() 位置 f:\git\lvyang\Green\DataBaseDAL\Database\BaseDal.cs:行号 31
+   在 Dal.UserDal.GetAdminUserInfoes(String userName, Int32 pageSize, Int32 pageIndex) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 118
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-05 21:13:11,385 
+线程ID:[13] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetAdminUserInfoes--作者：ggg
+传入参数：
+{"userName":"","pageIndex":1,"pageSize":15}
+错误信息：从索引 51 处开始，初始化字符串的格式不符合规范。
+   在 System.Data.Common.DbConnectionOptions.GetKeyValuePair(String connectionString, Int32 currentPosition, StringBuilder buffer, Boolean useOdbcRules, String& keyname, String& keyvalue)
+   在 System.Data.Common.DbConnectionOptions.ParseInternal(Hashtable parsetable, String connectionString, Boolean buildChain, Hashtable synonyms, Boolean firstKey)
+   在 System.Data.Common.DbConnectionOptions..ctor(String connectionString, Hashtable synonyms, Boolean useOdbcRules)
+   在 System.Data.SqlClient.SqlConnectionString..ctor(String connectionString)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnectionOptions(String connectionString, DbConnectionOptions previous)
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnectionPoolGroup(DbConnectionPoolKey key, DbConnectionPoolGroupOptions poolOptions, DbConnectionOptions& userConnectionOptions)
+   在 System.Data.SqlClient.SqlConnection.ConnectionString_Set(DbConnectionPoolKey key)
+   在 System.Data.SqlClient.SqlConnection.set_ConnectionString(String value)
+   在 DapperEx.DbBase..ctor(String connectionStringName)
+   在 Database.BaseDal.ReadOnlySanNongDunConn() 位置 f:\git\lvyang\Green\DataBaseDAL\Database\BaseDal.cs:行号 31
+   在 Dal.UserDal.GetAdminUserInfoes(String userName, Int32 pageSize, Int32 pageIndex) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 118
+客户端ip:,请求连接：
+ 
+
+ 
+记录时间：2018-11-05 21:13:40,789 
+线程ID:[13] 
+日志级别：  ERROR 
+出错类：Dal.UserDal property: [(null)] - 
+错误描述：Error:方法名：GetAdminUserInfoes--作者：ggg
+传入参数：
+{"userName":"","pageIndex":1,"pageSize":15}
+错误信息：从索引 51 处开始，初始化字符串的格式不符合规范。
+   在 System.Data.Common.DbConnectionOptions.GetKeyValuePair(String connectionString, Int32 currentPosition, StringBuilder buffer, Boolean useOdbcRules, String& keyname, String& keyvalue)
+   在 System.Data.Common.DbConnectionOptions.ParseInternal(Hashtable parsetable, String connectionString, Boolean buildChain, Hashtable synonyms, Boolean firstKey)
+   在 System.Data.Common.DbConnectionOptions..ctor(String connectionString, Hashtable synonyms, Boolean useOdbcRules)
+   在 System.Data.SqlClient.SqlConnectionString..ctor(String connectionString)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnectionOptions(String connectionString, DbConnectionOptions previous)
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnectionPoolGroup(DbConnectionPoolKey key, DbConnectionPoolGroupOptions poolOptions, DbConnectionOptions& userConnectionOptions)
+   在 System.Data.SqlClient.SqlConnection.ConnectionString_Set(DbConnectionPoolKey key)
+   在 System.Data.SqlClient.SqlConnection.set_ConnectionString(String value)
+   在 DapperEx.DbBase..ctor(String connectionStringName)
+   在 Database.BaseDal.ReadOnlySanNongDunConn() 位置 f:\git\lvyang\Green\DataBaseDAL\Database\BaseDal.cs:行号 31
+   在 Dal.UserDal.GetAdminUserInfoes(String userName, Int32 pageSize, Int32 pageIndex) 位置 f:\git\lvyang\Green\Dal\UserDal.cs:行号 118
+客户端ip:,请求连接：
+ 

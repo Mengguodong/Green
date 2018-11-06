@@ -1249,7 +1249,7 @@ namespace Dal
         /// </summary>
         /// <param name="leftId"></param>
         /// <returns></returns>
-        public UserInfo GetLeftUserByTeamParentId(string teamParentId)
+        public UserInfo GetLeftUserByTeamParentId(string teamParentId="")
         {
             UserInfo userInfo = null;
             List<UserInfo> list = new List<UserInfo>();
@@ -1267,7 +1267,7 @@ namespace Dal
             }
             catch (Exception ex)
             {
-                LogHelper.WriteLog(typeof(UserDal), "GetLeftUserByTeamParentId", Engineer.ggg, null, ex);
+                LogHelper.WriteLog(typeof(UserDal), "GetLeftUserByTeamParentId++=====teamParentId=" + teamParentId, Engineer.ggg, null, ex);
             }
             return userInfo;
         }
@@ -1304,7 +1304,7 @@ namespace Dal
         /// </summary>
         /// <param name="rightId"></param>
         /// <returns></returns>
-        public UserInfo GetRightUserByTeamParentId(string teamParentId)
+        public UserInfo GetRightUserByTeamParentId(string teamParentId="")
         {
             UserInfo userInfo = null;
             List<UserInfo> list = new List<UserInfo>();
@@ -1322,7 +1322,7 @@ namespace Dal
             }
             catch (Exception ex)
             {
-                LogHelper.WriteLog(typeof(UserDal), "GetRightUserByTeamParentId", Engineer.ggg, null, ex);
+                LogHelper.WriteLog(typeof(UserDal), "GetRightUserByTeamParentId=====+teamParentId="+teamParentId, Engineer.ggg, null, ex);
             }
             return userInfo;
         }
@@ -1388,6 +1388,28 @@ where u.UserStatus=1 and IsActivation=1 and u.UserType=1 {0}", sqlWhere);
             }
             return list;
 
+        }
+
+        public UserInfo GetUserLeftDown(string userLeftId)
+        {
+            UserInfo userInfo = null;
+            List<UserInfo> list = new List<UserInfo>();
+            try
+            {
+                using (var db = BaseDal.ReadOnlySanNongDunConn())
+                {
+                    list = db.Query<UserInfo>(SqlQuery<UserInfo>.Builder(db).AndWhere(x => x.TeamParentId, OperationMethod.Equal, userLeftId)).ToList();
+                    if (list != null && list.Count > 0)
+                    {
+                        userInfo = list[0];
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                LogHelper.WriteLog(typeof(UserDal), "GetUserLeftDown", Engineer.ggg, null, ex);
+            }
+            return userInfo;
         }
     }
 }
